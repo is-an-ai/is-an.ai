@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "is-an.ai Subdomain Record",
+  "description": "Schema for defining a subdomain under is-an.ai",
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "A brief description of the subdomain's purpose.",
+      "type": "string",
+      "maxLength": 100
+    },
+    "owner": {
+      "description": "Information about the owner of the subdomain.",
+      "type": "object",
+      "properties": {
+        "github_username": {
+          "description": "The GitHub username of the owner.",
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
+        },
+        "email": {
+          "description": "Contact email for the owner (optional, used for notifications/abuse).",
+          "type": "string",
+          "format": "email"
+        }
+      },
+      "required": ["github_username"]
+    },
+    "record": {
+      "description": "DNS record configuration.",
+      "type": "object",
+      "properties": {
+        "CNAME": {
+          "description": "Canonical Name record pointing to another domain.",
+          "type": "string",
+          "format": "hostname"
+        },
+        "A": {
+          "description": "Address record pointing to IPv4 addresses.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "ipv4"
+          },
+          "minItems": 1,
+          "maxItems": 4
+        },
+        "AAAA": {
+          "description": "Address record pointing to IPv6 addresses.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "ipv6"
+          },
+          "minItems": 1,
+          "maxItems": 4
+        },
+        "MX": {
+          "description": "Mail Exchanger records.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "preference": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "exchange": {
+                "type": "string",
+                "format": "hostname"
+              }
+            },
+            "required": ["preference", "exchange"]
+          },
+          "minItems": 1
+        },
+        "TXT": {
+          "description": "Text records for verification or other purposes.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "minItems": 1
+        }
+      },
+      "minProperties": 1,
+      "maxProperties": 5,
+      "additionalProperties": false
+    }
+  },
+  "required": ["description", "owner", "record"],
+  "additionalProperties": false
+}

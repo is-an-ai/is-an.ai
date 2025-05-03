@@ -1,0 +1,50 @@
+name: Validate PR
+
+on:
+  pull_request:
+    paths:
+      - "records/**"
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for accurate change detection
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Placeholder for installing validation tools (e.g., ajv-cli)
+      # - name: Install validation tools
+      #   run: npm install -g ajv-cli
+
+      - name: Get changed files
+        id: changed_files
+        run: |
+          echo "files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'records/**.json' | xargs)" >> $GITHUB_OUTPUT
+
+      - name: Validate changed files
+        run: |
+          echo "Validating files: ${{ steps.changed_files.outputs.files }}"
+          # Placeholder: Add actual validation logic here
+          # Example using ajv-cli:
+          # for file in ${{ steps.changed_files.outputs.files }};
+          # do
+          #   ajv validate -s records/schema.json -d "$file" --errors=text
+          #   if [ $? -ne 0 ]; then
+          #     echo "::error file=$file::Validation failed for $file"
+          #     exit 1
+          #   fi
+          # done
+
+          # Placeholder: Add checks for conflicts, allowed targets, etc.
+          echo "Validation placeholder complete."
