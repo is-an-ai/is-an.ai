@@ -55,7 +55,7 @@ jobs:
       - name: Update DNS via Cloudflare API
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }} # !!! IMPORTANT: Add this secret !!!
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           ADDED_FILES: ${{ steps.changes.outputs.added_files }}
           MODIFIED_FILES: ${{ steps.changes.outputs.modified_files }}
           DELETED_FILES: ${{ steps.changes.outputs.deleted_files }}
