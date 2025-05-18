@@ -47,7 +47,7 @@ jobs:
           cache: "npm" # Cache dependencies
 
       - name: Install Dependencies
-        run: npm install @cloudflare/api-client typescript --save-dev # Install Cloudflare client and TypeScript
+        run: npm install cloudflare typescript # Install Cloudflare client and TypeScript
 
       - name: Compile TypeScript
         run: npx tsc .github/scripts/update-cloudflare-dns.ts --outDir .github/scripts --esModuleInterop --module commonjs
