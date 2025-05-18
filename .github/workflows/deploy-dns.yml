@@ -50,7 +50,7 @@ jobs:
         run: npm install cloudflare typescript # Install Cloudflare client and TypeScript
 
       - name: Compile TypeScript
-        run: npx tsc .github/scripts/update-cloudflare-dns.ts --outDir .github/scripts --esModuleInterop --module commonjs
+        run: npx tsc -p .github/scripts/tsconfig.json
 
       - name: Update DNS via Cloudflare API
         env:
