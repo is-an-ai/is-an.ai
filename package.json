@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "cloudflare": "^4.2.0"
+  }
+}

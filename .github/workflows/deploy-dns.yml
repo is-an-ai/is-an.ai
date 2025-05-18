@@ -5,47 +5,60 @@ on:
     branches:
       - main # Or your default branch
     paths:
-      - "records/**"
+      - "records/**.json" # Be specific about JSON files
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Add permissions for the GITHUB_TOKEN if needed by change detection methods that use the API
+    # permissions:
+    #   contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        # Fetch depth 2 is needed to diff HEAD with the previous commit (HEAD^)
         with:
-          fetch-depth: 0 # Needed to compare commits
+          fetch-depth: 2
 
-      # Placeholder: Add steps to identify changed/added/deleted record files
-      # This could involve `git diff` between the current and previous commit on main
       - name: Identify Changes
         id: changes
         run: |
-          echo "Identifying changed records..."
-          # Example: Get added/modified/deleted files in records/
-          # git diff --name-status HEAD^ HEAD -- 'records/**.json'
-          echo "Placeholder for change detection logic."
-          # Output variables like ADDED_FILES, MODIFIED_FILES, DELETED_FILES
+          # Ensure we are on the main branch after checkout
+          git checkout ${{ github.ref_name }}
 
-      # Placeholder: Add step to parse the relevant JSON files
-      - name: Parse Records
-        run: |
-          echo "Parsing record files..."
-          # Access files identified in the previous step
-          echo "Placeholder for parsing logic."
+          # Get lists of added, modified, deleted files ending in .json within records/
+          ADDED_FILES=$(git diff --name-status --diff-filter=A HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
+          MODIFIED_FILES=$(git diff --name-status --diff-filter=M HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
+          DELETED_FILES=$(git diff --name-status --diff-filter=D HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
 
-      # Placeholder: Add step to interact with your DNS Provider API
-      # Requires secrets (API Key/Token) configured in repository settings
-      - name: Update DNS Provider
+          echo "Added: $ADDED_FILES"
+          echo "Modified: $MODIFIED_FILES"
+          echo "Deleted: $DELETED_FILES"
+
+          echo "added_files=$ADDED_FILES" >> $GITHUB_OUTPUT
+          echo "modified_files=$MODIFIED_FILES" >> $GITHUB_OUTPUT
+          echo "deleted_files=$DELETED_FILES" >> $GITHUB_OUTPUT
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm" # Cache dependencies
+
+      - name: Install Dependencies
+        run: npm install @cloudflare/api-client typescript --save-dev # Install Cloudflare client and TypeScript
+
+      - name: Compile TypeScript
+        run: npx tsc .github/scripts/update-cloudflare-dns.ts --outDir .github/scripts --esModuleInterop --module commonjs
+
+      - name: Update DNS via Cloudflare API
         env:
-          # Example: CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          DNS_PROVIDER_API_KEY: ${{ secrets.DNS_PROVIDER_API_KEY }} # Replace with your actual secret name
-        run: |
-          echo "Updating DNS records via API..."
-          if [ -z "$DNS_PROVIDER_API_KEY" ]; then
-            echo "::error::DNS Provider API Key secret is not set!"
-            exit 1
-          fi
-          # Add logic here to call your DNS provider's API
-          # Use identified changes (add/update/delete) and parsed data
-          echo "Placeholder for DNS API interaction."
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }} # !!! IMPORTANT: Add this secret !!!
+          ADDED_FILES: ${{ steps.changes.outputs.added_files }}
+          MODIFIED_FILES: ${{ steps.changes.outputs.modified_files }}
+          DELETED_FILES: ${{ steps.changes.outputs.deleted_files }}
+          GITHUB_WORKSPACE: ${{ github.workspace }} # Pass workspace path
+          BASE_DOMAIN: "an.ai" # Define your base domain here
+        run: node .github/scripts/update-cloudflare-dns.js # Execute the compiled script
