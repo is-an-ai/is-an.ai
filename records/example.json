@@ -1,10 +1,1 @@
-{
-  "description": "Example project website.",
-  "owner": {
-    "github_username": "example-user",
-    "email": "user@example.com"
-  },
-  "record": {
-    "CNAME": "example-user.github.io"
-  }
-}
+{"description":"Example project website.","owner":{"github_username":"chungjung-d","email":"user@example.com"},"record":{"CNAME":"example-user.github.io"}}
