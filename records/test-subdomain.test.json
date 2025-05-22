@@ -1,26 +1,15 @@
 {
-   "description": "Test subdomain for API testing",
+   "description": "Updated test subdomain description",
    "owner": {
       "github_username": "cadhJjUixl6_oVfe3V1sh",
       "email": "Dev User@noreply.com"
    },
    "record": {
       "A": [
-         "172.0.0.3",
-         "172.0.0.4"
-      ],
-      "AAAA": [
-         "2001:db8::1"
-      ],
-      "CNAME": "example.com",
-      "MX": [
-         {
-            "preference": 10,
-            "exchange": "mail1.example.com"
-         }
+         "172.0.0.5"
       ],
       "TXT": [
-         "v=spf1 include:_spf.example.com ~all"
+         "updated-txt-record"
       ]
    }
 }
