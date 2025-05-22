@@ -1,11 +1,11 @@
 {
-   "description": "This is a test subdomain",
+   "description": "Updated test subdomain",
    "owner": {
       "github_username": "cadhJjUixl6_oVfe3V1sh",
       "email": "Dev User@noreply.com"
    },
    "record": {
       "type": "A",
-      "value": "[172.0.0.2]"
+      "value": "[172.0.0.3]"
    }
 }
