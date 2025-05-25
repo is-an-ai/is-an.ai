@@ -1,0 +1,13 @@
+{
+  "description": "chungjung domain",
+  "owner": {
+    "github_username": "3GQR1rmySmBDijmJOIE94",
+    "email": "chungjung-d@noreply.com"
+  },
+  "record": [
+    {
+      "type": "CNAME",
+      "value": "chungjung-d.github.io"
+    }
+  ]
+}
