@@ -1,0 +1,11 @@
+{
+   "description": "Documentation for is-an.ai",
+   "owner": {
+      "github_username": "hsf_rvNo0HtUJVgfAfn3I",
+      "email": "Do-hyun Ko (Dori)@noreply.com"
+   },
+   "record": {
+      "type": "CNAME",
+      "value": "dohyun.is-a.dev"
+   }
+}
