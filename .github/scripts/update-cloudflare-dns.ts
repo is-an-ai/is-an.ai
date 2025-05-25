@@ -79,7 +79,7 @@ async function getExistingRecords(subdomain: string) {
     const response = await cf.dns.records.list({
       zone_id: CF_ZONE_ID,
       name: {
-        exact: subdomain,
+        exact: subdomain + "." + BASE_DOMAIN,
       },
     });
     // The actual records are in the response object directly if using default pagination
