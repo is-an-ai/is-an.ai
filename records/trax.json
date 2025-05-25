@@ -1,0 +1,13 @@
+{
+   "description": "Figma, but for musicians",
+   "owner": {
+      "github_username": "hsf_rvNo0HtUJVgfAfn3I",
+      "email": "Do-hyun Ko (Dori)@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "trax-fe.pages.dev"
+      }
+   ]
+}
