@@ -19,74 +19,145 @@
           "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
         },
         "email": {
-          "description": "Contact email for the owner (optional, used for notifications/abuse).",
+          "description": "Contact email for the owner.",
           "type": "string",
           "format": "email"
         }
       },
-      "required": ["github_username"]
+      "required": ["email"]
     },
     "record": {
-      "description": "DNS record configuration.",
-      "type": "object",
-      "properties": {
-        "CNAME": {
-          "description": "Canonical Name record pointing to another domain.",
-          "type": "string",
-          "format": "hostname"
-        },
-        "A": {
-          "description": "Address record pointing to IPv4 addresses.",
-          "type": "array",
-          "items": {
+      "description": "DNS record configuration as an array of record objects.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "DNS record type.",
             "type": "string",
-            "format": "ipv4"
+            "enum": ["A", "AAAA", "CNAME", "MX", "TXT"]
           },
-          "minItems": 1,
-          "maxItems": 4
-        },
-        "AAAA": {
-          "description": "Address record pointing to IPv6 addresses.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "ipv6"
-          },
-          "minItems": 1,
-          "maxItems": 4
-        },
-        "MX": {
-          "description": "Mail Exchanger records.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "preference": {
-                "type": "integer",
-                "minimum": 0
+          "value": {
+            "description": "DNS record value.",
+            "oneOf": [
+              {
+                "description": "String value for A, AAAA, CNAME, TXT records.",
+                "type": "string"
               },
-              "exchange": {
-                "type": "string",
-                "format": "hostname"
+              {
+                "description": "MX record value with priority and exchange.",
+                "type": "object",
+                "properties": {
+                  "priority": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "exchange": {
+                    "type": "string",
+                    "format": "hostname"
+                  }
+                },
+                "required": ["priority", "exchange"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": ["type", "value"],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "type": { "const": "A" }
               }
             },
-            "required": ["preference", "exchange"]
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "format": "ipv4"
+                }
+              }
+            }
           },
-          "minItems": 1
-        },
-        "TXT": {
-          "description": "Text records for verification or other purposes.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "maxLength": 255
+          {
+            "if": {
+              "properties": {
+                "type": { "const": "AAAA" }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "format": "ipv6"
+                }
+              }
+            }
           },
-          "minItems": 1
-        }
+          {
+            "if": {
+              "properties": {
+                "type": { "const": "CNAME" }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "format": "hostname"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": { "const": "TXT" }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "maxLength": 255
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": { "const": "MX" }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "priority": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    },
+                    "exchange": {
+                      "type": "string",
+                      "format": "hostname"
+                    }
+                  },
+                  "required": ["priority", "exchange"],
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        ]
       },
-      "minProperties": 1,
-      "maxProperties": 5,
-      "additionalProperties": false
+      "minItems": 1,
+      "maxItems": 10
     }
   },
   "required": ["description", "owner", "record"],

@@ -13,18 +13,19 @@ interface MxRecordValue {
   exchange: string;
 }
 
-// Structure of the JSON files in the records/ directory
+// Updated structure for the new schema format
+interface RecordDefinition {
+  type: string;
+  value: string | MxRecordValue;
+}
+
 interface RecordFileContent {
+  description?: string;
   owner: {
+    github_username?: string;
     email: string;
   };
-  record: {
-    [recordType: string]:
-      | string // e.g., CNAME content
-      | string[] // e.g., A, AAAA, TXT content array
-      | MxRecordValue[]; // e.g., MX record array
-  };
-  // Add other potential top-level keys if needed
+  record: RecordDefinition[];
 }
 
 // --- Environment Variables ---
@@ -306,11 +307,10 @@ async function processChanges(): Promise<void> {
         !data ||
         typeof data !== "object" ||
         !("record" in data) ||
-        typeof (data as RecordFileContent).record !== "object" ||
-        (data as RecordFileContent).record === null
+        !Array.isArray((data as RecordFileContent).record)
       ) {
         console.error(
-          `Error: Invalid or missing 'record' object in file ${file}. Skipping.`
+          `Error: Invalid or missing 'record' array in file ${file}. Skipping.`
         );
         continue;
       }
@@ -328,40 +328,31 @@ async function processChanges(): Promise<void> {
       const desiredRecordSignatures = new Set<string>();
 
       // Iterate through the records defined in the file
-      for (const recordType in desiredRecords) {
-        if (Object.prototype.hasOwnProperty.call(desiredRecords, recordType)) {
-          const recordValueOrValues = desiredRecords[recordType];
-          const upperRecordType =
-            recordType.toUpperCase() as RecordResponse["type"];
+      for (const recordDef of desiredRecords) {
+        const upperRecordType =
+          recordDef.type.toUpperCase() as RecordResponse["type"];
+        const valueItem = recordDef.value;
 
-          // Normalize to array for consistent processing
-          const valuesArray = Array.isArray(recordValueOrValues)
-            ? recordValueOrValues
-            : [recordValueOrValues];
-
-          for (const valueItem of valuesArray) {
-            // Define a unique signature for this desired record (type + content + priority)
-            let signature = `${upperRecordType}-`;
-            if (upperRecordType === "MX" && isMxRecordValue(valueItem)) {
-              signature += `${valueItem.exchange}-${valueItem.priority}`;
-            } else if (typeof valueItem === "string") {
-              signature += valueItem;
-            } else {
-              console.warn(
-                `Skipping invalid value for record type ${recordType} in ${file}: ${JSON.stringify(
-                  valueItem
-                )}`
-              );
-              continue; // Skip invalid structured items
-            }
-            desiredRecordSignatures.add(signature);
-
-            // Queue the creation or update operation
-            processingPromises.push(
-              createOrUpdateDNSRecord(subdomain, upperRecordType, valueItem)
-            );
-          }
+        // Define a unique signature for this desired record (type + content + priority)
+        let signature = `${upperRecordType}-`;
+        if (upperRecordType === "MX" && isMxRecordValue(valueItem)) {
+          signature += `${valueItem.exchange}-${valueItem.priority}`;
+        } else if (typeof valueItem === "string") {
+          signature += valueItem;
+        } else {
+          console.warn(
+            `Skipping invalid value for record type ${
+              recordDef.type
+            } in ${file}: ${JSON.stringify(valueItem)}`
+          );
+          continue; // Skip invalid structured items
         }
+        desiredRecordSignatures.add(signature);
+
+        // Queue the creation or update operation
+        processingPromises.push(
+          createOrUpdateDNSRecord(subdomain, upperRecordType, valueItem)
+        );
       }
 
       // Wait for all create/update operations for this file to settle

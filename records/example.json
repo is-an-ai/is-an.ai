@@ -4,7 +4,10 @@
     "github_username": "example-user",
     "email": "user@example.com"
   },
-  "record": {
-    "CNAME": "example-user.github.io"
-  }
+  "record": [
+    {
+      "type": "CNAME",
+      "value": "example-user.github.io"
+    }
+  ]
 }

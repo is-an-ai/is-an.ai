@@ -1,10 +1,28 @@
 {
-  "description": "Example project website.",
+  "description": "Example with multiple DNS records for round-robin and mail.",
   "owner": {
     "github_username": "example-user",
     "email": "user@example.com"
   },
-  "record": {
-    "CNAME": "example-user.github.io"
-  }
+  "record": [
+    {
+      "type": "A",
+      "value": "192.0.2.1"
+    },
+    {
+      "type": "A",
+      "value": "192.0.2.2"
+    },
+    {
+      "type": "MX",
+      "value": {
+        "priority": 10,
+        "exchange": "mail.example.com"
+      }
+    },
+    {
+      "type": "TXT",
+      "value": "v=spf1 include:_spf.google.com ~all"
+    }
+  ]
 }
