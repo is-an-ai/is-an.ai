@@ -1,0 +1,19 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "test",
+      "email": "test@test.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": [
+            "127.0.0.1"
+         ]
+      },
+      {
+         "type": "CNAME",
+         "value": "test.com"
+      }
+   ]
+}
