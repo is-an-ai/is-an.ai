@@ -1,0 +1,13 @@
+{
+  "description": "Documentation website for is-an.ai",
+  "owner": {
+    "github_username": "chungjung-d",
+    "email": "user@example.com"
+  },
+  "record": [
+    {
+      "type": "CNAME",
+      "value": "is-an.ai"
+    }
+  ]
+}
