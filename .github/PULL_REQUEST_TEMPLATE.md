@@ -21,5 +21,5 @@ _(Please ensure the details below match the content of your `.json` file in the 
 
 - [ ] I have verified that the subdomain name is not already taken.
 - [ ] I have read the `README.md` and followed the instructions.
-- [ ] My record file (`records/<your-subdomain>.an.ai.json`) is correctly formatted according to `records/schema.json`.
+- [ ] My record file (`records/<your-subdomain>.json`) is correctly formatted according to `records/schema.json`.
 - [ ] I understand that my subdomain might be removed if it violates the terms of service or is used for abuse.

@@ -40,7 +40,7 @@ function getEnvVariable(name: string): string {
 
 const CF_API_TOKEN: string = getEnvVariable("CLOUDFLARE_API_TOKEN");
 const CF_ZONE_ID: string = getEnvVariable("CLOUDFLARE_ZONE_ID");
-const BASE_DOMAIN: string = process.env.BASE_DOMAIN || "an.ai";
+const BASE_DOMAIN: string = process.env.BASE_DOMAIN || "is-an.ai";
 const WORKSPACE_PATH: string = getEnvVariable("GITHUB_WORKSPACE");
 
 function getEnvList(name: string): string[] {
@@ -59,7 +59,15 @@ const cf = new Cloudflare({ apiToken: CF_API_TOKEN });
 
 function getSubdomainFromPath(filePath: string): string {
   const filename = path.basename(filePath, ".json");
-  return `${filename}.${BASE_DOMAIN}`;
+
+  // If the filename accidentally contains the full domain, strip off the base domain
+  // This handles cases where someone creates "docs.is-an.ai.json" instead of "docs.json"
+  if (filename.endsWith(`.${BASE_DOMAIN}`)) {
+    return filename.slice(0, -BASE_DOMAIN.length - 1); // Remove ".is-an.ai" part
+  }
+
+  // Return just the subdomain part (what Cloudflare API expects)
+  return filename;
 }
 
 // Fetches all existing DNS records for a specific subdomain (name)

@@ -60,5 +60,5 @@ jobs:
           MODIFIED_FILES: ${{ steps.changes.outputs.modified_files }}
           DELETED_FILES: ${{ steps.changes.outputs.deleted_files }}
           GITHUB_WORKSPACE: ${{ github.workspace }} # Pass workspace path
-          BASE_DOMAIN: "an.ai" # Define your base domain here
+          BASE_DOMAIN: "is-an.ai" # Define your base domain here
         run: node .github/scripts/update-cloudflare-dns.js # Execute the compiled script
