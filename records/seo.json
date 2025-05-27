@@ -1,0 +1,13 @@
+{
+   "description": "포트폴리오 사이트",
+   "owner": {
+      "github_username": "QJmS3P90aai2PTmwSGLx7",
+      "email": "seoys@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "developer-folio-iota-six.vercel.app"
+      }
+   ]
+}
