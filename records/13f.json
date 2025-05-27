@@ -1,0 +1,13 @@
+{
+   "description": "The Science of 13F",
+   "owner": {
+      "github_username": "0Rhm4qgzGFR9dAIsRMMlo",
+      "email": "david@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ns7.dnszi.com"
+      }
+   ]
+}
