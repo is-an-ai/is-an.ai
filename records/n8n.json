@@ -1,0 +1,13 @@
+{
+   "description": "n8n server",
+   "owner": {
+      "github_username": "Kqw_lVp8b2_c_h5i8NbSm",
+      "email": "peter han@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "zzoony"
+      }
+   ]
+}
