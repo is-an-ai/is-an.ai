@@ -1,0 +1,13 @@
+{
+   "description": "test2",
+   "owner": {
+      "github_username": "sKKu6d2P-p8Wu_-M_qT7y",
+      "email": "Taein Lim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "12.21.12.12"
+      }
+   ]
+}
