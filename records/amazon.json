@@ -1,0 +1,13 @@
+{
+   "description": "amazon",
+   "owner": {
+      "github_username": "kstEsK3SrTKQWXv2jf8xc",
+      "email": "Conatus@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "15151"
+      }
+   ]
+}
