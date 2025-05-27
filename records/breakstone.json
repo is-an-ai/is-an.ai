@@ -1,0 +1,13 @@
+{
+   "description": "thanks for domain",
+   "owner": {
+      "github_username": "c6MaPhRJnxY2dj4eYKo0W",
+      "email": "Lee Duck Hee@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "127.0.0.1"
+      }
+   ]
+}
