@@ -1,0 +1,13 @@
+{
+   "description": "Close",
+   "owner": {
+      "github_username": "0qMEIaMKrwsIw58B8u5Iv",
+      "email": "raon-ukjin@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "raonfiends.iptime.org"
+      }
+   ]
+}
