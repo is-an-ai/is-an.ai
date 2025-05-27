@@ -1,0 +1,13 @@
+{
+   "description": "My Ollama",
+   "owner": {
+      "github_username": "PFuOR7b8ASGv1ipvsTTjj",
+      "email": "(Ծ‸ Ծ)@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "puryfury.github.io"
+      }
+   ]
+}
