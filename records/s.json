@@ -1,0 +1,13 @@
+{
+   "description": "s",
+   "owner": {
+      "github_username": "_qKiGs5g-AP1LgKFZWQjm",
+      "email": "Ukjin Yang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "composite.github.io"
+      }
+   ]
+}
