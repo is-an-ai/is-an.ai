@@ -1,0 +1,13 @@
+{
+   "description": "s2soft",
+   "owner": {
+      "github_username": "AVflxvClJ1uCrg2ofdZ7k",
+      "email": "서종준@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "http://s2soft.quickconnect.to"
+      }
+   ]
+}
