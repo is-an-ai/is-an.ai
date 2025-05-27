@@ -1,0 +1,13 @@
+{
+   "description": "bonbon",
+   "owner": {
+      "github_username": "0PmYmUI5JdkyuArF281Df",
+      "email": "FoO@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "218.159.128.197"
+      }
+   ]
+}
