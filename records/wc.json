@@ -1,0 +1,13 @@
+{
+   "description": "wc",
+   "owner": {
+      "github_username": "10n57JEkTQNxHRGsnNr2o",
+      "email": "sting7401@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "wc"
+      }
+   ]
+}
