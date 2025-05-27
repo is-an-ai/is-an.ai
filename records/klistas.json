@@ -1,0 +1,13 @@
+{
+   "description": "klistas's blog",
+   "owner": {
+      "github_username": "ZEKiBTZn1lPN7y2cLvU0b",
+      "email": "Francis Yong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "https://klistasblog.pages.dev/blog/"
+      }
+   ]
+}
