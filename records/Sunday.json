@@ -1,0 +1,13 @@
+{
+   "description": "Sunday 8pm project",
+   "owner": {
+      "github_username": "_cnGo8FIyXMzWzSvc22Om",
+      "email": "dreampop13@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "cname.vercel-dns.com."
+      }
+   ]
+}
