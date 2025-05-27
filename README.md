@@ -17,6 +17,22 @@ Register your own `.is-an.ai` subdomain via GitHub Pull Requests.
 - `records/schema.json`: The required format for subdomain record files.
 - `records/example.json`: An example record file.
 
+## DNS Sync
+
+This repository includes automated DNS synchronization to ensure your repository records match Cloudflare's actual DNS state:
+
+- **Automatic Sync**: Runs daily at 2 AM UTC to detect and fix any drift
+- **Manual Sync**: Can be triggered manually via GitHub Actions with optional dry-run mode
+- **Drift Detection**: Identifies missing records in Cloudflare or orphaned records not in the repository
+- **Recovery**: Automatically recovers from service malfunctions that cause discrepancies
+
+To manually trigger a sync:
+
+1. Go to the "Actions" tab in this repository
+2. Select "Sync DNS Records" workflow
+3. Click "Run workflow"
+4. Optionally enable "dry run" to preview changes without applying them
+
 ## Abuse
 
 Report abuse [here](link-to-abuse-reporting-mechanism).

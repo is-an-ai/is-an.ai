@@ -1,0 +1,63 @@
+name: Sync DNS Records
+
+on:
+  workflow_dispatch: # Allows manual triggering
+    inputs:
+      dry_run:
+        description: "Perform a dry run (show changes without applying them)"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    # Run daily at 2 AM UTC to catch any drift
+    - cron: "0 2 * * *"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install cloudflare typescript
+
+      - name: Compile TypeScript
+        run: npx tsc -p .github/scripts/tsconfig.json
+
+      - name: Sync DNS Records
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          BASE_DOMAIN: "is-an.ai"
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: node .github/scripts/sync-cloudflare-dns.js
+
+      - name: Create Issue on Sync Failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'DNS Sync Failed - ' + new Date().toISOString().split('T')[0],
+              body: `The scheduled DNS sync failed on ${new Date().toISOString()}.
+              
+              Please check the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.
+              
+              This could indicate:
+              - Cloudflare API issues
+              - Invalid record configurations
+              - Network connectivity problems
+              
+              Manual intervention may be required.`,
+              labels: ['dns', 'sync-failure', 'urgent']
+            })
