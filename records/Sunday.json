@@ -8,6 +8,10 @@
       {
          "type": "TXT",
          "value": "cname.vercel-dns.com."
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=sunday.is-an.ai,55f8f9cf96d359fe2701"
       }
    ]
 }
