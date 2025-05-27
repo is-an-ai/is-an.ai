@@ -1,0 +1,17 @@
+{
+   "description": "111",
+   "owner": {
+      "github_username": "3GQR1rmySmBDijmJOIE94",
+      "email": "chungjung-d@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "2.3.4.5"
+      },
+      {
+         "type": "A",
+         "value": "1.2.3.4"
+      }
+   ]
+}
