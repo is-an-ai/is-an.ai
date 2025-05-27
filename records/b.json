@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "Zgl68koO6KnHjDC_nrNRe",
+      "email": "Geumpil Ko@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
