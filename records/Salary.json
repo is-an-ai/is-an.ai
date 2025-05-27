@@ -1,0 +1,13 @@
+{
+   "description": "Salary Management",
+   "owner": {
+      "github_username": "Ed9eZbEojJDLF1-FDEOG2",
+      "email": "Aiden Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "salary"
+      }
+   ]
+}
