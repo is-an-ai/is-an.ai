@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "skk.devsecoops.xyz"
+         "type": "A",
+         "value": "2.2.2.2"
       }
    ]
 }
