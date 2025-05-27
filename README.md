@@ -25,6 +25,8 @@ This repository includes automated DNS synchronization to ensure your repository
 - **Manual Sync**: Can be triggered manually via GitHub Actions with optional dry-run mode
 - **Drift Detection**: Identifies missing records in Cloudflare or orphaned records not in the repository
 - **Recovery**: Automatically recovers from service malfunctions that cause discrepancies
+- **Error Resilience**: Continues processing even if individual records fail, with detailed error reporting
+- **Validation**: Pre-validates record content to catch common issues before API calls
 
 To manually trigger a sync:
 
