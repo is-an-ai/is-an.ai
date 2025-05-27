@@ -1,0 +1,13 @@
+{
+   "description": "my personal",
+   "owner": {
+      "github_username": "tZ6-5apGbwUl0mz7mLynK",
+      "email": "Taeyoon Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "123"
+      }
+   ]
+}
