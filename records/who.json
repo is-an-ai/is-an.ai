@@ -1,0 +1,13 @@
+{
+   "description": "whowho",
+   "owner": {
+      "github_username": "XSIs5empjUgny5wX3dHrt",
+      "email": "lite@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "49.247.159.138"
+      }
+   ]
+}
