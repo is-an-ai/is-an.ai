@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "185.199.108.153"
+         "type": "CNAME",
+         "value": "chungjung-d.github.io"
       }
    ]
 }
