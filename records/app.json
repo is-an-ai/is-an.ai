@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "sadari.flutterflow.app"
+         "type": "CNAME",
+         "value": "naver.com"
       }
    ]
 }
