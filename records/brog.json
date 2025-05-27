@@ -1,0 +1,13 @@
+{
+   "description": "Brog",
+   "owner": {
+      "github_username": "J77yjKigD0ZWRnAsz46Ug",
+      "email": "dvshin@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "brog.app"
+      }
+   ]
+}
