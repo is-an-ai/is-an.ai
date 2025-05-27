@@ -27,6 +27,7 @@ This repository includes automated DNS synchronization to ensure your repository
 - **Recovery**: Automatically recovers from service malfunctions that cause discrepancies
 - **Error Resilience**: Continues processing even if individual records fail, with detailed error reporting
 - **Validation**: Pre-validates record content to catch common issues before API calls
+- **Protected Subdomains**: System subdomains (www, api, docs, dev, blog) are preserved and never deleted
 
 To manually trigger a sync:
 

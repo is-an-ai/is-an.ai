@@ -50,6 +50,10 @@ const BASE_DOMAIN: string = process.env.BASE_DOMAIN || "is-an.ai";
 const WORKSPACE_PATH: string = getEnvVariable("GITHUB_WORKSPACE");
 const DRY_RUN: boolean = process.env.DRY_RUN === "true";
 
+// System/maintenance subdomains that should be preserved in Cloudflare
+// even if they're not in the repository
+const PROTECTED_SUBDOMAINS = new Set(["www", "api", "docs", "dev", "blog"]);
+
 // --- Cloudflare Client ---
 const cf = new Cloudflare({ apiToken: CF_API_TOKEN });
 
@@ -371,6 +375,7 @@ async function syncDNSRecords(): Promise<void> {
   // Find discrepancies
   const toCreate: RecordSignature[] = [];
   const toDelete: { id: string; signature: string }[] = [];
+  let protectedCount = 0;
 
   // Records in repository but not in Cloudflare (need to create)
   for (const [key, signature] of repositorySignatures) {
@@ -380,8 +385,17 @@ async function syncDNSRecords(): Promise<void> {
   }
 
   // Records in Cloudflare but not in repository (need to delete)
-  for (const [key, { record }] of cloudflareSignatures) {
+  // Exclude protected subdomains from deletion
+  for (const [key, { record, signature }] of cloudflareSignatures) {
     if (!repositorySignatures.has(key)) {
+      // Check if this is a protected subdomain
+      if (PROTECTED_SUBDOMAINS.has(signature.subdomain)) {
+        console.log(
+          `🛡️ Protecting system subdomain: ${signature.subdomain} (${signature.type})`
+        );
+        protectedCount++;
+        continue;
+      }
       toDelete.push({ id: record.id, signature: key });
     }
   }
@@ -389,6 +403,9 @@ async function syncDNSRecords(): Promise<void> {
   console.log(`\n=== Sync Summary ===`);
   console.log(`Records to create: ${toCreate.length}`);
   console.log(`Records to delete: ${toDelete.length}`);
+  if (protectedCount > 0) {
+    console.log(`Protected system records: ${protectedCount}`);
+  }
 
   if (toCreate.length === 0 && toDelete.length === 0) {
     console.log("✓ DNS records are already in sync!");
