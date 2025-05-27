@@ -1,0 +1,13 @@
+{
+   "description": "mwr21",
+   "owner": {
+      "github_username": "ovhXwiGMHqxokb5il1-cx",
+      "email": "touguy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "mwr21.xyz"
+      }
+   ]
+}
