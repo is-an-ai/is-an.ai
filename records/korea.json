@@ -1,0 +1,13 @@
+{
+   "description": "korea",
+   "owner": {
+      "github_username": "iYUnrutl6tEjJh5utHkpi",
+      "email": "Jaeyeob Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "*"
+      }
+   ]
+}
