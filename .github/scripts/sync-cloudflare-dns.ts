@@ -200,13 +200,65 @@ function convertCloudflareToSignature(record: RecordResponse): RecordSignature {
   };
 }
 
-async function createDNSRecord(signature: RecordSignature): Promise<void> {
+function validateRecordContent(signature: RecordSignature): string | null {
+  const { type, content } = signature;
+
+  switch (type) {
+    case "A":
+      // IPv4 validation
+      const ipv4Regex =
+        /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+      if (!ipv4Regex.test(content)) {
+        return `Invalid IPv4 address: ${content}`;
+      }
+      break;
+    case "AAAA":
+      // IPv6 validation (basic)
+      const ipv6Regex = /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$|^::1$|^::$/;
+      if (!ipv6Regex.test(content)) {
+        return `Invalid IPv6 address: ${content}`;
+      }
+      break;
+    case "CNAME":
+      // Hostname validation
+      if (!content || content.length === 0) {
+        return `CNAME content cannot be empty`;
+      }
+      break;
+    case "TXT":
+      // TXT records can be almost anything, but check length
+      if (content.length > 255) {
+        return `TXT record too long: ${content.length} characters (max 255)`;
+      }
+      break;
+    case "MX":
+      if (
+        !signature.priority ||
+        signature.priority < 0 ||
+        signature.priority > 65535
+      ) {
+        return `Invalid MX priority: ${signature.priority} (must be 0-65535)`;
+      }
+      break;
+  }
+
+  return null; // Valid
+}
+
+async function createDNSRecord(signature: RecordSignature): Promise<boolean> {
   const recordSignature = createRecordSignature(signature);
   console.log(`Creating DNS record: ${recordSignature}`);
 
+  // Validate record content before attempting to create
+  const validationError = validateRecordContent(signature);
+  if (validationError) {
+    console.error(`✗ Invalid record: ${recordSignature} - ${validationError}`);
+    return false;
+  }
+
   if (DRY_RUN) {
     console.log(`[DRY RUN] Would create: ${recordSignature}`);
-    return;
+    return true;
   }
 
   const commonPayload = {
@@ -247,34 +299,37 @@ async function createDNSRecord(signature: RecordSignature): Promise<void> {
   try {
     await cf.dns.records.create(createPayload);
     console.log(`✓ Created: ${recordSignature}`);
+    return true;
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
     console.error(`✗ Failed to create: ${recordSignature} - ${message}`);
-    throw error;
+    return false;
   }
 }
 
 async function deleteDNSRecord(
   recordId: string,
   signature: string
-): Promise<void> {
+): Promise<boolean> {
   console.log(`Deleting DNS record: ${signature}`);
 
   if (DRY_RUN) {
     console.log(`[DRY RUN] Would delete: ${signature}`);
-    return;
+    return true;
   }
 
   try {
     await cf.dns.records.delete(recordId, { zone_id: CF_ZONE_ID });
     console.log(`✓ Deleted: ${signature}`);
+    return true;
   } catch (error: any) {
     if (error.status === 404 || error.message?.includes("Record not found")) {
       console.warn(`⚠ Record already deleted: ${signature}`);
+      return true; // Consider already deleted as success
     } else {
       const message = error instanceof Error ? error.message : String(error);
       console.error(`✗ Failed to delete: ${signature} - ${message}`);
-      throw error;
+      return false;
     }
   }
 }
@@ -340,18 +395,56 @@ async function syncDNSRecords(): Promise<void> {
     return;
   }
 
-  // Execute sync operations
+  // Execute sync operations with error tracking
   console.log(`\n=== Creating Missing Records ===`);
+  let createSuccessCount = 0;
+  let createFailureCount = 0;
+
   for (const signature of toCreate) {
-    await createDNSRecord(signature);
+    const success = await createDNSRecord(signature);
+    if (success && !DRY_RUN) {
+      createSuccessCount++;
+    } else if (!success) {
+      createFailureCount++;
+    }
   }
 
   console.log(`\n=== Deleting Orphaned Records ===`);
+  let deleteSuccessCount = 0;
+  let deleteFailureCount = 0;
+
   for (const { id, signature } of toDelete) {
-    await deleteDNSRecord(id, signature);
+    const success = await deleteDNSRecord(id, signature);
+    if (success && !DRY_RUN) {
+      deleteSuccessCount++;
+    } else if (!success) {
+      deleteFailureCount++;
+    }
   }
 
-  console.log(`\n✓ DNS sync completed successfully!`);
+  // Final summary
+  console.log(`\n=== Sync Results ===`);
+  if (DRY_RUN) {
+    console.log(`[DRY RUN] Would create: ${toCreate.length} records`);
+    console.log(`[DRY RUN] Would delete: ${toDelete.length} records`);
+  } else {
+    console.log(
+      `✓ Successfully created: ${createSuccessCount}/${toCreate.length} records`
+    );
+    console.log(
+      `✓ Successfully deleted: ${deleteSuccessCount}/${toDelete.length} records`
+    );
+
+    if (createFailureCount > 0 || deleteFailureCount > 0) {
+      console.log(
+        `⚠ Failed operations: ${createFailureCount + deleteFailureCount} total`
+      );
+      console.log(`  - Create failures: ${createFailureCount}`);
+      console.log(`  - Delete failures: ${deleteFailureCount}`);
+    }
+  }
+
+  console.log(`\n✓ DNS sync process completed!`);
 }
 
 // --- Main Execution ---
