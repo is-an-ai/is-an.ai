@@ -6,7 +6,7 @@
    },
    "record": [
       {
-         "type": "CNAME",
+         "type": "AAAA",
          "value": "101.202.34.21:30487"
       }
    ]
