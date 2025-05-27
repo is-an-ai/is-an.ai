@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "49.247.159.138"
+         "type": "CNAME",
+         "value": "sadari.flutterflow.app"
       }
    ]
 }
