@@ -1,0 +1,13 @@
+{
+   "description": "only private",
+   "owner": {
+      "github_username": "hz5z8EfKlXmFeq_nas9O4",
+      "email": "haesooKim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "is-an.ai"
+      }
+   ]
+}
