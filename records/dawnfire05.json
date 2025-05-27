@@ -1,0 +1,13 @@
+{
+   "description": "hello~",
+   "owner": {
+      "github_username": "EbkIvE0SQd7D8BCt5QrvN",
+      "email": "이신혁@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
