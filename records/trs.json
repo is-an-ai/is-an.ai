@@ -1,0 +1,13 @@
+{
+   "description": "trs",
+   "owner": {
+      "github_username": "UYmx2uniSWZXtz94WQAxt",
+      "email": "hanjool@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "101.202.34.21:30487"
+      }
+   ]
+}
