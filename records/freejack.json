@@ -1,0 +1,13 @@
+{
+   "description": "personal domain for freejack",
+   "owner": {
+      "github_username": "rwzwibpkCmujzyj2S1s7M",
+      "email": "JangKwon Lee@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "211.119.147.228"
+      }
+   ]
+}
