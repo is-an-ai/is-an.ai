@@ -1,0 +1,13 @@
+{
+   "description": "my hobby project",
+   "owner": {
+      "github_username": "dE7KuQVLz82faMnxNPdiP",
+      "email": "jaewon@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "asylum"
+      }
+   ]
+}
