@@ -1,0 +1,13 @@
+{
+   "description": "first letter",
+   "owner": {
+      "github_username": "QapXG1T8ocQ_CCzkpOexp",
+      "email": "Jonghyeon Jeong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "apple.com"
+      }
+   ]
+}
