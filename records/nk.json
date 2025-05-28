@@ -1,0 +1,13 @@
+{
+   "description": "NK is an AI for North Korea information.",
+   "owner": {
+      "github_username": "_c09Pm17x0umdaq4iyRSf",
+      "email": "Taehyun@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "nk.breaks.top"
+      }
+   ]
+}
