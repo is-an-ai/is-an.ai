@@ -1,0 +1,13 @@
+{
+   "description": "wedays app",
+   "owner": {
+      "github_username": "sjMmQ1sZ4TEGB7uZxLdCY",
+      "email": "LeeSeongJinCa@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cname.vercel-dns.com"
+      }
+   ]
+}
