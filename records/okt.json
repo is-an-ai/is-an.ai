@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "mVxun555LA3sevW7xO1r-",
+      "email": "OH KYUNGTAEK@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ratine.info"
+      }
+   ]
+}
