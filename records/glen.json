@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "github.com"
+         "type": "A",
+         "value": "20.248.137.0"
       }
    ]
 }
