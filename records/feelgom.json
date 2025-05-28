@@ -1,0 +1,13 @@
+{
+   "description": "d",
+   "owner": {
+      "github_username": "_gO9QYaurbfy5oxHS1_gW",
+      "email": "Yoonsung Ji@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
