@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "apexsoft.co.kr"
+         "type": "TXT",
+         "value": "www.apexsoft.co.kr"
       }
    ]
 }
