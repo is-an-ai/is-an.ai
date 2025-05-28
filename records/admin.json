@@ -1,0 +1,13 @@
+{
+   "description": "I got it",
+   "owner": {
+      "github_username": "Gpr0YqeKd-d4VBuGgMTAy",
+      "email": "Cyan@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "google.com"
+      }
+   ]
+}
