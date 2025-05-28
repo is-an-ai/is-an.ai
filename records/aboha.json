@@ -1,0 +1,13 @@
+{
+   "description": "aboha is an ai",
+   "owner": {
+      "github_username": "xget9OSfCGwIvnZ9xwbSG",
+      "email": "Hyeyeon Seo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "aboha.vercel.app"
+      }
+   ]
+}
