@@ -1,0 +1,13 @@
+{
+   "description": "for Yangeok",
+   "owner": {
+      "github_username": "vn1fMewFCM8bHrmdoezHW",
+      "email": "Yangwook Ian Jeong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "yangeok.is-an.ai"
+      }
+   ]
+}
