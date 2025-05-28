@@ -1,0 +1,13 @@
+{
+   "description": "first",
+   "owner": {
+      "github_username": "tZCJGZ0B4VyQUET6pK1AE",
+      "email": "Buyeon Hwang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.0.1"
+      }
+   ]
+}
