@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "esg25.poc"
+         "value": "esg25.poc.testpoc.com"
       }
    ]
 }
