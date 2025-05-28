@@ -1,0 +1,13 @@
+{
+   "description": "test my app",
+   "owner": {
+      "github_username": "h8G_dlv_Ri8fn46thr5tr",
+      "email": "lmg2738@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "218.238.92.49"
+      }
+   ]
+}
