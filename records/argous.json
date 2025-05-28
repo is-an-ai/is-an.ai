@@ -1,0 +1,13 @@
+{
+   "description": "smith",
+   "owner": {
+      "github_username": "g6tX5WodwvLzUZotwezBG",
+      "email": "navergirugi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "quizreact-d7b3bf.gitlab.io"
+      }
+   ]
+}
