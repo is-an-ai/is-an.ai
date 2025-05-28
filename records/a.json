@@ -6,7 +6,7 @@
    },
    "record": [
       {
-         "type": "A",
+         "type": "CNAME",
          "value": "apple.com"
       }
    ]
