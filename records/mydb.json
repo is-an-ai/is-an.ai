@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "H72ulC3aPvtO9QP68-Glk",
+      "email": "박대성@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "blog.dspark.kro.kr"
+      }
+   ]
+}
