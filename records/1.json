@@ -1,0 +1,13 @@
+{
+   "description": "number one bro",
+   "owner": {
+      "github_username": "kjxwNpRLgZ0CXdOOLTo0a",
+      "email": "Park Hee Chan@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "google.com"
+      }
+   ]
+}
