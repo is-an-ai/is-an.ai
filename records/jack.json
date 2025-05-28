@@ -1,0 +1,13 @@
+{
+   "description": "jackjack",
+   "owner": {
+      "github_username": "KM48S7hdSzPtP2rOPboF0",
+      "email": "xpwmaosldk@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "xpwmaosldk.github.io"
+      }
+   ]
+}
