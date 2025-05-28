@@ -1,0 +1,13 @@
+{
+   "description": "vercel 인증용",
+   "owner": {
+      "github_username": "DRW11kU1mMZieFimWzQmV",
+      "email": "Son Hyeon Tae@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=beautyclip.is-an.ai,617c94bf0d6bb34d8c16"
+      }
+   ]
+}
