@@ -1,0 +1,13 @@
+{
+   "description": "We are H.U.M.A.N. (written by ChatGPT)",
+   "owner": {
+      "github_username": "CB0Y6Vy8TUwJXCny8IR12",
+      "email": "Y. Fred Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "chatgpt.com"
+      }
+   ]
+}
