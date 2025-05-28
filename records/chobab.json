@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "aboha.seohey.co.kr"
+         "value": "cname.vercel-dns.com"
       }
    ]
 }
