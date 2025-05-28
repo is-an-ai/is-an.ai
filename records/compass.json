@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "59.12.230.202"
+         "type": "CNAME",
+         "value": "naver.com"
       }
    ]
 }
