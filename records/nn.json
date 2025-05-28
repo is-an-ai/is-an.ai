@@ -1,0 +1,13 @@
+{
+   "description": "nn-language",
+   "owner": {
+      "github_username": "8Lsc3vMambH9okzUXFAqK",
+      "email": "SieR-VR@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "nn-lang.github.io"
+      }
+   ]
+}
