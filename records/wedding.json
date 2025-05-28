@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "wedding-es.vercel.app"
+         "value": "cname.vercel-dns.com"
       }
    ]
 }
