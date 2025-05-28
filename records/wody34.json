@@ -1,0 +1,13 @@
+{
+   "description": "Blog",
+   "owner": {
+      "github_username": "VyquiAY1e2chTI2BHki7-",
+      "email": "SeongHwan Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
