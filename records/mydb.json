@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "blog.dspark.kro.kr"
+         "type": "CNAME",
+         "value": "namioto.iptime.org"
       }
    ]
 }
