@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "185.199.109.153"
+         "type": "CNAME",
+         "value": "herzt-dev.github.io"
       }
    ]
 }
