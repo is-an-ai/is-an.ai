@@ -1,0 +1,13 @@
+{
+   "description": "지름알림: 현대인들을 위한 알뜰살뜰 앱 ⚡️",
+   "owner": {
+      "github_username": "hgrvHCtwTAtGRtDjPLBIw",
+      "email": "Jeong Seonkyo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "jirum-alarm.com"
+      }
+   ]
+}
