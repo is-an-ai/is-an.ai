@@ -1,0 +1,13 @@
+{
+   "description": "Architecture Design Support Systems.",
+   "owner": {
+      "github_username": "sH7bXjhlgxNXKPlEVdb7X",
+      "email": "architektonike@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "apexsoft.co.kr"
+      }
+   ]
+}
