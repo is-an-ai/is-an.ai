@@ -1,0 +1,13 @@
+{
+   "description": "esg25-poc",
+   "owner": {
+      "github_username": "zNv_YHzbiyeDgS5PX2kkX",
+      "email": "cheolL@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "esg25.poc"
+      }
+   ]
+}
