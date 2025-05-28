@@ -1,0 +1,12 @@
+{
+   "description": "eddy is an ai",
+   "owner": {
+      "email": "eddy@chequer.io"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "no endpoint for now"
+      }
+   ]
+}
