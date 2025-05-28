@@ -1,0 +1,13 @@
+{
+   "description": "sochiru",
+   "owner": {
+      "github_username": "mUE21iDUPmwRafkyEGcQj",
+      "email": "Sochiru@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sochiru.pw"
+      }
+   ]
+}
