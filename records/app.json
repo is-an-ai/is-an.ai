@@ -6,7 +6,7 @@
    },
    "record": [
       {
-         "type": "TXT",
+         "type": "CNAME",
          "value": "icebear.iwinv.net"
       }
    ]
