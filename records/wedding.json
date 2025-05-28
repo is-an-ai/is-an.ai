@@ -1,0 +1,13 @@
+{
+   "description": "wedding project",
+   "owner": {
+      "github_username": "xget9OSfCGwIvnZ9xwbSG",
+      "email": "Hyeyeon Seo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "wedding-es.vercel.app"
+      }
+   ]
+}
