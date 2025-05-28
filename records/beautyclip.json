@@ -1,0 +1,13 @@
+{
+   "description": "뷰티클립",
+   "owner": {
+      "github_username": "DRW11kU1mMZieFimWzQmV",
+      "email": "Son Hyeon Tae@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cname.vercel-dns.com"
+      }
+   ]
+}
