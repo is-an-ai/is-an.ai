@@ -6,7 +6,7 @@
    },
    "record": [
       {
-         "type": "CNAME",
+         "type": "TXT",
          "value": "https://freenanum.github.io/Market/"
       }
    ]
