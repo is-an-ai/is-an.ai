@@ -1,0 +1,13 @@
+{
+   "description": "librechat 학습용",
+   "owner": {
+      "github_username": "3VGlPGLktGjRzk6dAJAbF",
+      "email": "Eddy Jeon@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "naver.com"
+      }
+   ]
+}
