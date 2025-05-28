@@ -1,0 +1,13 @@
+{
+   "description": "personal domain",
+   "owner": {
+      "github_username": "gggZI9EFk-NInsma0J-nB",
+      "email": "pacho@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "itsurvival.tistory.com"
+      }
+   ]
+}
