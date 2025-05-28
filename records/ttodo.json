@@ -1,0 +1,17 @@
+{
+   "description": "ttodo",
+   "owner": {
+      "github_username": "mUE21iDUPmwRafkyEGcQj",
+      "email": "Sochiru@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cname.vercel-dns.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=ttodo.is-an.ai,f96db21cdde977492258"
+      }
+   ]
+}
