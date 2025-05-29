@@ -1,0 +1,13 @@
+{
+   "description": "쿼카의 사이트입니다",
+   "owner": {
+      "github_username": "XO-jvJAgINmXcF2N0Q27t",
+      "email": "controlZ@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
