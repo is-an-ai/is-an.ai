@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "JkT2De41offNAq3fMHCGi",
+      "email": "zipkero@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "zipkero.vercel.app"
+      }
+   ]
+}
