@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "DSD1Wec7tEAsIubdHIwlh",
+      "email": "dongbin-lunark@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "10.10.233.1"
+      }
+   ]
+}
