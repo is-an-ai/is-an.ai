@@ -1,0 +1,13 @@
+{
+   "description": "덥다",
+   "owner": {
+      "github_username": "xget9OSfCGwIvnZ9xwbSG",
+      "email": "Hyeyeon Seo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "example.com"
+      }
+   ]
+}
