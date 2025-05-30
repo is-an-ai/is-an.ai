@@ -1,0 +1,13 @@
+{
+   "description": "I am trying to create an LLM service that operates locally using Jetson Orin series. I would like to use this domain for several mini projects combining n8n and mcp. Thank you for providing a wonderful and fun service.",
+   "owner": {
+      "github_username": "cemAMKPy0BR2yoUQLSWXp",
+      "email": "ulysyszh@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sought-ibex-vast.ngrok-free.app"
+      }
+   ]
+}
