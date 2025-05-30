@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Wn1e60dWEVjnhOA2G8nyq",
+      "email": "Shin Junseo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.0.2"
+      }
+   ]
+}
