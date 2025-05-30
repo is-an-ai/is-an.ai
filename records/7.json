@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "sought-ibex-vast.ngrok-free.app"
+         "type": "A",
+         "value": "0.0.0.0"
       }
    ]
 }
