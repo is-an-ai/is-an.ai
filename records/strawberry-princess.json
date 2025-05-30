@@ -1,0 +1,13 @@
+{
+   "description": "github pages",
+   "owner": {
+      "github_username": "SWUiGzy_NXCFk80m-JLW5",
+      "email": "이용빈@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "strawberry-princess.github.io"
+      }
+   ]
+}
