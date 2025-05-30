@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "mango-bush-084ccf510.3.azurestaticapps.net"
+         "type": "A",
+         "value": "198.49.23.145"
       }
    ]
 }
