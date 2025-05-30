@@ -1,0 +1,13 @@
+{
+   "description": "hello",
+   "owner": {
+      "github_username": "Ubu7udoAOyWMHgHrhNvoP",
+      "email": "reopt@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cname.vercel-dns.com"
+      }
+   ]
+}
