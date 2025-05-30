@@ -1,0 +1,13 @@
+{
+   "description": "이렇게 하는건가요?",
+   "owner": {
+      "github_username": "z5Qij7pojr6LhFiITpi4R",
+      "email": "win-min-06@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "123.4.5.5"
+      }
+   ]
+}
