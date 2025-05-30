@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "sO_oyiSJyV1CZZ6t3Ztpn",
+      "email": "Younghwan Choi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
