@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "y3jTy7O8chAKvdvV5jGSZ",
+      "email": "Mingu Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
