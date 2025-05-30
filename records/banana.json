@@ -1,0 +1,13 @@
+{
+   "description": "small tak proj",
+   "owner": {
+      "github_username": "j9EwYhbZbzYwd8aPxpza1",
+      "email": "adjuno@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.0.4"
+      }
+   ]
+}
