@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "w8rk0ZOrMDgRKq8bst5Ar",
+      "email": "theniz@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "eth2.club"
+      }
+   ]
+}
