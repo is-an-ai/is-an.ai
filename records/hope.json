@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "an2XXjgs1oGf7PTGF2KLW",
+      "email": "Gwangmoon Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "hope.ai"
+      }
+   ]
+}
