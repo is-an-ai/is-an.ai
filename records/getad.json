@@ -10,8 +10,8 @@
          "value": "anahi.ns.cloudflare.com"
       },
       {
-         "type": "A",
-         "value": "121.157.24.205"
+         "type": "CNAME",
+         "value": "pete.ns.cloudflare.com"
       }
    ]
 }
