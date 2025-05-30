@@ -1,0 +1,13 @@
+{
+   "description": "TIM AI project",
+   "owner": {
+      "github_username": "kvrLAqjWRwUL2EwIs2XIp",
+      "email": "kibakyoon@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "seseki17.github.io"
+      }
+   ]
+}
