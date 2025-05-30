@@ -1,0 +1,13 @@
+{
+   "description": "hi",
+   "owner": {
+      "github_username": "XpdZt5zG63EzhzKAqa5SL",
+      "email": "Hongje Choi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "edu-set.com"
+      }
+   ]
+}
