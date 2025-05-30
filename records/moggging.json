@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "152.69.200.150"
+      },
+      {
+         "type": "CNAME",
+         "value": "mogggingo2.duckdns.org"
       }
    ]
 }
