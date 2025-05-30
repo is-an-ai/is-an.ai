@@ -1,0 +1,13 @@
+{
+   "description": "my test dns",
+   "owner": {
+      "github_username": "uvvD8lvzKR95DUWwyiJGu",
+      "email": "sidkim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "10.1.1.1"
+      }
+   ]
+}
