@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cname.vercel-dns.com"
+         "type": "TXT",
+         "value": "vc-domain-verify=gemini-srt-translator.is-an.ai,c6f842e37c7e1ef7306c"
       }
    ]
 }
