@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "historyhappy.iptime.org:59999"
+         "type": "CNAME",
+         "value": "historyhappy.iptime.org"
       }
    ]
 }
