@@ -1,0 +1,13 @@
+{
+   "description": "name for ai",
+   "owner": {
+      "github_username": "4_nko9i1NryVxSad2w7cs",
+      "email": "PARK Jun-seok@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
