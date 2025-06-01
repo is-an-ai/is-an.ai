@@ -1,0 +1,13 @@
+{
+   "description": "My personal AI project",
+   "owner": {
+      "github_username": "JWggNsSeT_N2XpsR85PSq",
+      "email": "Shiwon Park@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
