@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "k5ZgcclEXsEEUW9ZgUSdk",
+      "email": "gonobono@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "f1.opp.ai.kr"
+      }
+   ]
+}
