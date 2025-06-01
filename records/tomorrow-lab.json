@@ -1,0 +1,13 @@
+{
+   "description": "personal blog",
+   "owner": {
+      "github_username": "tZ6-5apGbwUl0mz7mLynK",
+      "email": "Taeyoon Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "tomorrow-lab.github.io"
+      }
+   ]
+}
