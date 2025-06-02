@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "csMhT6kCix3PcwHp8EAvs",
+      "email": "Jiwoong Jung@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "example.com"
+      }
+   ]
+}
