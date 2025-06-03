@@ -1,0 +1,13 @@
+{
+   "description": "Crean is the new world",
+   "owner": {
+      "github_username": "_zjk91gEPCdiB4YQt50Rd",
+      "email": "zorva5@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "www.crean.com"
+      }
+   ]
+}
