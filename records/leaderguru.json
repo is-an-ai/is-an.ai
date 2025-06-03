@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "FgF6bwKD-v_5wDoCjCS9E",
+      "email": "leaderguru@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "hello world"
+      }
+   ]
+}
