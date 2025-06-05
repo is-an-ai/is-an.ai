@@ -1,0 +1,13 @@
+{
+   "description": "기술면접 질문 AI 코칭 서비스",
+   "owner": {
+      "github_username": "7YwlOXKHjZR5gXO78YcuV",
+      "email": "Jung Hyun Woo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cs-master.vercel.app"
+      }
+   ]
+}
