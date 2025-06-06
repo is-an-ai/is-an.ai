@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "JWggNsSeT_N2XpsR85PSq",
+      "email": "Shiwon Park@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "siwonpada.github.io"
+      }
+   ]
+}
