@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "example.com"
+         "type": "A",
+         "value": "0.0.0.0"
       }
    ]
 }
