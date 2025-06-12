@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "138.2.115.222"
+         "type": "CNAME",
+         "value": "badssl.com"
       }
    ]
 }
