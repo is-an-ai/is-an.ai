@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "U9KZB4jUGVmRNXIK0XtM3",
+      "email": "Seongmo kang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "seongmo.iptime.org"
+      }
+   ]
+}
