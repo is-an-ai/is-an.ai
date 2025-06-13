@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "YKS3YPIdSlvwYYDbDTx1t",
+      "email": "blueknight0@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "blueknight0.github.io"
+      }
+   ]
+}
