@@ -1,0 +1,13 @@
+{
+   "description": "n8n domain for my personal server",
+   "owner": {
+      "github_username": "pNdSSdDU4rORMimp21bsB",
+      "email": "김정현B@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "222.110.41.170"
+      }
+   ]
+}
