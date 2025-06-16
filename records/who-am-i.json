@@ -1,0 +1,13 @@
+{
+   "description": "Who am I?",
+   "owner": {
+      "github_username": "2MO7LUuiMt0AGeElRPtOB",
+      "email": "teller2016@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sweetrollman.iptime.org"
+      }
+   ]
+}
