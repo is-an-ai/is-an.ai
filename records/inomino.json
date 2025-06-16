@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "gidRNS12WN2R81NdFoQqn",
+      "email": "inomino927@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "inomino.com"
+      }
+   ]
+}
