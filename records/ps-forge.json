@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "138.2.115.222"
+      },
+      {
+         "type": "TXT",
+         "value": "google-site-verification=bBtgysMKYGBzFChkpV1F3irvwBP1zes2Di3aGQBr4KI"
       }
    ]
 }
