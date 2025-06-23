@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "subnet02140232.vcn02140232.oraclevcn.com"
+         "type": "A",
+         "value": "158.179.161.77"
       }
    ]
 }
