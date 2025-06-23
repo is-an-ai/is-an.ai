@@ -7,11 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "2a0cca56-6a3e-4d5f-ac3a-33a2f1d15c2d.cfargotunnel.com"
-      },
-      {
-         "type": "A",
-         "value": "104.16.0.1"
+         "value": "zolyer.is-an.ai.cdn.cloudflare.net"
       }
    ]
 }
