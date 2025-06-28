@@ -7,7 +7,11 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "ax.sioaeko.tech"
+         "value": "5a7eeafe0cb62e00.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=ax-search.is-an.ai,20ba8c62b46e108c10a4"
       }
    ]
 }
