@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "1.xn--z6ut02b.eu.org"
+      },
+      {
+         "type": "TXT",
+         "value": "_cf-custom-hostname.vv.is-an.ai=15b5be7e-4c6f-43a2-9b24-9a5cca03176f"
       }
    ]
 }
