@@ -1,0 +1,13 @@
+{
+   "description": "qianwen ai web",
+   "owner": {
+      "github_username": "ey_sov5ZpQBdkkYf-uqcp",
+      "email": "malaohu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "chat.qwen.ai"
+      }
+   ]
+}
