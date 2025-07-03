@@ -1,0 +1,13 @@
+{
+   "description": "My Blog",
+   "owner": {
+      "github_username": "75qBPjjAzOYhhsf0H4Xr9",
+      "email": "linkzz@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "linkzz.org"
+      }
+   ]
+}
