@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "52.79.242.94"
+      },
+      {
+         "type": "CNAME",
+         "value": "ec2-52-79-242-94.ap-northeast-2.compute.amazonaws.com"
       }
    ]
 }
