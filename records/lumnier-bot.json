@@ -1,0 +1,17 @@
+{
+   "description": "a lumnier subdomain for google auth",
+   "owner": {
+      "github_username": "4B8-Lw4DsqlfVyh7fe4-B",
+      "email": "𝕲𝖍𝖔𝖘𝖙𝖞@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "v=spf1 include:_spf.firebasemail.com ~all"
+      },
+      {
+         "type": "TXT",
+         "value": "firebase=lumnier-ai"
+      }
+   ]
+}
