@@ -1,0 +1,13 @@
+{
+   "description": "새로 시작하는 사이드프로젝트",
+   "owner": {
+      "github_username": "F68JmT3fPud-ICQeZJ6sk",
+      "email": "starcubekr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "starcubekr.github.io"
+      }
+   ]
+}
