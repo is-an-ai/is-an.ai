@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "sphWa0-DJIpXGZwpDNzlj",
+      "email": "dos@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "apex-loadbalancer.netlify.com"
+      }
+   ]
+}
