@@ -1,0 +1,13 @@
+{
+   "description": "如有乐享博客",
+   "owner": {
+      "github_username": "ey_sov5ZpQBdkkYf-uqcp",
+      "email": "malaohu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "demo.ruyo.net"
+      }
+   ]
+}
