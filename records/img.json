@@ -1,0 +1,13 @@
+{
+   "description": "img bed",
+   "owner": {
+      "github_username": "7NN4GMSYmbZ6EL8A03nOh",
+      "email": "无良人@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "edgeone.ai"
+      }
+   ]
+}
