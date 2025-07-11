@@ -1,0 +1,13 @@
+{
+   "description": "The backup points to my github",
+   "owner": {
+      "github_username": "u6HNAtOnKIN7avLR8XC-Q",
+      "email": "zivan@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "zivan80.github.io"
+      }
+   ]
+}
