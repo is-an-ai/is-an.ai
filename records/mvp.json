@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "www.baidu.com"
+         "type": "CNAME",
+         "value": "heroplan.github.io"
       }
    ]
 }
