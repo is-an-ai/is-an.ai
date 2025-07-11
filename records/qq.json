@@ -1,0 +1,13 @@
+{
+   "description": "qq",
+   "owner": {
+      "github_username": "_QdRGDOfNnRnYi6BEu-tQ",
+      "email": "csqner@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
