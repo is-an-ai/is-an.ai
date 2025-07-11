@@ -1,0 +1,13 @@
+{
+   "description": "tste",
+   "owner": {
+      "github_username": "2HBqgzW2WgYD3MYWxxJSH",
+      "email": "qq51992807@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "baiye.com"
+      }
+   ]
+}
