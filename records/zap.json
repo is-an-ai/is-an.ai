@@ -1,0 +1,13 @@
+{
+   "description": "zap博客",
+   "owner": {
+      "github_username": "ecNPh8zXIyWTL7vpRvgOV",
+      "email": "zapstop@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "zapstop.github.io"
+      }
+   ]
+}
