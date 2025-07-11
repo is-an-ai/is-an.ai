@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "edgeone.ai"
+         "type": "A",
+         "value": "159.138.158.203"
       }
    ]
 }
