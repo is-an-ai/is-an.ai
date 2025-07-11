@@ -1,0 +1,13 @@
+{
+   "description": "ruhua",
+   "owner": {
+      "github_username": "pbN-heK_8CUbyb6IuOkLC",
+      "email": "wenyiruhua@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
