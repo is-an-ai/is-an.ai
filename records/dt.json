@@ -1,0 +1,13 @@
+{
+   "description": "DTPOI’s Blog",
+   "owner": {
+      "github_username": "yj3c7-6qzL28YziiwtsVh",
+      "email": "蛋挞poi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "dtpoi.pages.dev"
+      }
+   ]
+}
