@@ -1,0 +1,17 @@
+{
+   "description": "marketing platform (use llm, ads platform...)",
+   "owner": {
+      "github_username": "FrLLBM6rpORBT_vSp5MhT",
+      "email": "Yoonsung Baek@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "5d39ef202baa3a47.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=enter.is-an.ai,bad404e9751cb1d09b76"
+      }
+   ]
+}
