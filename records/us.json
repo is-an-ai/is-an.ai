@@ -1,0 +1,13 @@
+{
+   "description": "cn",
+   "owner": {
+      "github_username": "Zc9klItqL7rNain6Zzcdb",
+      "email": "NanoU@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "183.56.254.242"
+      }
+   ]
+}
