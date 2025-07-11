@@ -1,0 +1,13 @@
+{
+   "description": "ai project test",
+   "owner": {
+      "github_username": "l3ctHzwGkRpsqrYhZJfJM",
+      "email": "whispin@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ai.131461.xyz"
+      }
+   ]
+}
