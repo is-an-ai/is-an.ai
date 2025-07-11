@@ -1,0 +1,13 @@
+{
+   "description": "personal  website",
+   "owner": {
+      "github_username": "VHMNP7b7pxkp0Mvt_csaL",
+      "email": "skysaber@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
