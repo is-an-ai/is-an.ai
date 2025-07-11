@@ -1,0 +1,13 @@
+{
+   "description": "1",
+   "owner": {
+      "github_username": "apkkPhGCVs09hevzW162v",
+      "email": "SMGZYIHS@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "web.yihs.cn"
+      }
+   ]
+}
