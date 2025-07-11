@@ -1,0 +1,13 @@
+{
+   "description": "Test to learn",
+   "owner": {
+      "github_username": "33DvL2-rns710Gdb5oFiS",
+      "email": "kz9527@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "51.ruyo.net"
+      }
+   ]
+}
