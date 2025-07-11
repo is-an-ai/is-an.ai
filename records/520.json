@@ -1,0 +1,13 @@
+{
+   "description": "To learn words",
+   "owner": {
+      "github_username": "Daxx8rfRlGh_q22oIrRkg",
+      "email": "dudu666@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "word-61c.pages.dev"
+      }
+   ]
+}
