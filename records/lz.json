@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "VI6UXKEMoLjSg-HYlhLGR",
+      "email": "fokia@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "lazyc.duckdns.org"
+      }
+   ]
+}
