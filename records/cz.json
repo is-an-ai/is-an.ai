@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Z5UH1QWYQqxUnamUJUcc2",
+      "email": "S Chris Zhang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "czhang.synology.me"
+      }
+   ]
+}
