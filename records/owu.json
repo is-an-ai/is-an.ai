@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "TMj2FOumbtuyKQ-wuvyPP",
+      "email": "Godhelpsme@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "chat.zhmc.dpdns.org"
+      }
+   ]
+}
