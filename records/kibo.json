@@ -1,0 +1,13 @@
+{
+   "description": "kibo's blog",
+   "owner": {
+      "github_username": "CyN75zpZquwg3polaCWOz",
+      "email": "Yang_sky@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "kiboroy.github.io"
+      }
+   ]
+}
