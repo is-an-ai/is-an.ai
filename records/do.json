@@ -1,0 +1,13 @@
+{
+   "description": "ido",
+   "owner": {
+      "github_username": "pLrJhuZB4cVTEyyU-YfhG",
+      "email": "Ein@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.166"
+      }
+   ]
+}
