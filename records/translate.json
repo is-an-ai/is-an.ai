@@ -1,0 +1,13 @@
+{
+   "description": "翻译服务",
+   "owner": {
+      "github_username": "Xzt8HXGVgoApfncyU45U7",
+      "email": "lizhenmiao@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "34.120.54.55"
+      }
+   ]
+}
