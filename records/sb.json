@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "tjXXheYd2XA4YHyOkAr-h",
+      "email": "ixianbao@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "blog.xiaoz.org"
+      }
+   ]
+}
