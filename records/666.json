@@ -1,0 +1,13 @@
+{
+   "description": "666",
+   "owner": {
+      "github_username": "mHj-Q32UwqGXqfyWR14M4",
+      "email": "LLwill@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
