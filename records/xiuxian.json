@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "VmOusG4F-GsGef-veVXUC",
+      "email": "Bytedo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "api.xiuxiancat.fun"
+      }
+   ]
+}
