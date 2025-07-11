@@ -1,0 +1,13 @@
+{
+   "description": "my awesome project",
+   "owner": {
+      "github_username": "DJBai0RQhQh5hK2VYRLSR",
+      "email": "liby85@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "39.107.224.43"
+      }
+   ]
+}
