@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "111"
+         "type": "CNAME",
+         "value": "heroplan.github.io"
       }
    ]
 }
