@@ -1,0 +1,13 @@
+{
+   "description": "I am trying to create an local LLM service. Thank you for providing a wonderful and fun service.",
+   "owner": {
+      "github_username": "HIr4Cb7WFNOZ6X-TkiDOR",
+      "email": "yanyao@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "liyaqi.com"
+      }
+   ]
+}
