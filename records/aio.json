@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "soJOvOEECyP8BCLaOtvm_",
+      "email": "qq914449599@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "guy.ns.cloudflare.com"
+      }
+   ]
+}
