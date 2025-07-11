@@ -1,0 +1,13 @@
+{
+   "description": "mick",
+   "owner": {
+      "github_username": "db-OZ-Rs0rl_rAgpVvA_g",
+      "email": "meeia@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ns1.cloudflare.com"
+      }
+   ]
+}
