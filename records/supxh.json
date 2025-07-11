@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "EcJkA9oIzBxP468kj_Ar8",
+      "email": "zhangchao@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "j.com"
+      }
+   ]
+}
