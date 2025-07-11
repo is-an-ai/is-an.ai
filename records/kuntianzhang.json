@@ -1,0 +1,13 @@
+{
+   "description": "my website",
+   "owner": {
+      "github_username": "Ih0cfGCMbBx9s4wmP7o76",
+      "email": "zhangkuntian@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "c2a2182e1795a283.vercel-dns-017.com"
+      }
+   ]
+}
