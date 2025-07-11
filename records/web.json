@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "-Fjd6k4GiQ4glDrq2IDh8",
+      "email": "beginningjx@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "web.kaiduan.fun"
+      }
+   ]
+}
