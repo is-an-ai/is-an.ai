@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "jLVFnxXQrzwNqCB8f6nhe",
+      "email": "摸鱼的喵酱@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "104.243.21.19"
+      }
+   ]
+}
