@@ -1,0 +1,13 @@
+{
+   "description": "qian wen ai",
+   "owner": {
+      "github_username": "qo-gGtXjNjqrjWtvUpTXK",
+      "email": "youzibe@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
