@@ -1,0 +1,13 @@
+{
+   "description": "i404",
+   "owner": {
+      "github_username": "4gRIXZ61r7NVy6WXT2HXA",
+      "email": "six997@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.2.2"
+      }
+   ]
+}
