@@ -1,0 +1,13 @@
+{
+   "description": "aris in ba",
+   "owner": {
+      "github_username": "BwRYBDB3rvQ6VHDpxqyPW",
+      "email": "Shirasu Hare@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "hello aris"
+      }
+   ]
+}
