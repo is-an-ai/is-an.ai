@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "CTloPVkCdrxkFWtJ0EuVP",
+      "email": "cozers@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ip.mroow.tk"
+      }
+   ]
+}
