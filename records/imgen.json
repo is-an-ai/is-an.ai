@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "-NYCHvZbSHc4Dq53gtGY8",
+      "email": "lancelotly@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "a8c2703175b0d7b4.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=imgen.is-an.ai,bc82269cd3a982910cb7"
+      }
+   ]
+}
