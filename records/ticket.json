@@ -1,0 +1,13 @@
+{
+   "description": "购票应用",
+   "owner": {
+      "github_username": "DJBai0RQhQh5hK2VYRLSR",
+      "email": "liby85@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
