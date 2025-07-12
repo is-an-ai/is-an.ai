@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "104.16.129.163"
+      },
+      {
+         "type": "CNAME",
+         "value": "libretv-a3d.pages.dev"
       }
    ]
 }
