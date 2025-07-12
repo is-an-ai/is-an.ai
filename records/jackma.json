@@ -1,0 +1,13 @@
+{
+   "description": "jackma",
+   "owner": {
+      "github_username": "iGtzj4qENv6vXyIgwwePj",
+      "email": "GeekMar@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "jimdeng.com"
+      }
+   ]
+}
