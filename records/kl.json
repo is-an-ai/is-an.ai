@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "192.168.0.1"
+         "type": "CNAME",
+         "value": "chat.xukeli.dpdns.org"
       }
    ]
 }
