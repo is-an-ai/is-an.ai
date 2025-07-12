@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "-NYCHvZbSHc4Dq53gtGY8",
+      "email": "lancelotly@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "lancelotly.eu.org"
+      }
+   ]
+}
