@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "cK-g1_sCHN3arJwep_eWU",
+      "email": "Lau Adonis @noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "open-webui.apache.cn.eu.org"
+      }
+   ]
+}
