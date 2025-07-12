@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "cjZ4wyY1Oa9VviXM1DRt4",
+      "email": "Chen Zhiwei@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "homelab.youya.org"
+      }
+   ]
+}
