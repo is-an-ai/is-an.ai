@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "l54cpSzmt5On2gBKfKNui",
+      "email": "linzjian666@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "autodiscover.outlook.com"
+      }
+   ]
+}
