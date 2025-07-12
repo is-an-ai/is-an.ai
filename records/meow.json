@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "-NYCHvZbSHc4Dq53gtGY8",
+      "email": "lancelotly@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cname.xlog.app"
+      },
+      {
+         "type": "TXT",
+         "value": "v=sagittarimeow include:_xlog-challenge.meow\t~all"
+      }
+   ]
+}
