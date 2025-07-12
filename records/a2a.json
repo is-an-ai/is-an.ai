@@ -1,0 +1,13 @@
+{
+   "description": "a2a",
+   "owner": {
+      "github_username": "mQxOJZ1fR5yLBgkl9uQgy",
+      "email": "Jim Deng@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "jimdeng.com"
+      }
+   ]
+}
