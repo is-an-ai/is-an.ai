@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "GXyrQdwBrQuj6hLc1KcdA",
+      "email": "故人@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "vercel.cdn.yt-blog.top"
+      }
+   ]
+}
