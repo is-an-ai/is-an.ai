@@ -1,0 +1,13 @@
+{
+   "description": "用于配音网站",
+   "owner": {
+      "github_username": "xxKJ2JU03tI83A1gXCRvb",
+      "email": "mate@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "191.87.62.12"
+      }
+   ]
+}
