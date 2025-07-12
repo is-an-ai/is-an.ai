@@ -8,10 +8,6 @@
       {
          "type": "CNAME",
          "value": "vercel.cdn.yt-blog.top"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=uuu.is-an.ai,16824a41d4082a51d8ae"
       }
    ]
 }
