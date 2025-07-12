@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "LIJ7SS7ABYCt6yZL9jE63",
+      "email": "liyan1972@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
