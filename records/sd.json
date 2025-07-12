@@ -1,0 +1,13 @@
+{
+   "description": "sd",
+   "owner": {
+      "github_username": "stY3MAZ6hgF6kEMRAHhMF",
+      "email": "884880@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
