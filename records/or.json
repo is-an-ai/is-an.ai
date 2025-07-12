@@ -1,0 +1,13 @@
+{
+   "description": "or",
+   "owner": {
+      "github_username": "Yp0NY0uCkUSRZq2dlwXZB",
+      "email": "iloveyouchina@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
