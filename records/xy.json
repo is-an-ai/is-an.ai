@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "4Hz5V0fcBNVxEPhI-IOgF",
+      "email": "Xyfer@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "xyfer.im"
+      }
+   ]
+}
