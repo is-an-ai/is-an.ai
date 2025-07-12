@@ -1,0 +1,13 @@
+{
+   "description": "比尔盖茨",
+   "owner": {
+      "github_username": "_9EP1o2PNFXDmkjv6bMWP",
+      "email": "geekaidev@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "jimdeng.com"
+      }
+   ]
+}
