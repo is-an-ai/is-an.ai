@@ -7,11 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "cname.xlog.app"
-      },
-      {
-         "type": "TXT",
-         "value": "v=sagittarimeow include:_xlog-challenge.meow\t~all"
+         "value": "sagittarimeow.xlog.app"
       }
    ]
 }
