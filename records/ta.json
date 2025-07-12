@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "mTtFnSyVdepnXUpDfLm45",
+      "email": "kkzi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "facai.dns.army"
+      }
+   ]
+}
