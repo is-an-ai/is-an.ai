@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "111.19.94.136"
+         "type": "TXT",
+         "value": "435df0a7b1e4ad8ac88a0b52cb442c56"
       }
    ]
 }
