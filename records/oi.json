@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Oxq42fhknHWQ6ppDG2S-M",
+      "email": "toolswall@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "10.0.0.33"
+      }
+   ]
+}
