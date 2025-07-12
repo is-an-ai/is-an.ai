@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "39.71.34.84"
+         "type": "CNAME",
+         "value": "libretv-2fo.pages.dev"
       }
    ]
 }
