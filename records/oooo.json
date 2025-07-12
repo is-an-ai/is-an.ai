@@ -1,0 +1,13 @@
+{
+   "description": "bloog",
+   "owner": {
+      "github_username": "xAw27-MBgh6tUKI_Sv5xh",
+      "email": "四个圈@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
