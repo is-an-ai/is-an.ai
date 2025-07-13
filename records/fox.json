@@ -1,0 +1,13 @@
+{
+   "description": "a blog",
+   "owner": {
+      "github_username": "JPTQSzn0SKbo7kwktsXS3",
+      "email": "清茶@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "abcuu.github.io"
+      }
+   ]
+}
