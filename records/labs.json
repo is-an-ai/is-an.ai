@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "34.150.88.157"
+         "type": "CNAME",
+         "value": "hejie.github.io"
       }
    ]
 }
