@@ -1,0 +1,13 @@
+{
+   "description": "dl8z non-offical website",
+   "owner": {
+      "github_username": "Sgrr34hvYl9tY5ODwHsNu",
+      "email": "dimo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "dl8z.github.io"
+      }
+   ]
+}
