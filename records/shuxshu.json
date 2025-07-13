@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Mb8mdPK4WtQFyhdu0NJ1Q",
+      "email": "shuxshu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cdn.shuxshu.cn"
+      }
+   ]
+}
