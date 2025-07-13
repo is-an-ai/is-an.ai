@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "1.36.83.242"
+         "type": "CNAME",
+         "value": "www.deepseek.com"
       }
    ]
 }
