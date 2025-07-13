@@ -1,0 +1,13 @@
+{
+   "description": "Sol (小希) is a human-like Windows Desktop Pet powered by Live2D and Artificial Intelligence.",
+   "owner": {
+      "github_username": "PClcw_5wU5hmpNPXcEKYK",
+      "email": "xiaoheiCat@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "4523c83e.sol.is-an.ai.dns.edgeone.app"
+      }
+   ]
+}
