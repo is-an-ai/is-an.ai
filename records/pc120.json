@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "nIy3JWj6aWfRFf3NyWwnb",
+      "email": "liutingmin@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "202.102.154.3"
+      }
+   ]
+}
