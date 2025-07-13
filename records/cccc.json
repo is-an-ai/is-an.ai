@@ -1,13 +1,13 @@
 {
-   "description": "",
+   "description": "Personal blog",
    "owner": {
       "github_username": "D6WPLobDuoaypKUucxU45",
       "email": "Gary998065@noreply.com"
    },
    "record": [
       {
-         "type": "AAAA",
-         "value": "2602:294:0:dc:1234:4321:d2de:1"
+         "type": "CNAME",
+         "value": "www.998056.xyz"
       }
    ]
 }
