@@ -8,6 +8,10 @@
       {
          "type": "AAAA",
          "value": "2a14:7dc0:0100:0101:0101:0000:0000:03fa"
+      },
+      {
+         "type": "CNAME",
+         "value": "nezha.lzj.pp.ua"
       }
    ]
 }
