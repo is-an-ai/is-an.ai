@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "OUluDCMIyQwmZWL7JXRXo",
+      "email": "gorejay2024@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "lsj.jimger.asia"
+      }
+   ]
+}
