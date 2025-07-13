@@ -1,0 +1,13 @@
+{
+   "description": "ceshi",
+   "owner": {
+      "github_username": "dBGFom2-NDdVHC-SO2Fg6",
+      "email": "zztap@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "4.4.4.4"
+      }
+   ]
+}
