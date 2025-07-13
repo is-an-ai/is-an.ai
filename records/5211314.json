@@ -1,0 +1,13 @@
+{
+   "description": "AI program",
+   "owner": {
+      "github_username": "nCRiOW73E_JbgkC2BnmCR",
+      "email": "Joseph@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
