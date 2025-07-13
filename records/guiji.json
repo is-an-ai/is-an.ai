@@ -1,0 +1,13 @@
+{
+   "description": "guiji",
+   "owner": {
+      "github_username": "nQ8nAnSu6-OKRaawtIFun",
+      "email": "Vnetgo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "guiji.vnetgo.dpdns.org"
+      }
+   ]
+}
