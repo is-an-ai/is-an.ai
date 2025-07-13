@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "iPbaAAHCIge_dWrHmnjis",
+      "email": "ygpydh@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sub.tanheka.workers.dev"
+      }
+   ]
+}
