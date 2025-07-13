@@ -1,0 +1,13 @@
+{
+   "description": "tool",
+   "owner": {
+      "github_username": "y6CSIjUjUHH-0jXldUjBD",
+      "email": "Limkon@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.0.2"
+      }
+   ]
+}
