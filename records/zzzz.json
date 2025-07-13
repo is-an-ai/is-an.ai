@@ -1,0 +1,13 @@
+{
+   "description": "skype",
+   "owner": {
+      "github_username": "mjaqrpmEStxJMgb7rrBlK",
+      "email": "bo500416@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "bo5004161.github.io"
+      }
+   ]
+}
