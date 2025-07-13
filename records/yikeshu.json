@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "iPzjMozxUAWnoADEdyDqB",
+      "email": "paulyinghu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "libretv.xiaohublog.eu.cc"
+      }
+   ]
+}
