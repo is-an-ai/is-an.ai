@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Gcm6cy2ypn0fx_ZJ3htRa",
+      "email": "xiaowuyi1993@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "192.168.1.4:8080"
+      }
+   ]
+}
