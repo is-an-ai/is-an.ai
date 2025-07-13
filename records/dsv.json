@@ -1,0 +1,13 @@
+{
+   "description": "blog test",
+   "owner": {
+      "github_username": "jcrwUPmAg7R0zOZbqyYaz",
+      "email": "wangl35@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "61.61.61.61"
+      }
+   ]
+}
