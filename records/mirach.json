@@ -1,0 +1,13 @@
+{
+   "description": "this ia also about sky domain",
+   "owner": {
+      "github_username": "_zA1aXThRbVQj2LFCyPRh",
+      "email": "kai.he@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
