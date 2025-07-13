@@ -1,0 +1,13 @@
+{
+   "description": "study",
+   "owner": {
+      "github_username": "1GclP2D2GF0FQKlQ36hwL",
+      "email": "captonhall@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cyxis-an.pages.dev"
+      }
+   ]
+}
