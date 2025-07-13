@@ -1,0 +1,13 @@
+{
+   "description": "my AI project",
+   "owner": {
+      "github_username": "atusn1SIx0Y2mDlSUCnot",
+      "email": "pcbean@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sub-aqr.pages.dev"
+      }
+   ]
+}
