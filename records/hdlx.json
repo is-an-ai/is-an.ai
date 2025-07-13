@@ -1,0 +1,13 @@
+{
+   "description": "ai-blog",
+   "owner": {
+      "github_username": "1UWZunisvS5oLfcKZ-UMU",
+      "email": "DickSoom@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
