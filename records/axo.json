@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "axo.ufc.qzz.io"
+         "type": "A",
+         "value": "43.174.150.150"
       }
    ]
 }
