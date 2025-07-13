@@ -1,0 +1,13 @@
+{
+   "description": "Blog",
+   "owner": {
+      "github_username": "5Qk-fuojSu6u4IdjFRxkP",
+      "email": "N.Elf-mousE@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
