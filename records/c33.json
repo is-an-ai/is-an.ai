@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "zTblV6qg4jVhzHt6uv3gv",
+      "email": "kany2000@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.2.150"
+      }
+   ]
+}
