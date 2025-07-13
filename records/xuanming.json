@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "RP-DiNIh3QzFzoeq2BIXD",
+      "email": "bixiaoxin8888@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "8.8.8.8"
+      }
+   ]
+}
