@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "ai.digitalmetals.org"
+         "type": "A",
+         "value": "132.226.225.136"
       }
    ]
 }
