@@ -1,0 +1,13 @@
+{
+   "description": "status",
+   "owner": {
+      "github_username": "V5hEX-Xn1JLHGe1UHg692",
+      "email": "Afshin2023@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
