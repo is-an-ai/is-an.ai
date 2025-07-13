@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "sadtogfoxqem.ap-southeast-1.clawcloudrun.com"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
