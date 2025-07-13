@@ -1,0 +1,13 @@
+{
+   "description": "my openlist site",
+   "owner": {
+      "github_username": "sTgkjHcvcha1UZ8UxlINP",
+      "email": "Arnold Lang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "uwmlrcwj.ap-northeast-1.clawcloudrun.com"
+      }
+   ]
+}
