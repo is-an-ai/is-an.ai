@@ -1,0 +1,13 @@
+{
+   "description": "Blog",
+   "owner": {
+      "github_username": "QXiQFl2-wqoLLLLXnCv_J",
+      "email": "Ulises Grimes@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
