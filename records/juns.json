@@ -1,0 +1,13 @@
+{
+   "description": "电信6",
+   "owner": {
+      "github_username": "mwfoiDbybQpJ0GBzhmbcP",
+      "email": "AJuines@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "172.64.229.50"
+      }
+   ]
+}
