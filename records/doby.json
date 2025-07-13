@@ -1,0 +1,13 @@
+{
+   "description": "web site",
+   "owner": {
+      "github_username": "rcyxh57BxretrzyKq-_Oy",
+      "email": "dragonzzn@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "libretv-2w5.pages.dev"
+      }
+   ]
+}
