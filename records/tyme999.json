@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "YSle9x5dRUMIkmjgg3F93",
+      "email": "Gu Guanglong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "tyme999-github-io.pages.dev"
+      }
+   ]
+}
