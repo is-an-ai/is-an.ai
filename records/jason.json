@@ -1,0 +1,13 @@
+{
+   "description": "oracle amd",
+   "owner": {
+      "github_username": "UsUHxuK7RNUywJXe6kSE2",
+      "email": "Jason Huang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "152.69.173.224"
+      }
+   ]
+}
