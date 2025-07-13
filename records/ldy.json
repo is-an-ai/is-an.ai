@@ -1,0 +1,13 @@
+{
+   "description": "林黛玉",
+   "owner": {
+      "github_username": "LZ5jYpgczBcrRDq-51Et0",
+      "email": "zhisibi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.2.2"
+      }
+   ]
+}
