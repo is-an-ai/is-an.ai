@@ -1,0 +1,13 @@
+{
+   "description": "car website",
+   "owner": {
+      "github_username": "pZCwdmr7ulIXjDlB5FlcB",
+      "email": "James@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
