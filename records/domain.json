@@ -12,6 +12,10 @@
       {
          "type": "A",
          "value": "1.1.1.1"
+      },
+      {
+         "type": "CNAME",
+         "value": "cf001-del.pages.dev"
       }
    ]
 }
