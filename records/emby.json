@@ -1,0 +1,13 @@
+{
+   "description": "影视网址",
+   "owner": {
+      "github_username": "-C64pMj43F2k9KuZQk05V",
+      "email": "Drillring@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
