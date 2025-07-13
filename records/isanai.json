@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "1.1.1.1"
+      },
+      {
+         "type": "CNAME",
+         "value": "ikun-world.pages.dev"
       }
    ]
 }
