@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "5zedRWrtf2cfiMcKFWvuS",
+      "email": "GameMaster@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "240e:b87:500:114:4c5a:22ea:b47e:14f0"
+      }
+   ]
+}
