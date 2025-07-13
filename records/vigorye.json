@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "d85q1t36W3A9bLHowNdLs",
+      "email": "Vigor-Ye@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "124.236.16.201"
+      }
+   ]
+}
