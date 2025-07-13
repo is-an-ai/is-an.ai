@@ -1,0 +1,13 @@
+{
+   "description": "a blog",
+   "owner": {
+      "github_username": "mjaqrpmEStxJMgb7rrBlK",
+      "email": "bo500416@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "bo500416.github.io"
+      }
+   ]
+}
