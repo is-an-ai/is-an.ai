@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "cIj7aFpQPzNF5Z8G4pj6H",
+      "email": "weipanrong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
