@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "tv.ltzykc.eu.org"
+         "type": "A",
+         "value": "66.78.59.15"
       }
    ]
 }
