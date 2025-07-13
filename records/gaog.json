@@ -1,0 +1,13 @@
+{
+   "description": "website",
+   "owner": {
+      "github_username": "hOAFZnfGZ1PrHLaA3EWJ6",
+      "email": "TangXiong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
