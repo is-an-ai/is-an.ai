@@ -1,0 +1,13 @@
+{
+   "description": "A panel that connect to our team project to provide universal api to access the device",
+   "owner": {
+      "github_username": "k8DZxh7AyBcZ3w17LjKGP",
+      "email": "Med Dict@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "api.jmys.cf"
+      }
+   ]
+}
