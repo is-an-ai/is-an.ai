@@ -1,0 +1,13 @@
+{
+   "description": "Testing my programs in Internet.",
+   "owner": {
+      "github_username": "SW74Od3HUofbt2wRpvoBA",
+      "email": "Lowarex@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "174.123.4.5"
+      }
+   ]
+}
