@@ -1,0 +1,13 @@
+{
+   "description": "宠物",
+   "owner": {
+      "github_username": "LWN6yeJbfiXnvr202yJ9X",
+      "email": "xwool@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "198.11.177.244"
+      }
+   ]
+}
