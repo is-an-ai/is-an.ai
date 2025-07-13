@@ -1,0 +1,13 @@
+{
+   "description": "清风",
+   "owner": {
+      "github_username": "hEXci7S5GIsanb2cEZkp4",
+      "email": "jwlxp@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "devboxs.com"
+      }
+   ]
+}
