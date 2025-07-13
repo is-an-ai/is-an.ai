@@ -1,0 +1,13 @@
+{
+   "description": "short domain",
+   "owner": {
+      "github_username": "vI1MVl_SY6jJme9242-zG",
+      "email": "Brother_Sheng@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "brothersheng.top"
+      }
+   ]
+}
