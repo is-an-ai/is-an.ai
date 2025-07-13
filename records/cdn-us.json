@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "light.jchen.eu.org"
+         "type": "A",
+         "value": "128.241.251.180"
       }
    ]
 }
