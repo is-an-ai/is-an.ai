@@ -1,0 +1,13 @@
+{
+   "description": "website",
+   "owner": {
+      "github_username": "rzQ3NwShB4geBkfO3Usd5",
+      "email": "noomlook@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
