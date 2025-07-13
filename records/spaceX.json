@@ -1,0 +1,13 @@
+{
+   "description": "AI",
+   "owner": {
+      "github_username": "1SiGs9w8zYiEr50XRb_uU",
+      "email": "johhanliz@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
