@@ -1,0 +1,13 @@
+{
+   "description": "serv00",
+   "owner": {
+      "github_username": "NXHndMJ9rVMI15Ys3IkPG",
+      "email": "yangleiily@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "128.204.223.120"
+      }
+   ]
+}
