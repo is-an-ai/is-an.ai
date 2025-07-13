@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "damian.ns.cloudflare.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "nora.ns.cloudflare.com"
       }
    ]
 }
