@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "tYuRo5J0ZzfkpbfFLjMHO",
+      "email": "NoLove@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cloudflare-imgbed-chr.pages.dev"
+      }
+   ]
+}
