@@ -1,0 +1,13 @@
+{
+   "description": "zanktx",
+   "owner": {
+      "github_username": "d6FcBzmNt8H3IU7K2h7fq",
+      "email": "Zktx703@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.5.1"
+      }
+   ]
+}
