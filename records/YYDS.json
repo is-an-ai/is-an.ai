@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "205.134.180.143"
+         "type": "TXT",
+         "value": "https://xxrjiootiffe.ap-northeast-1.clawcloudrun.com"
       }
    ]
 }
