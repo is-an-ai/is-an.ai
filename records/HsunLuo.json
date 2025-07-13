@@ -12,6 +12,14 @@
       {
          "type": "CNAME",
          "value": "nora.ns.cloudflare.com"
+      },
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      },
+      {
+         "type": "A",
+         "value": "1.0.0.1"
       }
    ]
 }
