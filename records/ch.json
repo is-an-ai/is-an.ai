@@ -1,0 +1,13 @@
+{
+   "description": "for vps",
+   "owner": {
+      "github_username": "Jadd0eR2Ks-9xfWSyM7oU",
+      "email": "iamswm@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.243.113.91"
+      }
+   ]
+}
