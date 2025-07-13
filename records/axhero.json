@@ -1,0 +1,13 @@
+{
+   "description": "blong",
+   "owner": {
+      "github_username": "rtjRkIIZOlCYpEhpkBOjW",
+      "email": "小生不才@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
