@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "tBMNIz3ecfiiQqbaj4g8T",
+      "email": "逆行时光@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "blog.160621.xyz"
+      }
+   ]
+}
