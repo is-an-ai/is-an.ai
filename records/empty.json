@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "223.5.5.5"
-      },
-      {
          "type": "CNAME",
          "value": "cloudflare-imgbed-1oi.pages.dev"
       }
