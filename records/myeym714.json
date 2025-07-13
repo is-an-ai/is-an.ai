@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "bbrozgldtwjp.ap-northeast-1.clawcloudrun.com"
+      },
+      {
+         "type": "A",
+         "value": "47.79.145.165"
       }
    ]
 }
