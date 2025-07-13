@@ -1,0 +1,13 @@
+{
+   "description": "my test project",
+   "owner": {
+      "github_username": "rQ_jZAbJUBYucAEQXZgPd",
+      "email": "xieguozhong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
