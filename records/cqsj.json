@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "205.134.180.180"
+         "type": "CNAME",
+         "value": "xrrbfzrktdak.ap-northeast-1.clawcloudrun.com"
       }
    ]
 }
