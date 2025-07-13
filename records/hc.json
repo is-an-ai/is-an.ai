@@ -1,0 +1,13 @@
+{
+   "description": "Personal",
+   "owner": {
+      "github_username": "eIJZMeQWO5CW9uJWI7zBG",
+      "email": "韩晨@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
