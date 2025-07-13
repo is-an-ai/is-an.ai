@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "ahWc10spK50_UL2Hm-8lb",
+      "email": "dada0010@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "172.16.53.224"
+      }
+   ]
+}
