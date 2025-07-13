@@ -1,0 +1,13 @@
+{
+   "description": "vlog",
+   "owner": {
+      "github_username": "hbZXuK8C19tEBRkWvnhDF",
+      "email": "pkpk12138@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
