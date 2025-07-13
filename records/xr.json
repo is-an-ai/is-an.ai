@@ -1,0 +1,13 @@
+{
+   "description": "this is blog apis",
+   "owner": {
+      "github_username": "Xxi6hNM1MbWt_C3XrlrYY",
+      "email": "lbjxr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "46.232.61.123"
+      }
+   ]
+}
