@@ -1,0 +1,13 @@
+{
+   "description": "biog",
+   "owner": {
+      "github_username": "NYs7UyVc0hH-TFVUIK6_M",
+      "email": "happ369@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
