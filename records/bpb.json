@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "107.174.131.76"
+         "type": "CNAME",
+         "value": "wkfall.pages.dev"
       }
    ]
 }
