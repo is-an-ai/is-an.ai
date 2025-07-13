@@ -1,0 +1,13 @@
+{
+   "description": "sky eye",
+   "owner": {
+      "github_username": "areb9naAYtH62EWDDgNsC",
+      "email": "CNKCQ@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
