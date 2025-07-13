@@ -1,0 +1,13 @@
+{
+   "description": "study",
+   "owner": {
+      "github_username": "JP0ZJ9z8VhkqB7HGtwS8q",
+      "email": "weihot@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
