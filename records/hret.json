@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "dqK1wqIzAMr1AiFPqKMh5",
+      "email": "HRET@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "hret-images-acceleration.hret.workers.dev"
+      }
+   ]
+}
