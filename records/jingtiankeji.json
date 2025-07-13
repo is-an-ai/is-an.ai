@@ -1,0 +1,13 @@
+{
+   "description": "creat a websit",
+   "owner": {
+      "github_username": "xCdlzkQpcHgkMmOCEantP",
+      "email": "moyanzh8866@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
