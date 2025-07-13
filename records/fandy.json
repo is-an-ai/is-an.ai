@@ -1,0 +1,13 @@
+{
+   "description": "net",
+   "owner": {
+      "github_username": "bVjdlndejpAgCEZuDLQK2",
+      "email": "fandy55@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "104.22.51.234"
+      }
+   ]
+}
