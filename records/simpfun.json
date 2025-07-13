@@ -1,0 +1,13 @@
+{
+   "description": "Afe",
+   "owner": {
+      "github_username": "4C-aycR_vy7jxKSoQrsjX",
+      "email": "H@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
