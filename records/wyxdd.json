@@ -1,0 +1,13 @@
+{
+   "description": "dify",
+   "owner": {
+      "github_username": "0HF7UgvZCwojsm3rJhclu",
+      "email": "truelife0958@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "g.wy412.dpdns.org"
+      }
+   ]
+}
