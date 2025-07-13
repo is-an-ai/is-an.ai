@@ -1,0 +1,13 @@
+{
+   "description": "nav",
+   "owner": {
+      "github_username": "NXHndMJ9rVMI15Ys3IkPG",
+      "email": "yangleiily@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "yangleiily.github.io"
+      }
+   ]
+}
