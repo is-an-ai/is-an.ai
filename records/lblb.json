@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "7vfkutZFNGqA_jUKHHNQO",
+      "email": "skymanbj@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "6.6.6.6"
+      }
+   ]
+}
