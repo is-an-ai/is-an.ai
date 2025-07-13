@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "moontv-a08.pages.dev"
+         "type": "A",
+         "value": "45.116.79.4"
       }
    ]
 }
