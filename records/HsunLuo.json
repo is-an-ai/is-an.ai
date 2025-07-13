@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "i77XizBo-AOAK_QkM0AuT",
+      "email": "Felix Flair@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
