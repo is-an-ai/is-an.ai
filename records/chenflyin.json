@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "cExHEuK5Wg98Nk3Wy15Bx",
+      "email": "flyinchen@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "233.5.5.5"
+      }
+   ]
+}
