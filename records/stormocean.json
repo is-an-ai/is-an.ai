@@ -1,0 +1,13 @@
+{
+   "description": "stormocean",
+   "owner": {
+      "github_username": "dF1T5gzqkokYPsFv-cAi5",
+      "email": "acloud613@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "103.125.216.22"
+      }
+   ]
+}
