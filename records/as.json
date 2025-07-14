@@ -1,0 +1,13 @@
+{
+   "description": "Forum",
+   "owner": {
+      "github_username": "LynxD9dbnaLimd0ojrpzU",
+      "email": "dagego@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "129.146.39.250"
+      }
+   ]
+}
