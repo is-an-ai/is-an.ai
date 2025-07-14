@@ -1,5 +1,5 @@
 {
-   "description": "",
+   "description": "blog",
    "owner": {
       "github_username": "f6kqa2dWexvBtHnUgUOT5",
       "email": "siumon5@noreply.com"
@@ -8,6 +8,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=sirche.is-an.ai,fbab86ee134681f6a749"
+      },
+      {
+         "type": "CNAME",
+         "value": "e3c4de4fad911b73.vercel-dns-017.com"
       }
    ]
 }
