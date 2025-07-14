@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "FL42tehyn6wGNMvXC4B6f",
+      "email": "cfsxy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "213.210.4.3"
+      }
+   ]
+}
