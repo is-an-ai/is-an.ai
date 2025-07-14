@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Izcxq9GpLUxvdMBQgPbEY",
+      "email": "improvizita@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "8.8.8.8"
+      }
+   ]
+}
