@@ -1,0 +1,13 @@
+{
+   "description": "nas-3",
+   "owner": {
+      "github_username": "wtdnFiVPZ2xHaf2CG3eVJ",
+      "email": "波波星@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
