@@ -1,0 +1,13 @@
+{
+   "description": "b4 workshop wan entry",
+   "owner": {
+      "github_username": "xl2CipdYj8Hglvg5zSqbl",
+      "email": "b4wo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "107.148.31.155"
+      }
+   ]
+}
