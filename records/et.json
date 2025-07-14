@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "34.160.122.198"
+         "type": "CNAME",
+         "value": "fiajdeejibrg.ap-southeast-1.clawcloudrun.com"
       }
    ]
 }
