@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "uZ6dcEQe-LWGuhLMTTpZa",
+      "email": "xh9527x@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "mm.yuncname.com"
+      }
+   ]
+}
