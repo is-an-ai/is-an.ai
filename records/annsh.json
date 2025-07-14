@@ -1,0 +1,13 @@
+{
+   "description": "AI STUDIO",
+   "owner": {
+      "github_username": "rKTyfTqsGRUkpXGniv38p",
+      "email": "Saeroi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "172.168.63.1"
+      }
+   ]
+}
