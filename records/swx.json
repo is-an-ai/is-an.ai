@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "156.236.116.4"
+         "type": "CNAME",
+         "value": "share1223.com"
       }
    ]
 }
