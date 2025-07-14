@@ -1,0 +1,13 @@
+{
+   "description": "AI tools",
+   "owner": {
+      "github_username": "Dn3xh1Ogs9OhDRfoqYUJy",
+      "email": "WSRF2014@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "dev.hanlu.im"
+      }
+   ]
+}
