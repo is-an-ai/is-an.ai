@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "0Ep4RO0ZOUnJ4mXy7EzHs",
+      "email": "estarking@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "2001:41d0:a:5b18:be24:11ff:fe18:6f3f"
+      }
+   ]
+}
