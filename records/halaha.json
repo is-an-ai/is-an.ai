@@ -1,0 +1,13 @@
+{
+   "description": "youxi",
+   "owner": {
+      "github_username": "Ybo4LKFwQhGsnCCKzoDBX",
+      "email": "wainh99@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "17173.com"
+      }
+   ]
+}
