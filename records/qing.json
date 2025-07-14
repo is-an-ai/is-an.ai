@@ -1,0 +1,17 @@
+{
+   "description": "my blog",
+   "owner": {
+      "github_username": "NCrtpl144YBL1iLguUWJc",
+      "email": "Qing@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "749c62f2cac6d3a7.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=qing.is-an.ai,62c505f7211bef6ae9d5"
+      }
+   ]
+}
