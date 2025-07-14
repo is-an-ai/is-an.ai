@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "23.99.111.154"
+         "type": "CNAME",
+         "value": "misub-6ha.pages.dev"
       }
    ]
 }
