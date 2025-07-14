@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "longhu.zabc.net"
+      },
+      {
+         "type": "TXT",
+         "value": "_acme-challenge.hu.is-an.ai=y8KwKg5YTfprXktGL6L89cl5bLnFPHXWlklBlYdO0CI"
       }
    ]
 }
