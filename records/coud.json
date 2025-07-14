@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "-LjSNK_-whfzWLb9-S2mc",
+      "email": "donglepeng@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "certificate-countdown.pages.dev"
+      }
+   ]
+}
