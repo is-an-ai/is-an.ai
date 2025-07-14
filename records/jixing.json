@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "deepsex.qzz.io"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
