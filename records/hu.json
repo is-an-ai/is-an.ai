@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "8.8.8.8"
+      },
+      {
+         "type": "CNAME",
+         "value": "Google.com"
       }
    ]
 }
