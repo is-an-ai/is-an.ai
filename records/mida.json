@@ -1,0 +1,13 @@
+{
+   "description": "Ai test",
+   "owner": {
+      "github_username": "dRxodKLkjPFblkiN4Wupi",
+      "email": "anlish@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
