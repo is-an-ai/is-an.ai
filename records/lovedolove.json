@@ -1,0 +1,13 @@
+{
+   "description": "Own profile subdomain",
+   "owner": {
+      "github_username": "0sC1Roz-9gmbw3AXOplbS",
+      "email": "LoveDoLove@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "128.204.223.70"
+      }
+   ]
+}
