@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "apple.com"
+         "type": "A",
+         "value": "34.160.122.198"
       }
    ]
 }
