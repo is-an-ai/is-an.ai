@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "127.0.0.1"
+         "type": "CNAME",
+         "value": "smartcn.pages.dev"
       }
    ]
 }
