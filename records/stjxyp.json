@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "Ag9f7Nz0aoCHZ4W0RGYc8",
+      "email": "rascal6666@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "212.6.25.66"
+      }
+   ]
+}
