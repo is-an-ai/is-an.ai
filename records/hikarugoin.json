@@ -1,0 +1,13 @@
+{
+   "description": "web",
+   "owner": {
+      "github_username": "xGUHhg-r6wup_uyikckaC",
+      "email": "hikarugoin@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
