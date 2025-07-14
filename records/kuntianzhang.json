@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "c2a2182e1795a283.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=kuntianzhang.is-an.ai,b845d2fdb895d067ab9c"
       }
    ]
 }
