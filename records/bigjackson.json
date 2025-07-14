@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "1.1.1.1"
+         "type": "CNAME",
+         "value": "tud8951.github.io"
       }
    ]
 }
