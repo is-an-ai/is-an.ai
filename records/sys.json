@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "158.51.126.153"
+         "type": "CNAME",
+         "value": "ggg.sistsau.eu.org"
       }
    ]
 }
