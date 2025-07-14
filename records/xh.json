@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "server7.webhostmost.com"
+      },
+      {
+         "type": "A",
+         "value": "66.78.59.25"
       }
    ]
 }
