@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "66.78.59.25"
+         "type": "CNAME",
+         "value": "server7.webhostmost.com"
       }
    ]
 }
