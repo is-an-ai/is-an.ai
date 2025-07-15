@@ -6,14 +6,6 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "103.115.63.38"
-      },
-      {
-         "type": "A",
-         "value": "103.115.63.14"
-      },
-      {
          "type": "CNAME",
          "value": "czkcdnqyuqt0dr0x.czkb.czkcdn.cn"
       }
