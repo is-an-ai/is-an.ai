@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "api.yilanshuzi.com"
+         "type": "A",
+         "value": "101.43.28.42"
       }
    ]
 }
