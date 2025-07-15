@@ -1,0 +1,13 @@
+{
+   "description": "a",
+   "owner": {
+      "github_username": "4-HI_tIM-ef04uiTBn9Iu",
+      "email": "CMuidar@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "muidar.netlify.app"
+      }
+   ]
+}
