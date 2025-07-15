@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "37.187.93.226"
+         "type": "CNAME",
+         "value": "dw.is-an.ai.eo.dnse3.com"
       }
    ]
 }
