@@ -1,0 +1,13 @@
+{
+   "description": "note",
+   "owner": {
+      "github_username": "3y4H6KxiehOCtmjF14geq",
+      "email": "GD2021@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "lvwjptwwizps.eu-central-1.clawcloudrun.com"
+      }
+   ]
+}
