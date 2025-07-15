@@ -1,0 +1,13 @@
+{
+   "description": "isnow's blog",
+   "owner": {
+      "github_username": "EzZewZaHp_1h8u1yYcDVm",
+      "email": "游离@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "isnow.app"
+      }
+   ]
+}
