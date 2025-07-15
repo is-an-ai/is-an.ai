@@ -1,0 +1,13 @@
+{
+   "description": "方行家中域名解析",
+   "owner": {
+      "github_username": "uJHqRoCsWJ5ZNGM3aHPS-",
+      "email": "caolcx@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "nbfj.ptidc.top"
+      }
+   ]
+}
