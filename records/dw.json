@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "eo.wudu.ltd"
+         "type": "A",
+         "value": "37.187.93.226"
       }
    ]
 }
