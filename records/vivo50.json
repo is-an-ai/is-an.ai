@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "64.181.231.14"
+         "type": "CNAME",
+         "value": "dpiowsbj.eu-central-1.clawcloudrun.com"
       }
    ]
 }
