@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "loli.8044321.xyz"
+         "type": "A",
+         "value": "37.187.93.226"
       }
    ]
 }
