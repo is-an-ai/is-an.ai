@@ -1,0 +1,13 @@
+{
+   "description": "to my driver",
+   "owner": {
+      "github_username": "WNOzmi8QKWlzqhXdB6_zY",
+      "email": "ikun2778@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cloudflare-imgbed-1oi.pages.dev"
+      }
+   ]
+}
