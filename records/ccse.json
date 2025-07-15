@@ -1,0 +1,13 @@
+{
+   "description": "Personal use",
+   "owner": {
+      "github_username": "Yq7_WH5A7WCR78vHogcvG",
+      "email": "susu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
