@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "czkcdnqyuqt0dr0x.czkb.czkcdn.cn"
+      },
+      {
+         "type": "A",
+         "value": "103.115.63.38"
       }
    ]
 }
