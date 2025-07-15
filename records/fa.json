@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "bo500416.github.io"
+         "type": "TXT",
+         "value": "fafa"
       }
    ]
 }
