@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "LHohEFwISN9tku-uMMm4s",
+      "email": "GrowthRingLLC@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
