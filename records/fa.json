@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "TXT",
-         "value": "fafa"
+         "value": "\"fafa\""
       }
    ]
 }
