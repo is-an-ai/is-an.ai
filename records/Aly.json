@@ -1,0 +1,13 @@
+{
+   "description": "SSL",
+   "owner": {
+      "github_username": "aTp0kKqnGMMGol0jNnyPf",
+      "email": "13677838844@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "47.86.42.131"
+      }
+   ]
+}
