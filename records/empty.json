@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "cloudflare-imgbed-1oi.pages.dev"
+      },
+      {
+         "type": "CNAME",
+         "value": "cloudflare-imgbed-1oi.pages.dev"
       }
    ]
 }
