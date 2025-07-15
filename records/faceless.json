@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cloudflare-imgbed-2oz.pages.dev"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
