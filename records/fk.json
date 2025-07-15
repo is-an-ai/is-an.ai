@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cname.YY.0101.pw"
+         "type": "A",
+         "value": "107.148.54.44"
       }
    ]
 }
