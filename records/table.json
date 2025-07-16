@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "BtrvAdv4R6YR_pknFiXB1",
+      "email": "Juerson@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "proxyli.pages.dev"
+      }
+   ]
+}
