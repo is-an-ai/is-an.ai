@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "G5YGIUlcsFqzYL78prPe_",
+      "email": "yege-huang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
