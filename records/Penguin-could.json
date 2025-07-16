@@ -1,0 +1,13 @@
+{
+   "description": "building a website",
+   "owner": {
+      "github_username": "L4xBAkHfd4d-6xiOYGRrf",
+      "email": "penguin-world@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "Penguin-could.dpdns.org"
+      }
+   ]
+}
