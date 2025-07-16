@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "gqlizatftbky.us-west-1.clawcloudrun.com"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
