@@ -1,0 +1,13 @@
+{
+   "description": "lileilei test",
+   "owner": {
+      "github_username": "9ZRysbmOAvthU5abaQ1tQ",
+      "email": "senli001@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "2409:8a00:84d3:6000:119b:f43c:99f5:256f"
+      }
+   ]
+}
