@@ -1,13 +1,13 @@
 {
-   "description": "siliconflow-manager",
+   "description": "Blog",
    "owner": {
       "github_username": "lXvOuR4_VcNQACkJxEoDf",
       "email": "豫不琢@noreply.com"
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "sf.anin.pp.ua"
+         "type": "AAAA",
+         "value": "2a02:0180:0006:0001:0000:0000:0000:07fa"
       }
    ]
 }
