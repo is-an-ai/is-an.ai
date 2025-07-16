@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "ajZvUkoqy7qwwcYr6GQ7-",
+      "email": "HelloWorldCoder@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "acme-challenge.g6vy5rwymyq82937.ohttps.com"
+      }
+   ]
+}
