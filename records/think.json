@@ -1,0 +1,13 @@
+{
+   "description": "Artificial intelligence dialogue front-end",
+   "owner": {
+      "github_username": "37LoGP_rnJKnM9LmLxDZJ",
+      "email": "Zhang Chao@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ai.tcp4.me"
+      }
+   ]
+}
