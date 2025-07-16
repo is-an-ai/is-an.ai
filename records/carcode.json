@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "IeddqCBnjGSF7ATHiQBcY",
+      "email": "suhaocong@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "baidu.com"
+      }
+   ]
+}
