@@ -1,0 +1,13 @@
+{
+   "description": "Used for setting up a self-hosted DoH service",
+   "owner": {
+      "github_username": "TAy9Xp1mn_DI6NYof7OeD",
+      "email": "frasfds@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "doh-5wh.pages.dev"
+      }
+   ]
+}
