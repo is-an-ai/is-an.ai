@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "www.20060606.xyz"
+         "type": "A",
+         "value": "47.102.199.31"
       }
    ]
 }
