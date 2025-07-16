@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "uxFa-iQB3Ks3lTGTKTV3L",
+      "email": "Unitedserver-official@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "x12.x10hosting.com"
+      },
+      {
+         "type": "A",
+         "value": "198.91.81.12"
+      }
+   ]
+}
