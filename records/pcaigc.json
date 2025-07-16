@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "124.236.115.190"
+      },
+      {
+         "type": "TXT",
+         "value": "_mnwwgx2cgzvxmndrmrsv66jrnnytkvcekbpts4cfn4zxotdo.dcv.httpsauto.com"
       }
    ]
 }
