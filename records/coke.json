@@ -1,0 +1,13 @@
+{
+   "description": "nas",
+   "owner": {
+      "github_username": "H92ebuLJElJi1wsQmaW2P",
+      "email": "Jack_KK@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "2409:8a28:c50:c750:1463:1864:7848:c2f9"
+      }
+   ]
+}
