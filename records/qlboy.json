@@ -1,0 +1,13 @@
+{
+   "description": "web",
+   "owner": {
+      "github_username": "ivGx37nHt1kLvJRbjOFB-",
+      "email": "cnbadboy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
