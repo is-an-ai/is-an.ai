@@ -1,0 +1,13 @@
+{
+   "description": "暴龙兽网站",
+   "owner": {
+      "github_username": "KGmDY-ASaa6maUa9HDM-0",
+      "email": "moranrap666@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
