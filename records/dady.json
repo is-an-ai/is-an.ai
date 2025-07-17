@@ -1,0 +1,13 @@
+{
+   "description": "hahah",
+   "owner": {
+      "github_username": "34zNL2PMXLiN6XBg238wL",
+      "email": "Kevin J.C@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "10.10.10.3"
+      }
+   ]
+}
