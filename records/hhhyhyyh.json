@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "EKU3S90Q-m4VaAJKZPcPT",
+      "email": "da-weide@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "22vps.pages.dev"
+      }
+   ]
+}
