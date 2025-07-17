@@ -1,0 +1,13 @@
+{
+   "description": "nice",
+   "owner": {
+      "github_username": "OBk_pgkGvnA-L4Dxm7Tw5",
+      "email": "Wade Serenity@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
