@@ -1,0 +1,13 @@
+{
+   "description": "新建Csgo域名",
+   "owner": {
+      "github_username": "fdffhjbbeu7JnDij47nOz",
+      "email": "优化进二@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "123.125.1.1"
+      }
+   ]
+}
