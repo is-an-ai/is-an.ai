@@ -1,0 +1,13 @@
+{
+   "description": "cjc",
+   "owner": {
+      "github_username": "_8NzpzfhLVAhZCAb4M9mY",
+      "email": "JieChaoCC@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "172.16.1.1"
+      }
+   ]
+}
