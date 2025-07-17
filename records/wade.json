@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "119.8.116.44"
+         "type": "CNAME",
+         "value": "sxoqeoeejzpp.cloud.sealos.io"
       }
    ]
 }
