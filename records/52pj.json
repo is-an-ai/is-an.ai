@@ -1,0 +1,13 @@
+{
+   "description": "新建52pj域名",
+   "owner": {
+      "github_username": "fdffhjbbeu7JnDij47nOz",
+      "email": "优化进二@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "116.9.117.1"
+      }
+   ]
+}
