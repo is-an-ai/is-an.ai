@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "oktv.cfan.pp.ua"
+         "type": "TXT",
+         "value": "ffe9cba1123e51830fdbfa7a190a29"
       }
    ]
 }
