@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "TG0foKEgmgc3FaqLZPTTQ",
+      "email": "swh922@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "mt99.pages.dev"
+      }
+   ]
+}
