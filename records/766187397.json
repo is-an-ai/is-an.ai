@@ -1,0 +1,13 @@
+{
+   "description": "个人博客",
+   "owner": {
+      "github_username": "Y78Pz_JTSBYjTVIrzpS9M",
+      "email": "766187397@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "766187397-github-io.pages.dev"
+      }
+   ]
+}
