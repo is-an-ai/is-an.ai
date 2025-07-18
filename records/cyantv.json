@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "rlozegyzabwh.us-east-1.clawcloudrun.com"
+         "type": "A",
+         "value": "192.168.1.1"
       }
    ]
 }
