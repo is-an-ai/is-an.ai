@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Y3c64k7X2PqKGRqlNxG-J",
+      "email": "Kislay@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "fd4d8327ee97ddde.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=syncally.is-an.ai,7337301cc9150392d422"
+      }
+   ]
+}
