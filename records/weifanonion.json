@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "peaches.ns.cloudflare.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "sid.ns.cloudflare.com"
       }
    ]
 }
