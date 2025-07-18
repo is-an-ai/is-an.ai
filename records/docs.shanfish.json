@@ -1,0 +1,13 @@
+{
+   "description": "文档站",
+   "owner": {
+      "github_username": "j9GwYBYQK2YK3jdc3GGXB",
+      "email": "shanfishapp@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "127.0.0.1"
+      }
+   ]
+}
