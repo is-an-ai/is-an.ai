@@ -1,0 +1,13 @@
+{
+   "description": "a personal website",
+   "owner": {
+      "github_username": "skYGPWcdQSSaLWV02_I7s",
+      "email": "cowcanfly@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "124.90.23.237"
+      }
+   ]
+}
