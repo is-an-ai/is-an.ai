@@ -1,0 +1,13 @@
+{
+   "description": "个人ui",
+   "owner": {
+      "github_username": "Y78Pz_JTSBYjTVIrzpS9M",
+      "email": "766187397@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "pieces-ui.pages.dev"
+      }
+   ]
+}
