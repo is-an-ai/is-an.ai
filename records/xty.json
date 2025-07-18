@@ -1,0 +1,13 @@
+{
+   "description": "新天云官网",
+   "owner": {
+      "github_username": "rywOEnftPELe8EUCWaVpO",
+      "email": "xtyym@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "xtyidc.top"
+      }
+   ]
+}
