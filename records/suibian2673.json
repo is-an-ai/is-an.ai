@@ -1,0 +1,13 @@
+{
+   "description": "build blog web",
+   "owner": {
+      "github_username": "DwL_qV1HJqZylJ1SqDMVe",
+      "email": "777bt@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
