@@ -1,0 +1,13 @@
+{
+   "description": "新天域的博客",
+   "owner": {
+      "github_username": "rywOEnftPELe8EUCWaVpO",
+      "email": "xtyym@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ymblog.xtyidc.top"
+      }
+   ]
+}
