@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "5LDZC0FDzDNiSHec4wPOr",
+      "email": "chatzixuan@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "47.239.175.103"
+      }
+   ]
+}
