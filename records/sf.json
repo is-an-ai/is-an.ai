@@ -1,0 +1,13 @@
+{
+   "description": "shanfish主站",
+   "owner": {
+      "github_username": "j9GwYBYQK2YK3jdc3GGXB",
+      "email": "shanfishapp@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "www.erisdev.com"
+      }
+   ]
+}
