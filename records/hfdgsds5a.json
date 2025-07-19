@@ -1,0 +1,13 @@
+{
+   "description": "Network Platform",
+   "owner": {
+      "github_username": "IzYCJKJF1PGnNeSCZO5Ll",
+      "email": "mbvnvng@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
