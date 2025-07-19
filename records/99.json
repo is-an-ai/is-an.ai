@@ -8,10 +8,6 @@
       {
          "type": "A",
          "value": "172.64.229.224"
-      },
-      {
-         "type": "CNAME",
-         "value": "xugou-6i4.pages.dev"
       }
    ]
 }
