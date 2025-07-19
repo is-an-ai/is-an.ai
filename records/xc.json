@@ -6,8 +6,12 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "3.231.64.15"
+         "type": "CNAME",
+         "value": "cname.dub.co"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=xc.is-an.ai,a855d2520d0d9226be13"
       }
    ]
 }
