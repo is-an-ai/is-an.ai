@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "q6TOJqwF96fXlvNguWH-z",
+      "email": "kgjhm905@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "mixaser.pages.dev"
+      }
+   ]
+}
