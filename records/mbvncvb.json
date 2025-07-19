@@ -1,0 +1,13 @@
+{
+   "description": "Connect with customers",
+   "owner": {
+      "github_username": "IzYCJKJF1PGnNeSCZO5Ll",
+      "email": "mbvnvng@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cfpm01.zcwom85.workers.dev"
+      }
+   ]
+}
