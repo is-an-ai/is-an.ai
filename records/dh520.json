@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "dh520.pages.dev"
+         "type": "A",
+         "value": "128.204.223.119"
       }
    ]
 }
