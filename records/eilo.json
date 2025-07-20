@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "tfpCKuI2YgXVChRiDfAr6",
+      "email": "eilo2010@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "154.219.108.69"
+      }
+   ]
+}
