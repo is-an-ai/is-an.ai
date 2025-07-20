@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "38.22.94.159"
+         "type": "CNAME",
+         "value": "blogl.bide153.xyz"
       }
    ]
 }
