@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "GTUEFQr4dL0c0nFF6i61U",
+      "email": "guojiu-arch@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
