@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "privately-suited-peacock.ngrok-free.app"
+         "type": "A",
+         "value": "172.17.89.27"
       }
    ]
 }
