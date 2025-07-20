@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "K2z7tQYWCDUL4kk0gXvOi",
+      "email": "MiguelFranecki@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
