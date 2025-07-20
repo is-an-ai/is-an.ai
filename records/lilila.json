@@ -1,0 +1,13 @@
+{
+   "description": "lilila",
+   "owner": {
+      "github_username": "bH5fBSXsRhvEgY2b4G9of",
+      "email": "ClotildeSipes@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
