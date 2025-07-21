@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "cname.ccvt.eu.org"
+      },
+      {
+         "type": "CNAME",
+         "value": "ai-2po.pages.dev"
       }
    ]
 }
