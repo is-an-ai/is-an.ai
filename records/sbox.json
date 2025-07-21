@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "492AqtCPtADnpZ0jaWbrg",
+      "email": "Solenyra@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "989e0c.pages.dev"
+      }
+   ]
+}
