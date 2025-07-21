@@ -1,0 +1,17 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "S-UouIMcD4A5NBaxagvLA",
+      "email": "newqc@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "104.19.140.68"
+      },
+      {
+         "type": "A",
+         "value": "104.18.175.1"
+      }
+   ]
+}
