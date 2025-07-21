@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "cname.dub.co"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=go.828728.is-an.ai,5b9397d95201f533d166"
       }
    ]
 }
