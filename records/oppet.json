@@ -1,0 +1,13 @@
+{
+   "description": "examples",
+   "owner": {
+      "github_username": "cyzmoQGbloxNFEqoSR02z",
+      "email": "Lhrfr3445rg4@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "top.com"
+      }
+   ]
+}
