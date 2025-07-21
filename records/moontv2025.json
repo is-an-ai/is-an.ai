@@ -1,0 +1,13 @@
+{
+   "description": "genestudy",
+   "owner": {
+      "github_username": "i568rwhkD2om_S8NT5FNY",
+      "email": "Tommy V Joyce@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "moontv-cks.pages.dev"
+      }
+   ]
+}
