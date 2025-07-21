@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "y7bdqh32.free.czkcdn.cn"
+         "type": "A",
+         "value": "45.207.199.141"
       }
    ]
 }
