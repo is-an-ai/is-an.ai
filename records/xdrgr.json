@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "NyOWBBEWTp32jOO0KMcCY",
+      "email": "busttomaoroom@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.44.86"
+      }
+   ]
+}
