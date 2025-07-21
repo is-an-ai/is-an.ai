@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
+         "type": "CNAME",
+         "value": "cf1-ayzmgdheatstroke.pages.dev"
       }
    ]
 }
