@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "gk0HEwMAAK2_hynxX4BVU",
+      "email": "Alost@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cosy.dns-dynamic.net"
+      }
+   ]
+}
