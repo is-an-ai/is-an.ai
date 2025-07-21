@@ -1,0 +1,13 @@
+{
+   "description": "개인 페이지",
+   "owner": {
+      "github_username": "NOJ-p0DZfxoYG9okyn04X",
+      "email": "Dohyun Kim@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "google.com"
+      }
+   ]
+}
