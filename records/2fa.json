@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "12.233.22.3"
+         "type": "CNAME",
+         "value": "88b868a9.2fa.is-an.ai.dns.edgeone.app"
       }
    ]
 }
