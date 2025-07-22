@@ -1,0 +1,17 @@
+{
+   "description": "无",
+   "owner": {
+      "github_username": "nz_qxnJgvZdq0stx5bytP",
+      "email": "陈飞鸣@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "ns1.tttttttttt.top"
+      },
+      {
+         "type": "TXT",
+         "value": "ns2.tttttttttt.top"
+      }
+   ]
+}
