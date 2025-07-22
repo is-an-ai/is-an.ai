@@ -1,13 +1,13 @@
 {
-   "description": "A Record",
+   "description": "CNAME Record",
    "owner": {
       "github_username": "lXvOuR4_VcNQACkJxEoDf",
       "email": "豫不琢@noreply.com"
    },
    "record": [
       {
-         "type": "A",
-         "value": "47.236.5.129"
+         "type": "CNAME",
+         "value": "kuvokbdlmime.us-west-1.clawcloudrun.com"
       }
    ]
 }
