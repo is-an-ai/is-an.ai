@@ -1,5 +1,5 @@
 {
-   "description": "",
+   "description": "oci-helper",
    "owner": {
       "github_username": "PG4NycQmdFHUylnXAR2-W",
       "email": "sezhai@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "A",
-         "value": "35.212.141.158"
+         "value": "35.209.66.152"
       }
    ]
 }
