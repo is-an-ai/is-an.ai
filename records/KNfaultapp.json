@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "158.93.29.232"
+         "type": "CNAME",
+         "value": "arguably-robust-poodle.ngrok-free.app"
       }
    ]
 }
