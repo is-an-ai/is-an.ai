@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "122.224.228.73"
+         "type": "CNAME",
+         "value": "ygb-5pl.pages.dev"
       }
    ]
 }
