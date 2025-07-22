@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "z7rA92txa4WXGTUTKDDzz",
+      "email": "ningyi6@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "qrcxykynndcf.ap-southeast-1.clawcloudrun.com"
+      }
+   ]
+}
