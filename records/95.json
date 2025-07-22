@@ -1,0 +1,13 @@
+{
+   "description": "95Live",
+   "owner": {
+      "github_username": "O3dGwEI8hlCFAGYWHMaKh",
+      "email": "isbzx@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "000095.xyz"
+      }
+   ]
+}
