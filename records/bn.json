@@ -1,0 +1,13 @@
+{
+   "description": "nx",
+   "owner": {
+      "github_username": "3X9rCNU4leLhCQ-A9drDc",
+      "email": "xing@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "bn.is-an.ai"
+      }
+   ]
+}
