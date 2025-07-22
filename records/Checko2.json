@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "Checko2.is-an.ai"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
