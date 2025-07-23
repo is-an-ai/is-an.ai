@@ -1,0 +1,13 @@
+{
+   "description": "个人播客",
+   "owner": {
+      "github_username": "8GWmvpaKofqxjWNKxKqxe",
+      "email": "Loongguy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "demo.wuhan.net"
+      }
+   ]
+}
