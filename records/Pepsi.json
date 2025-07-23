@@ -1,0 +1,13 @@
+{
+   "description": "Pepsi",
+   "owner": {
+      "github_username": "hgpqGSQHPHwCmODbaphvI",
+      "email": "Asrnline@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "125.155.15.58"
+      }
+   ]
+}
