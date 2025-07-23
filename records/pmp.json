@@ -1,0 +1,13 @@
+{
+   "description": "解决方案",
+   "owner": {
+      "github_username": "8GWmvpaKofqxjWNKxKqxe",
+      "email": "Loongguy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "demo.pmp.net"
+      }
+   ]
+}
