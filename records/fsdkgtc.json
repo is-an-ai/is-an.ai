@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "J4TnFFzTMg_ev1fQ7f6gd",
+      "email": "wert7h@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "7vspd.pages.dev"
+      }
+   ]
+}
