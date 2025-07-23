@@ -1,0 +1,13 @@
+{
+   "description": "Tesla",
+   "owner": {
+      "github_username": "hgpqGSQHPHwCmODbaphvI",
+      "email": "Asrnline@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "42.02.010.10"
+      }
+   ]
+}
