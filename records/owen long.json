@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "-57JwUUVgxcZ9QpjsV8Mj",
+      "email": "WEIYIlongban@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "6.6.6.6"
+      }
+   ]
+}
