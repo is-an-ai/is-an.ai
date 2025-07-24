@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "atusn1SIx0Y2mDlSUCnot",
+      "email": "pcbean@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
