@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "google-site-verification=AAkgMjI1E1bN-Y6hC6-r8_IhuDGXW0xk2rm81u8nO6M"
+         "type": "A",
+         "value": "162.210.102.231"
       }
    ]
 }
