@@ -1,0 +1,13 @@
+{
+   "description": "works",
+   "owner": {
+      "github_username": "XyhBPsZn99IEMx-giPMT9",
+      "email": "mjhato7@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "0724-muxiang-2.pages.dev"
+      }
+   ]
+}
