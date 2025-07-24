@@ -7,7 +7,11 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "demo.wuhan.net"
+         "value": "cass.ns.cloudflare.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "decker.ns.cloudflare.com"
       }
    ]
 }
