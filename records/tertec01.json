@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "gv-ci3y26b3xbjqgd.dv.googlehosted.com"
+         "type": "TXT",
+         "value": "google-site-verification=dJL2JNT3djFA0Ek-NLpy-koCTE60Lqk2FkkuqkX0N78"
       }
    ]
 }
