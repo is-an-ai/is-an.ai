@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "Y78Pz_JTSBYjTVIrzpS9M",
+      "email": "766187397@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "freepRdBpdKUm.host111.ldvps.com"
+      }
+   ]
+}
