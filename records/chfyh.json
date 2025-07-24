@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "f38cgxdYERJ9BkIAFN2R8",
+      "email": "holleas@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "dgdf.pages.dev"
+      }
+   ]
+}
