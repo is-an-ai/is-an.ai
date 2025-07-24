@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
+         "type": "CNAME",
+         "value": "gv-ci3y26b3xbjqgd.dv.googlehosted.com"
       }
    ]
 }
