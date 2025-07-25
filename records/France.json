@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "it-tools-sudiijrt.cloud.cloudcat.one"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
