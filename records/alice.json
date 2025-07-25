@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cn.biebio.com"
+         "type": "A",
+         "value": "4.246.196.52"
       }
    ]
 }
