@@ -1,0 +1,13 @@
+{
+   "description": "wuliming",
+   "owner": {
+      "github_username": "8xN5LCGIOdsotTnawB07B",
+      "email": "Donald Wu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
