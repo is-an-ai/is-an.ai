@@ -1,13 +1,13 @@
 {
-   "description": "CNAME Record",
+   "description": "A Record",
    "owner": {
       "github_username": "lXvOuR4_VcNQACkJxEoDf",
       "email": "豫不琢@noreply.com"
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cn.biebio.com"
+         "type": "A",
+         "value": "4.246.196.52"
       }
    ]
 }
