@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "smjke.my-place.us"
+      },
+      {
+         "type": "CNAME",
+         "value": "smjke.my-place.us"
       }
    ]
 }
