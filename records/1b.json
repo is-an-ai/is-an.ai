@@ -6,16 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "r6c.dpdns.org"
-      },
-      {
-         "type": "TXT",
-         "value": "9c39756c-f04f-4424-9b24-4c29dad1e3c3 _cf-custom-hostname.1b.is-an.ai"
-      },
-      {
-         "type": "TXT",
-         "value": "-dGhWzs30Aa_LhOuPTyR6e066K5Oh2BYZNAC36H-zo0 _acme-challenge.1b.is-an.ai"
+         "type": "A",
+         "value": "111.173.104.135"
       }
    ]
 }
