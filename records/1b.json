@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "uWNmQgjMe3nIpNkmcdQrN",
+      "email": "kuanghaihang10@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
