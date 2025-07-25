@@ -1,0 +1,13 @@
+{
+   "description": "个人开发的通用后台管理系统\nVue3+ts+vite",
+   "owner": {
+      "github_username": "Y78Pz_JTSBYjTVIrzpS9M",
+      "email": "766187397@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "admin-vue3-ts.pages.dev"
+      }
+   ]
+}
