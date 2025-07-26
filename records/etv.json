@@ -1,0 +1,13 @@
+{
+   "description": "Forum",
+   "owner": {
+      "github_username": "X0C35X9yPgUhioMbg5c2b",
+      "email": "clappgit@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "moontv-bvp.pages.dev"
+      }
+   ]
+}
