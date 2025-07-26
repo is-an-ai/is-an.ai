@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "162.210.102.231"
+         "type": "CNAME",
+         "value": "php-myadmin.net"
       }
    ]
 }
