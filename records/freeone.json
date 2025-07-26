@@ -1,13 +1,13 @@
 {
-   "description": "web",
+   "description": "asdff",
    "owner": {
       "github_username": "AQa9EDRD9V-dMWKazLA7B",
       "email": "liudongxing520@noreply.com"
    },
    "record": [
       {
-         "type": "A",
-         "value": "1.1.1.1"
+         "type": "CNAME",
+         "value": "freexhp.zabc.net"
       }
    ]
 }
