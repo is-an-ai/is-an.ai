@@ -1,0 +1,13 @@
+{
+   "description": "Service Network",
+   "owner": {
+      "github_username": "oIlXweeI7VREK7gIpHu8Q",
+      "email": "Nice@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "c-1.video2060kk.workers.dev"
+      }
+   ]
+}
