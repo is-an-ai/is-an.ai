@@ -1,0 +1,13 @@
+{
+   "description": "science and technology",
+   "owner": {
+      "github_username": "oIlXweeI7VREK7gIpHu8Q",
+      "email": "Nice@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cwoker-2.youlikg65.workers.dev"
+      }
+   ]
+}
