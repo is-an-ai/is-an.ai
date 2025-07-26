@@ -1,0 +1,13 @@
+{
+   "description": "moon tv",
+   "owner": {
+      "github_username": "rcyxh57BxretrzyKq-_Oy",
+      "email": "dragonzzn@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "moontv-dcb.pages.dev"
+      }
+   ]
+}
