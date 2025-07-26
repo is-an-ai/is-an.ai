@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "twL-7Y5K2vVbNWhIWNE_P",
+      "email": "wangjibin111@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "www.baidu.com"
+      }
+   ]
+}
