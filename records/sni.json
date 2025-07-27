@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "lD2MT1DsucFezKtBLg_hI",
+      "email": "JIE@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "hejie.github.io"
+      }
+   ]
+}
