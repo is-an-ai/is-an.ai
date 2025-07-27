@@ -8,14 +8,6 @@
       {
          "type": "A",
          "value": "8.8.8.8"
-      },
-      {
-         "type": "CNAME",
-         "value": "b1d6269b1e1f5c6e.vercel-dns-017.com"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=tv.dyt.is-an.ai,f9b32c1c925dba882c91"
       }
    ]
 }
