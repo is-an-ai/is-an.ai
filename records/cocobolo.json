@@ -1,0 +1,13 @@
+{
+   "description": "my neverland",
+   "owner": {
+      "github_username": "X2X-0rF7IIZeyj3KAi9eL",
+      "email": "Vincent He@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "119.28.71.136"
+      }
+   ]
+}
