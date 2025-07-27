@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "ksdlgbcywxma.cloud.cloudcat.one"
-      },
-      {
          "type": "TXT",
          "value": "vc-domain-verify=un.is-an.ai,4a6f684a98e2690d657c"
       }
