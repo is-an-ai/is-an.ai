@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "https://53f4f04.r16.cpolar.top"
+         "type": "CNAME",
+         "value": "53f4f04.r16.cpolar.top"
       }
    ]
 }
