@@ -1,0 +1,13 @@
+{
+   "description": "Register a web",
+   "owner": {
+      "github_username": "Qg0NTBGt1mlzrnTjYGMMp",
+      "email": "Ice Acsen@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "https://53f4f04.r16.cpolar.top"
+      }
+   ]
+}
