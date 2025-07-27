@@ -1,5 +1,5 @@
 {
-   "description": "",
+   "description": "_vercel",
    "owner": {
       "github_username": "wmNPFvJPwRvJtw8pHV5Eb",
       "email": "zqryv@noreply.com"
@@ -7,7 +7,11 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "69337d0d0fc2240f.vercel-dns-017.com"
+         "value": "ksdlgbcywxma.cloud.cloudcat.one"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=un.is-an.ai,4a6f684a98e2690d657c"
       }
    ]
 }
