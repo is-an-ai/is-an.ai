@@ -1,0 +1,13 @@
+{
+   "description": "develop",
+   "owner": {
+      "github_username": "YZieX_FY6reXwXDBmT7Qt",
+      "email": "Zhe-Ling@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "isall.dpdns.org"
+      }
+   ]
+}
