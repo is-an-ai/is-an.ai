@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
+         "type": "CNAME",
+         "value": "fails-eos-hour-anderson.trycloudflare.com"
       }
    ]
 }
