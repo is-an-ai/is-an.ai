@@ -1,0 +1,13 @@
+{
+   "description": "aab",
+   "owner": {
+      "github_username": "VFjP-VId4H3qc5JCEAwwI",
+      "email": "Zhu Junwei@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
