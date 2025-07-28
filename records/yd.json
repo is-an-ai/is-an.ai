@@ -6,7 +6,7 @@
    },
    "record": [
       {
-         "type": "TXT",
+         "type": "A",
          "value": "38.12.17.164"
       }
    ]
