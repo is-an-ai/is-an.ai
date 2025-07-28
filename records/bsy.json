@@ -1,0 +1,13 @@
+{
+   "description": "bolg",
+   "owner": {
+      "github_username": "U-3DBXbLMTjT0ZMQDllEV",
+      "email": "a1904690835@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
