@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "xUaJEgpgG-yVqACP2UQDg",
+      "email": "fenggege65@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "148.135.114.170"
+      }
+   ]
+}
