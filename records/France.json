@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "it-tools-jqefzmhv.cloud.cloudcat.one"
+         "type": "A",
+         "value": "66.45.252.178"
       }
    ]
 }
