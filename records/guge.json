@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "BsalnE5KmYF52mlWH7qKb",
+      "email": "randomjzy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sdu.ct.ws"
+      }
+   ]
+}
