@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "shuy20250331-40j.pages.dev"
+      },
+      {
+         "type": "A",
+         "value": "1.1.1.1"
       }
    ]
 }
