@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "144.126.134.105"
+         "type": "CNAME",
+         "value": "h105.hubuhost.com"
       }
    ]
 }
