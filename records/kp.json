@@ -12,6 +12,10 @@
       {
          "type": "CNAME",
          "value": "b167010d1be1af31.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=kp.is-an.ai,8c3d54bf160b955cd64e"
       }
    ]
 }
