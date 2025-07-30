@@ -6,8 +6,12 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
+         "type": "CNAME",
+         "value": "0a964a3f59889a5c.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=bug.is-an.ai,bc9c7b1f6b17423999c3"
       }
    ]
 }
