@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "ggg.edusys.news"
+         "type": "A",
+         "value": "69.176.84.28"
       }
    ]
 }
