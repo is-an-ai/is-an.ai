@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "TXT",
-         "value": "v=_dnspodcheck include:31943179a62d6f83cfecc0390835bbe3"
+         "value": "_dnspodcheck"
       }
    ]
 }
