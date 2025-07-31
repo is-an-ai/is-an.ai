@@ -1,0 +1,13 @@
+{
+   "description": "blog-02",
+   "owner": {
+      "github_username": "dTA4po-LY9EQioTo7Luxs",
+      "email": "jidu1872@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
