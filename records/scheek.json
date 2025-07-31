@@ -1,5 +1,5 @@
 {
-   "description": "rafftech-1-yg",
+   "description": "for new",
    "owner": {
       "github_username": "irtrTVqWAo_XT6aGKRiAW",
       "email": "vlovichot@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "A",
-         "value": "135.148.82.236"
+         "value": "1.1.1.1"
       }
    ]
 }
