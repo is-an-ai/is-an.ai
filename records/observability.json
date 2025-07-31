@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "203.133.165.241"
+         "type": "CNAME",
+         "value": "observability.tistory.com"
       }
    ]
 }
