@@ -1,0 +1,13 @@
+{
+   "description": "深圳自己PC",
+   "owner": {
+      "github_username": "hewIYdEJFBBzGHQGfeKuo",
+      "email": "DoLo1234@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "240e:3bb:3454:49d0:21da:efcd:f08c:7c25"
+      }
+   ]
+}
