@@ -1,0 +1,13 @@
+{
+   "description": "For my technical blogs and corpus",
+   "owner": {
+      "github_username": "wu9KHdlM8dM-EcrCk0Yuu",
+      "email": "Asteroidmple@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
