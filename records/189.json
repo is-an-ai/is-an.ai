@@ -1,0 +1,13 @@
+{
+   "description": "电信",
+   "owner": {
+      "github_username": "3ar9GwJd8A73QaqXnulKf",
+      "email": "zzc1234567@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "333888.dpdns.org"
+      }
+   ]
+}
