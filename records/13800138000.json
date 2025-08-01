@@ -1,0 +1,13 @@
+{
+   "description": "china",
+   "owner": {
+      "github_username": "3ar9GwJd8A73QaqXnulKf",
+      "email": "zzc1234567@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "360360.page.dev"
+      }
+   ]
+}
