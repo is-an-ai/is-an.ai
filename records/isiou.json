@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "116.62.58.244"
+         "type": "CNAME",
+         "value": "isiou.top"
       }
    ]
 }
