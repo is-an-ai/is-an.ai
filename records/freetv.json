@@ -1,0 +1,13 @@
+{
+   "description": "libertv",
+   "owner": {
+      "github_username": "h1U9-XKXnYrL1hAfKHKKV",
+      "email": "qinyun@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "melodious-otter-7b80c2.netlify.app"
+      }
+   ]
+}
