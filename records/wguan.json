@@ -1,0 +1,13 @@
+{
+   "description": "My domain used by my selfe",
+   "owner": {
+      "github_username": "ksq9lzMkBW7r2T-9MDmG6",
+      "email": "Guan, Wei@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
