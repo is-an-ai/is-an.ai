@@ -1,0 +1,13 @@
+{
+   "description": "日本机二号",
+   "owner": {
+      "github_username": "-kfqyHX09QEmXQ2F4cMDc",
+      "email": "warptr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "168.138.53.119"
+      }
+   ]
+}
