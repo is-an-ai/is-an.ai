@@ -12,6 +12,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=xn--qei.is-an.ai,b4775e7eb3fddfa49bf6"
+      },
+      {
+         "type": "TXT",
+         "value": "_vercel"
       }
    ]
 }
