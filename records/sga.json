@@ -1,0 +1,13 @@
+{
+   "description": "新加坡一号",
+   "owner": {
+      "github_username": "-kfqyHX09QEmXQ2F4cMDc",
+      "email": "warptr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "138.2.86.92"
+      }
+   ]
+}
