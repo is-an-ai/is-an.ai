@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "3.34.132.61"
+      },
+      {
+         "type": "CNAME",
+         "value": "grrrr-5tw.pages.dev"
       }
    ]
 }
