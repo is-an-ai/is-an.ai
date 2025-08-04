@@ -1,0 +1,13 @@
+{
+   "description": "test",
+   "owner": {
+      "github_username": "tRJLtYvdryrxSB_SDMNRi",
+      "email": "flashzyx83@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "45.77.175.232"
+      }
+   ]
+}
