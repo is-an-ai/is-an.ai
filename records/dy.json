@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "libretv-c4x.pages.dev"
+         "type": "A",
+         "value": "1.1.1.1"
       }
    ]
 }
