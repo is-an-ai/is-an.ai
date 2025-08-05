@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "animo.dedyn.io"
-      },
-      {
          "type": "A",
          "value": "75.2.60.5"
       }
