@@ -16,6 +16,10 @@
       {
          "type": "A",
          "value": "172.66.44.252"
+      },
+      {
+         "type": "CNAME",
+         "value": "tcp.eu-central-1.clawcloudrun.com"
       }
    ]
 }
