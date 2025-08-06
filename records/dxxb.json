@@ -1,0 +1,13 @@
+{
+   "description": "blod or website",
+   "owner": {
+      "github_username": "-xDQgkIeCRMz0kuETTluB",
+      "email": "yexu87@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "abctv.edgeone.app"
+      }
+   ]
+}
