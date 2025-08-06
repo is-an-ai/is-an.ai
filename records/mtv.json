@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "1yeS6V_Z-2FNv0K7xLMlz",
+      "email": "youhun@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ea1797980a32ce35.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=mtv.is-an.ai,50efcfaa8003e805e1cf"
+      }
+   ]
+}
