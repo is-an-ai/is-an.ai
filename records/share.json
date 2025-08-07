@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "154.94.234.183"
+      },
+      {
+         "type": "TXT",
+         "value": "eTDnbQHDRnYR_gYB281-IHCk4TYvRPd9d4xxkJN9diA"
       }
    ]
 }
