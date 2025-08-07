@@ -20,6 +20,10 @@
       {
          "type": "A",
          "value": "185.199.111.153"
+      },
+      {
+         "type": "CNAME",
+         "value": "dim0x.github.io"
       }
    ]
 }
