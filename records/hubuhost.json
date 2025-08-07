@@ -1,0 +1,13 @@
+{
+   "description": "hubuhost",
+   "owner": {
+      "github_username": "MxLJsxmdBx8U36k8t55gN",
+      "email": "CJC86@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "144.126.134.105"
+      }
+   ]
+}
