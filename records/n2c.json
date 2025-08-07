@@ -1,0 +1,13 @@
+{
+   "description": "website test",
+   "owner": {
+      "github_username": "rcL3SLAX-c7-hgiio_vam",
+      "email": "chine2fr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
