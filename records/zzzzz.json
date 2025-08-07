@@ -10,8 +10,8 @@
          "value": "188.114.96.90"
       },
       {
-         "type": "A",
-         "value": "178.236.243.162"
+         "type": "CNAME",
+         "value": "53d27557.indness.pages.dev"
       }
    ]
 }
