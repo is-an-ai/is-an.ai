@@ -6,8 +6,12 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "vc-domain-verify=cyantv.is-an.ai,43b750b1116137873bcb"
+         "type": "CNAME",
+         "value": "ns1.vercel-dns.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "ns2.vercel-dns.com"
       }
    ]
 }
