@@ -1,0 +1,13 @@
+{
+   "description": "科学上网",
+   "owner": {
+      "github_username": "BBGGsl0lvEdFnptw0bhIH",
+      "email": "iosrjk@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "iosrjk.github.io"
+      }
+   ]
+}
