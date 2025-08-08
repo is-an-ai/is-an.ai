@@ -24,6 +24,10 @@
       {
          "type": "CNAME",
          "value": "mao-nav-3n9.pages.dev"
+      },
+      {
+         "type": "CNAME",
+         "value": "mao-nav-3n9.pages.dev"
       }
    ]
 }
