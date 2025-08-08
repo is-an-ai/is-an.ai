@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "8.8.8.8"
+      },
+      {
+         "type": "CNAME",
+         "value": "ddeadc2e9dd41bb2.vercel-dns-017.com"
       }
    ]
 }
