@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "188.114.96.90"
-      },
-      {
          "type": "CNAME",
          "value": "indness.pages.dev"
       }
