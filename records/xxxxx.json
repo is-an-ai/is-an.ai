@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "172.65.90.23"
+         "type": "CNAME",
+         "value": "xxxxx.compassion.pages.dev"
       }
    ]
 }
