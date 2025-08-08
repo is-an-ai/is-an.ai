@@ -1,0 +1,13 @@
+{
+   "description": "Used to connect to my website",
+   "owner": {
+      "github_username": "31R-wvF3vJLSCKR82uElT",
+      "email": "Hawkli0777@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "240e:3a1:2f4:7640:ca48:882:7444:90e8"
+      }
+   ]
+}
