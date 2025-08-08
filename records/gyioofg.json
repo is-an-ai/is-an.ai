@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "facehf.pages.dev"
+         "type": "A",
+         "value": "8.8.5.5"
       }
    ]
 }
