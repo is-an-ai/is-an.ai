@@ -1,0 +1,25 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "u6k3tB97ngBMFx-zKoxHi",
+      "email": "sunjackD@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ns61.cloudns.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "ns62.cloudns.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "ns63.cloudns.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "ns64.cloudns.uk"
+      }
+   ]
+}
