@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "n3Gc-G5C9ngN0WHZSs3yf",
+      "email": "vansthelady@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "youtube.com"
+      }
+   ]
+}
