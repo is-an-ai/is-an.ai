@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "www.google.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "duck.ai"
       }
    ]
 }
