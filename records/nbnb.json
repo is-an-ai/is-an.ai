@@ -12,6 +12,10 @@
       {
          "type": "CNAME",
          "value": "ddeadc2e9dd41bb2.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=nbnb.is-an.ai,3c20cd0acdea50e4cd1f"
       }
    ]
 }
