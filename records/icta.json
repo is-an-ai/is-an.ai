@@ -1,0 +1,17 @@
+{
+   "description": "我的域名",
+   "owner": {
+      "github_username": "1dbRjnPIvf4u9DvI6BY8e",
+      "email": "Kong Qinhui@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "124.156.207.253"
+      },
+      {
+         "type": "AAAA",
+         "value": "240d:c000:f020:500:a2e0:11e4:b82e:0"
+      }
+   ]
+}
