@@ -1,0 +1,13 @@
+{
+   "description": "my coperition site",
+   "owner": {
+      "github_username": "IfY2F1MBzmRYOshkLHM3I",
+      "email": "ah163@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.100.100.10"
+      }
+   ]
+}
