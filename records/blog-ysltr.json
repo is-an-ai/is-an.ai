@@ -1,0 +1,13 @@
+{
+   "description": "ysltr's blog",
+   "owner": {
+      "github_username": "AL5LUyN25wA7YbgbwMFkx",
+      "email": "YsLtr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "afb2d18eba4b5ef8.vercel-dns-017.com"
+      }
+   ]
+}
