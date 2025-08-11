@@ -1,0 +1,13 @@
+{
+   "description": "my blog",
+   "owner": {
+      "github_username": "AL5LUyN25wA7YbgbwMFkx",
+      "email": "YsLtr@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "blog.ysltr.dedyn.io"
+      }
+   ]
+}
