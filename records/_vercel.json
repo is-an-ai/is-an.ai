@@ -1,13 +1,13 @@
 {
-   "description": "vercel 인증용",
+   "description": "in order to verify my blog domain on vercel",
    "owner": {
-      "github_username": "DRW11kU1mMZieFimWzQmV",
-      "email": "Son Hyeon Tae@noreply.com"
+      "github_username": "AL5LUyN25wA7YbgbwMFkx",
+      "email": "YsLtr@noreply.com"
    },
    "record": [
       {
          "type": "TXT",
-         "value": "vc-domain-verify=beautyclip.is-an.ai,617c94bf0d6bb34d8c16"
+         "value": "vc-domain-verify=blog-ysltr.is-an.ai,88ff94107ff3eca666ab"
       }
    ]
 }
