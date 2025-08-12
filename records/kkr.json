@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
-      },
-      {
          "type": "CNAME",
          "value": "kkr.is-an.ai.b29c47a8767b5266.dcv.cloudflare.com"
       },
