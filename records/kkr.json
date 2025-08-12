@@ -1,0 +1,13 @@
+{
+   "description": "read later",
+   "owner": {
+      "github_username": "4p20lSsy_INa28iGZSnZB",
+      "email": "qinguoluo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
