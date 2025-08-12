@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "72KsHFSZlEqaSpBwDzia3",
+      "email": "aloneyun@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "59.174.117.127"
+      }
+   ]
+}
