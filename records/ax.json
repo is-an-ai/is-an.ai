@@ -1,0 +1,13 @@
+{
+   "description": "a",
+   "owner": {
+      "github_username": "72KsHFSZlEqaSpBwDzia3",
+      "email": "aloneyun@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "moontv-6l4.pages.dev"
+      }
+   ]
+}
