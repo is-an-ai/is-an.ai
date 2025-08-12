@@ -12,6 +12,10 @@
       {
          "type": "CNAME",
          "value": "karakeep.qinguo123.com"
+      },
+      {
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
