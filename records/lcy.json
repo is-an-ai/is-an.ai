@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "zQ_JRoEUgUKLQkzBnEd4d",
+      "email": "longcy@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "na-west1.surge.sh"
+      }
+   ]
+}
