@@ -12,6 +12,10 @@
       {
          "type": "CNAME",
          "value": "ns2.hostingem.ru"
+      },
+      {
+         "type": "CNAME",
+         "value": "www.ethought.hostingem.ru"
       }
    ]
 }
