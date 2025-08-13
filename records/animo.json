@@ -7,7 +7,11 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "animo.dedyn.io"
+         "value": "ns1.hostingem.ru"
+      },
+      {
+         "type": "CNAME",
+         "value": "ns2.hostingem.ru"
       }
    ]
 }
