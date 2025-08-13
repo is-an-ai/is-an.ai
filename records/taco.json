@@ -1,0 +1,13 @@
+{
+   "description": "tv",
+   "owner": {
+      "github_username": "pTclItFMadRBXXF4yWxLm",
+      "email": "bbet76-max@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "706c200171cc3d01.vercel-dns-017.com"
+      }
+   ]
+}
