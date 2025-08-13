@@ -1,0 +1,13 @@
+{
+   "description": "AI arena",
+   "owner": {
+      "github_username": "locydw4SEw8LRE11fggnJ",
+      "email": "fzl51@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "lmarena.ai"
+      }
+   ]
+}
