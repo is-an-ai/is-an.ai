@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "sl5QyPYU7ZoXfIowAR8aI",
+      "email": "back4app-12@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "space-hosting.pages.dev"
+      }
+   ]
+}
