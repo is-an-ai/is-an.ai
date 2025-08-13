@@ -1,0 +1,13 @@
+{
+   "description": "xxdn-edgeone-deepseek",
+   "owner": {
+      "github_username": "l0oDnF5ngk9F_ahjgPgi8",
+      "email": "jj-lgtm@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "3bc1714a.xxdn-dp.is-an.ai.dnsoe3.com"
+      }
+   ]
+}
