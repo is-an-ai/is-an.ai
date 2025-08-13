@@ -1,0 +1,13 @@
+{
+   "description": "a super blog with gege",
+   "owner": {
+      "github_username": "8glv2_NKnPrbPbUgLcj23",
+      "email": "xxwudi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "38.22.90.172"
+      }
+   ]
+}
