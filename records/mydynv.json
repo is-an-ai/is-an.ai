@@ -1,0 +1,13 @@
+{
+   "description": "Blog usage",
+   "owner": {
+      "github_username": "DgnMccIaU7RCyhen4_6gU",
+      "email": "goyo123321@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
