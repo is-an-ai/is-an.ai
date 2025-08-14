@@ -1,0 +1,13 @@
+{
+   "description": "ccc",
+   "owner": {
+      "github_username": "XR0LcslG4EzDljxQ7h3vn",
+      "email": "mawenchao8@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
