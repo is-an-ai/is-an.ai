@@ -1,5 +1,5 @@
 {
-   "description": "ai",
+   "description": "blog",
    "owner": {
       "github_username": "XR0LcslG4EzDljxQ7h3vn",
       "email": "mawenchao8@noreply.com"
@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "8.8.8.8"
+      },
+      {
+         "type": "CNAME",
+         "value": "axrjvmjk.sg-members-1.clawcloudrun.com"
       }
    ]
 }
