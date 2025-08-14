@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "square-morning-5f44.kendowu993.workers.dev"
+         "type": "A",
+         "value": "10.2.0.1"
       }
    ]
 }
