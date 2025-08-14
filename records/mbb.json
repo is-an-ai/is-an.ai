@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "2PDXN7uDauFfTAuRFbB-4",
+      "email": "Jorge2577@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "2607:5300:203:2e4e:114:514:1919:8dd"
+      }
+   ]
+}
