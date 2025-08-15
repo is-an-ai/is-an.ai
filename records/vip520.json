@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "45.152.240.26"
+         "type": "CNAME",
+         "value": "thsvachyixpe.us-west-1.clawcloudrun.com"
       }
    ]
 }
