@@ -1,0 +1,21 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "F-_GCsPGysVj7JluOm-Ru",
+      "email": "zstdadi@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      },
+      {
+         "type": "CNAME",
+         "value": "t.co"
+      },
+      {
+         "type": "TXT",
+         "value": "jjj"
+      }
+   ]
+}
