@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "vEe9xbpaXMpn3s14apWkp",
+      "email": "AngelMr8@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "00e97596de1a097f.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=sjtv.is-an.ai,c21ac0c07ac598ecffaa"
+      }
+   ]
+}
