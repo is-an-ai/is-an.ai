@@ -1,13 +1,13 @@
 {
-   "description": "EdgeOne",
+   "description": "EC2",
    "owner": {
       "github_username": "P-NRIrSuR86nbjBtSYLTb",
       "email": "ipaler@noreply.com"
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "fb587d57.kp.is-an.ai.dnsoe3.com"
+         "type": "A",
+         "value": "43.199.67.102"
       }
    ]
 }
