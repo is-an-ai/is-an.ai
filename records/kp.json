@@ -1,21 +1,13 @@
 {
-   "description": "",
+   "description": "EdgeOne",
    "owner": {
       "github_username": "P-NRIrSuR86nbjBtSYLTb",
       "email": "ipaler@noreply.com"
    },
    "record": [
       {
-         "type": "A",
-         "value": "76.76.21.21"
-      },
-      {
          "type": "CNAME",
-         "value": "b167010d1be1af31.vercel-dns-017.com"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=kp.is-an.ai,8c3d54bf160b955cd64e"
+         "value": "fb587d57.kp.is-an.ai.dnsoe3.com"
       }
    ]
 }
