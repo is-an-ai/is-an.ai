@@ -1,0 +1,13 @@
+{
+   "description": "img",
+   "owner": {
+      "github_username": "AmcxG3KFQqC_C1vXKKNxZ",
+      "email": "BenHill-8@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}
