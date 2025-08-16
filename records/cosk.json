@@ -1,0 +1,17 @@
+{
+   "description": "Cosk's AI",
+   "owner": {
+      "github_username": "4ZqXpOg20cpfBKh6fDUcq",
+      "email": "Zyz555444@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "96e98e8c9ee2ad1b.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=cosk.is-an.ai,5ed91589d3e2e045e8ec"
+      }
+   ]
+}
