@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "jiun8631.github.io"
+      },
+      {
+         "type": "A",
+         "value": "185.199.108.153"
       }
    ]
 }
