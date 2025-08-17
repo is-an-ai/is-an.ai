@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "bF3ZlZK7xygwC33zkt7QL",
+      "email": "冷冰冰@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "demo.ruyo.net"
+      }
+   ]
+}
