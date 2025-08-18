@@ -1,0 +1,29 @@
+{
+   "description": "数字法律科学",
+   "owner": {
+      "github_username": "O3s5q4MUIry-zOMMXkzyW",
+      "email": "molihuo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "szflkx.sodl.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "ujflkx.sodl.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "sjf.sodl.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "wlyxxfx.sodl.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "wlfz.sodl.net"
+      }
+   ]
+}
