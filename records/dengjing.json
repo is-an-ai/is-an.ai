@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "kHbxl7vlKTb2Zw4QVJsZL",
+      "email": "pizzama@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "170.106.132.253"
+      }
+   ]
+}
