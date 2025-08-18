@@ -1,0 +1,21 @@
+{
+   "description": "AI善治",
+   "owner": {
+      "github_username": "O3s5q4MUIry-zOMMXkzyW",
+      "email": "molihuo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "awg.aigg.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "awgoaigg.net"
+      },
+      {
+         "type": "CNAME",
+         "value": "moliho.aigg.net"
+      }
+   ]
+}
