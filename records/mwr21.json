@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "mwr21.xyz"
+         "type": "A",
+         "value": "129.154.62.104"
       }
    ]
 }
