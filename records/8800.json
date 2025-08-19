@@ -8,14 +8,6 @@
       {
          "type": "A",
          "value": "110.42.34.156"
-      },
-      {
-         "type": "TXT",
-         "value": "_acme-challenge.8800.is-an.ai"
-      },
-      {
-         "type": "TXT",
-         "value": "nstuJ1WHSQva_h5gYonquD5_EDI1UId3g9lHRhiNHaw"
       }
    ]
 }
