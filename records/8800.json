@@ -8,14 +8,6 @@
       {
          "type": "A",
          "value": "110.42.34.156"
-      },
-      {
-         "type": "CNAME",
-         "value": "1957641123300118528.mfssl.net"
-      },
-      {
-         "type": "TXT",
-         "value": "_acme-challenge.8800.is"
       }
    ]
 }
