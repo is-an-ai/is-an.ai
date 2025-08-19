@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "aoe.zeabur.app"
+         "type": "AAAA",
+         "value": "240e:342:b36b:dc00:60ed:cacd:754b:4789"
       }
    ]
 }
