@@ -1,13 +1,13 @@
 {
-   "description": "EC2",
+   "description": "CNAME",
    "owner": {
       "github_username": "P-NRIrSuR86nbjBtSYLTb",
       "email": "ipaler@noreply.com"
    },
    "record": [
       {
-         "type": "A",
-         "value": "16.162.217.224"
+         "type": "CNAME",
+         "value": "kp.ink"
       }
    ]
 }
