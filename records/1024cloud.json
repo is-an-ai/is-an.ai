@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "23.248.199.150"
+         "type": "CNAME",
+         "value": "hashnode.network"
       }
    ]
 }
