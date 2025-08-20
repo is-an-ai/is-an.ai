@@ -1,0 +1,13 @@
+{
+   "description": "🤖 AI驱动的智能终端助手，自动分析命令错误、提供智能解决方案并教授命令行知 识。具备智能错误检测、交互式学习系统、多AI服务商支持，以及Linux/macOS的无缝Shell集成。",
+   "owner": {
+      "github_username": "GEPnkQ2vfBN8a05ma99or",
+      "email": "Kangvcar@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "kangvcar.github.io"
+      }
+   ]
+}
