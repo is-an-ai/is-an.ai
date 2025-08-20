@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "615233f65c08ace7.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=24.is-an.ai,691773d1d4c32646bf71"
       }
    ]
 }
