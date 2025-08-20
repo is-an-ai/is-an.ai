@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "139.99.23.88"
-      },
-      {
          "type": "CNAME",
          "value": "june.ns.cloudflare.com"
       },
