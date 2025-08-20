@@ -6,12 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "nash.ns.cloudflare.com"
-      },
-      {
-         "type": "CNAME",
-         "value": "zita.ns.cloudflare.com"
+         "type": "A",
+         "value": "139.99.23.88"
       }
    ]
 }
