@@ -1,0 +1,13 @@
+{
+   "description": "lotusvps",
+   "owner": {
+      "github_username": "6m_lDZ8zqBCZdcJfsjjwL",
+      "email": "HG@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "139.99.23.88"
+      }
+   ]
+}
