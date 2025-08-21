@@ -1,0 +1,17 @@
+{
+   "description": "tempEmail",
+   "owner": {
+      "github_username": "UcZf06FHZ0AyCGfBLGIDW",
+      "email": "LiuQZ@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "v=spf1 include:amazonses.com ~all"
+      },
+      {
+         "type": "TXT",
+         "value": "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxWsZkHIN5ts37yTO2ceyrZqZhVU3BXm3BebAWU3IOU5YYF0Y76KY0z7KssRNABEB7ShyAofrjmC7TobeO3adXHFYJUtYBDKJ+lwW9QXW6VBCg9TJibIo2NwZw/u6Waw7uuQO/qucfGixTJv4BKpri+o2QttsuYE5KmjM7Ea0tnQIDAQAB"
+      }
+   ]
+}
