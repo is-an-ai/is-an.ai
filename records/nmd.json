@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "185.50.25.13"
+         "type": "CNAME",
+         "value": "b90947v6.beget.tech"
       }
    ]
 }
