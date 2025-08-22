@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "7bMugRPstbwfAblUO3wmL",
+      "email": "donaldfergus@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "5.5.5.5"
+      }
+   ]
+}
