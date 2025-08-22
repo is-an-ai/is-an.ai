@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "192.151.243.221"
+         "type": "CNAME",
+         "value": "mm.yuncname.com"
       }
    ]
 }
