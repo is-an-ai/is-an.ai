@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "nXqjRMNab0VV8XqtejFwB",
+      "email": "fiammanda@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "webp.se"
+      }
+   ]
+}
