@@ -8,6 +8,14 @@
       {
          "type": "A",
          "value": "8.8.8.8"
+      },
+      {
+         "type": "CNAME",
+         "value": "b5b634a6da753ec2.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=vyv.is-an.ai,21ec5cba472f91fd238c"
       }
    ]
 }
