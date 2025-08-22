@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "J4ees95oHlV2v4olVorOt",
+      "email": "lanxihejianjun-arch@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "nsoxglwphejh.us-west-1.clawcloudrun.com"
+      }
+   ]
+}
