@@ -8,10 +8,6 @@
       {
          "type": "CNAME",
          "value": "vyv7.pages.dev"
-      },
-      {
-         "type": "A",
-         "value": "8.8.8.8"
       }
    ]
 }
