@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cname.short.io"
+         "type": "A",
+         "value": "207.174.61.1"
       }
    ]
 }
