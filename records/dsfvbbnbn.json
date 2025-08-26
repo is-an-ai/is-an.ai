@@ -1,13 +1,13 @@
 {
-   "description": "fgvhvgbhg",
+   "description": "biog",
    "owner": {
       "github_username": "r8-KST0PQiRqhTKeG0Yr_",
       "email": "ghgvnhjhd@noreply.com"
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "chohbmnv.pages.dev"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
