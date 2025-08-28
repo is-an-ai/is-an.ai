@@ -7,10 +7,6 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "mm.yuncname.com"
-      },
-      {
-         "type": "CNAME",
          "value": "kingdom.is-an.ai.eo.dnse4.com"
       }
    ]
