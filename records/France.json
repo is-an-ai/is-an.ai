@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "reclaim-sf4sv2vwztv311ixoaprjhob7qt2bs2a"
+         "type": "A",
+         "value": "104.17.148.22"
       }
    ]
 }
