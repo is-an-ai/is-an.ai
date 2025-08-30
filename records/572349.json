@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
+         "type": "AAAA",
+         "value": "240e:348:4d77:c251:2006:bff:fea8:b3aa"
       }
    ]
 }
