@@ -1,17 +1,13 @@
 {
-   "description": "",
+   "description": "未使用",
    "owner": {
       "github_username": "RAeb5yyiRl2qyJQp4wg5l",
       "email": "kp-ink@noreply.com"
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "0a964a3f59889a5c.vercel-dns-017.com"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=bug.is-an.ai,bc9c7b1f6b17423999c3"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
