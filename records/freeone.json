@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "ssdcjro.pages.dev"
+         "type": "A",
+         "value": "127.0.0.1"
       }
    ]
 }
