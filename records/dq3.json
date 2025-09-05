@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "3812fc80.dq3.is-an.ai.dnsoe3.com"
+         "type": "A",
+         "value": "38.246.245.238"
       }
    ]
 }
