@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "00e97596de1a097f.vercel-dns-017.com"
-      },
-      {
          "type": "TXT",
          "value": "vc-domain-verify=mgyy.is-an.ai,408eb0860fd576481dfc"
       }
