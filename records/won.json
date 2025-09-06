@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "5dc5dc5a.pages.dev"
+      },
+      {
+         "type": "CNAME",
+         "value": "dc5a.pages.dev"
       }
    ]
 }
