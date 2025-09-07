@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "104.244.94.120"
+         "type": "TXT",
+         "value": "vc-domain-verify=ether.is-an.ai,8c372ae729fb1d624550"
       }
    ]
 }
