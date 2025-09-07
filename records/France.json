@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "154.9.26.25"
+         "type": "CNAME",
+         "value": "france.is-an.ai.eo.dnse4.com"
       }
    ]
 }
