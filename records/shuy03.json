@@ -16,10 +16,6 @@
       {
          "type": "A",
          "value": "172.66.44.252"
-      },
-      {
-         "type": "CNAME",
-         "value": "shuy202597.pages.dev"
       }
    ]
 }
