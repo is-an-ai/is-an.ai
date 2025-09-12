@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "35.212.240.201"
+         "type": "CNAME",
+         "value": "c2d82aa271564771.vercel-dns-017.com"
       }
    ]
 }
