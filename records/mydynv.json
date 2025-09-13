@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "172.64.145.87"
+      },
+      {
+         "type": "CNAME",
+         "value": "snipaste-app-tc.pages.dev"
       }
    ]
 }
