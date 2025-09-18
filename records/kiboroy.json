@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "152.32.225.3"
+      },
+      {
+         "type": "CNAME",
+         "value": "kiboroy-github-io.pages.dev"
       }
    ]
 }
