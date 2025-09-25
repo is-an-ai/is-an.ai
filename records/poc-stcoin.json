@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "ec2-43-203-22-216.ap-northeast-2.compute.amazonaws.com"
+         "type": "A",
+         "value": "43.203.22.216"
       }
    ]
 }
