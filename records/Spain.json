@@ -1,13 +1,13 @@
 {
-   "description": "Website",
+   "description": "AI Website",
    "owner": {
       "github_username": "Pf6FxhyVOViaXj40yl8pR",
       "email": "Peter Martin@noreply.com"
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.4.4"
+         "type": "CNAME",
+         "value": "ai-chatbot-starter.edgeone.app"
       }
    ]
 }
