@@ -6,12 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "207.90.251.10"
-      },
-      {
-         "type": "AAAA",
-         "value": "2602:fbf9:0:0:0:0:0:10"
+         "type": "CNAME",
+         "value": "ttspro.osc-fr1.scalingo.io"
       }
    ]
 }
