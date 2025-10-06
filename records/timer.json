@@ -1,13 +1,10 @@
 {
-   "description": "timer with ai",
-   "owner": {
-      "github_username": "sjMmQ1sZ4TEGB7uZxLdCY",
-      "email": "LeeSeongJinCa@noreply.com"
-   },
-   "record": [
-      {
-         "type": "CNAME",
-         "value": "cname.vercel-dns.com"
-      }
-   ]
+  "subdomain": "time",
+  "records": {
+    "A": ["37.187.93.226"],
+    "TXT": [
+      "YovJu1sUotYpoAG8rcd-EPvRQb0-pLHFEYKfgBbLqcs",
+      "eujY02fmqn9Y_sxuVW6z0-r0zNg5tme-BcliUxRI-s4"
+    ]
+  }
 }
