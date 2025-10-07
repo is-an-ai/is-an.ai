@@ -1,13 +1,13 @@
 {
-   "description": "Blog bACKUP",
+   "description": "Presentful",
    "owner": {
       "github_username": "fawtqVeucC9lpXEutDCtW",
       "email": "ilovelty@noreply.com"
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "hashnode.network"
+         "type": "A",
+         "value": "103.43.8.10"
       }
    ]
 }
