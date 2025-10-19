@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "ai-chatbot-starter.edgeone.app"
+         "type": "A",
+         "value": "144.126.134.105"
       }
    ]
 }
