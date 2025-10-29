@@ -1,5 +1,5 @@
 {
-   "description": "",
+   "description": "香港主机",
    "owner": {
       "github_username": "-Fjd6k4GiQ4glDrq2IDh8",
       "email": "beginningjx@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "A",
-         "value": "172.16.80.100"
+         "value": "154.219.108.247"
       }
    ]
 }
