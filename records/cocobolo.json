@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "forever.trainspott.in"
+         "type": "A",
+         "value": "119.28.71.136"
       }
    ]
 }
