@@ -10,8 +10,8 @@
          "value": "154.198.41.137"
       },
       {
-         "type": "CNAME",
-         "value": "c8b6db6e94977caa4acbcb2291e3ac52.cname.letsencrypt.top"
+         "type": "TXT",
+         "value": "qVXpP9U1JsGd0RdADj3ZkE76_0w8VLker7pUKpcamV4"
       }
    ]
 }
