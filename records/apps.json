@@ -12,6 +12,10 @@
       {
          "type": "TXT",
          "value": "qVXpP9U1JsGd0RdADj3ZkE76_0w8VLker7pUKpcamV4"
+      },
+      {
+         "type": "TXT",
+         "value": "_acme-challenge.apps"
       }
    ]
 }
