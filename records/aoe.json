@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "AAAA",
-         "value": "240e:342:b36b:dc00:60ed:cacd:754b:4789"
+         "type": "A",
+         "value": "192.168.1.5"
       }
    ]
 }
