@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "iosrjk.github.io"
+         "type": "A",
+         "value": "8.134.137.255"
       }
    ]
 }
