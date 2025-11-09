@@ -6,10 +6,6 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "shuy20250226-c6m.pages.dev"
-      },
-      {
          "type": "A",
          "value": "1.1.1.1"
       },
