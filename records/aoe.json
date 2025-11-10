@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "192.168.1.5"
+         "type": "CNAME",
+         "value": "yawning-cristen-aoecoe-4915333b.koyeb.app"
       }
    ]
 }
