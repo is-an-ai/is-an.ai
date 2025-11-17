@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "touguy.xyz"
+         "type": "A",
+         "value": "158.179.192.232"
       }
    ]
 }
