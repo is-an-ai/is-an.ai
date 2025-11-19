@@ -16,10 +16,6 @@
       {
          "type": "A",
          "value": "172.66.44.252"
-      },
-      {
-         "type": "CNAME",
-         "value": "cf-bbm-sub.pages.dev"
       }
    ]
 }
