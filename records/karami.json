@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "174.48.1.4"
+      },
+      {
+         "type": "AAAA",
+         "value": "2607:f130:0:1dc:216:3cff:fefc:1e0f"
       }
    ]
 }
