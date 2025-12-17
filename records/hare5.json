@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "211.209.107.200"
+         "type": "CNAME",
+         "value": "killmob.cuppamilk.duckdns.org"
       }
    ]
 }
