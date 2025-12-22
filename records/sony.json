@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "xcllaqcbuswd.sg-members-1.clawcloudrun.com"
+      },
+      {
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
