@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "45.15.10.56"
+         "type": "CNAME",
+         "value": "hk-1.node.fuxsto.cn"
       }
    ]
 }
