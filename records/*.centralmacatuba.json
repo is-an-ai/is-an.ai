@@ -1,0 +1,13 @@
+{
+   "description": "Central Macatuba",
+   "owner": {
+      "github_username": "centralmacatuba",
+      "email": "centralmacatuba@gmail.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "centralmacatuba.eu.org"
+      }
+   ]
+}
