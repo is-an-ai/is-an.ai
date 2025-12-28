@@ -1,13 +1,17 @@
 {
-   "description": "learn nat",
-   "owner": {
-      "github_username": "YwJXvvbPcF4swkK_7u94I",
-      "email": "uffty005@noreply.com"
-   },
-   "record": [
-      {
-         "type": "A",
-         "value": "37.187.93.226"
-      }
-   ]
+  "name": "time",
+  "records": [
+    {
+      "type": "A",
+      "value": "37.187.93.226"
+    },
+    {
+      "type": "TXT",
+      "value": "YovJu1sUotYpoAG8rcd-EPvRQb0-pLHFEYKfgBbLqcs"
+    },
+    {
+      "type": "TXT",
+      "value": "eujY02fmqn9Y_sxuVW6z0-r0zNg5tme-BcliUxRI-s4"
+    }
+  ]
 }
