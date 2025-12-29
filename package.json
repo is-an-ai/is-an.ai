@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "axios": "^1.13.2",
-    "cloudflare": "^4.2.0"
+    "cloudflare": "^4.2.0",
+    "punycode": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/punycode": "^2.1.4"
   }
 }

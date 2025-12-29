@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import axios, { AxiosInstance } from "axios";
+import punycode from "punycode";
 
 // --- PowerDNS API 5.0 Interfaces ---
 // (Based on https://doc.powerdns.com/authoritative/http-api/index.html)
@@ -118,16 +119,15 @@ function getSubdomainFromPath(filePath: string): string {
   const filename = path.basename(filePath, ".json");
   const baseDomainPattern = `.${PDNS_ZONE.slice(0, -1)}`; // ".grrr.site"
 
+  let subdomain = filename;
+
   if (filename.endsWith(baseDomainPattern)) {
-    return filename.slice(0, -baseDomainPattern.length);
+    subdomain = filename.slice(0, -baseDomainPattern.length);
+  } else if (filename === PDNS_ZONE.slice(0, -1)) {
+    subdomain = "@";
   }
 
-  // Apex/Root domain (e.g., "grrr.site.json")
-  if (filename === PDNS_ZONE.slice(0, -1)) {
-    return "@";
-  }
-
-  return filename;
+  return punycode.toASCII(subdomain);
 }
 
 function isMxRecordValue(value: any): value is MxRecordValue {
@@ -162,15 +162,24 @@ function fqdnToSubdomain(fqdn: string): string {
 }
 
 /**
- * 하위 도메인을 FQDN으로 변환합니다.
- * "test" -> "test.grrr.site."
- * "@" -> "grrr.site."
+ * 하위 도메인을 FQDN(Canonical)으로 변환합니다.
+ * 끝에 반드시 점(.)을 붙여 PowerDNS 에러를 방지합니다.
  */
 function subdomainToFqdn(subdomain: string): string {
+  let fqdn;
   if (subdomain === "@") {
-    return PDNS_ZONE;
+    fqdn = PDNS_ZONE;
+  } else {
+    fqdn = `${subdomain}.${PDNS_ZONE}`;
   }
-  return `${subdomain}.${PDNS_ZONE}`;
+
+  // ★ 핵심 수정 1: PowerDNS 요구사항에 맞춰 끝에 점(.)이 없으면 붙임
+  if (!fqdn.endsWith(".")) {
+    fqdn += ".";
+  }
+
+  // ★ 핵심 수정 2: DNS는 대소문자 구분 없음 -> 소문자로 통일
+  return fqdn.toLowerCase();
 }
 
 // --- PowerDNS API Functions (신규 / 대체) ---
