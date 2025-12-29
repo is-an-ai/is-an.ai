@@ -166,6 +166,9 @@ function fqdnToSubdomain(fqdn: string): string {
  * 끝에 반드시 점(.)을 붙여 PowerDNS 에러를 방지합니다.
  */
 function subdomainToFqdn(subdomain: string): string {
+  while (subdomain.startsWith(".")) {
+    subdomain = subdomain.slice(1);
+  }
   let fqdn;
   if (subdomain === "@") {
     fqdn = PDNS_ZONE;
