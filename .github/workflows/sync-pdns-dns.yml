@@ -1,12 +1,9 @@
-name: Sync DNS Records
+name: Sync DNS Records (Full Sync)
 
 on:
-  # main 브랜치에 records 파일이 변경되면 자동 실행
-  push:
-    branches:
-      - main
-    paths:
-      - "records/**.json"
+  # 하루에 한 번 자동 실행 (전체 동기화로 드리프트 감지 및 수정)
+  schedule:
+    - cron: "0 2 * * *" # UTC 기준 매일 오전 2시 (한국시간 오전 11시)
   # 수동 실행도 가능
   workflow_dispatch:
     inputs:

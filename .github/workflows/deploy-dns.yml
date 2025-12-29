@@ -1,11 +1,13 @@
-name: TEST Deploy DNS Records
+name: Deploy DNS Records (Incremental)
 
 on:
+  # main 브랜치에 records 파일이 변경되면 자동 실행 (증분 업데이트)
   push:
     branches:
-      - feat/testing-pdns
+      - main
     paths:
       - "records/**.json"
+  # 수동 실행도 가능
   workflow_dispatch:
 
 jobs:
@@ -41,15 +43,19 @@ jobs:
           cache: "npm"
 
       - name: Install Dependencies
-        run: npm install node-fetch
+        run: npm install axios typescript
 
-      - name: Update DNS via Cloudflare API
+      - name: Compile TypeScript
+        run: npx tsc -p .github/scripts/tsconfig.json
+
+      - name: Update DNS via PowerDNS API
         env:
-          PDNS_API_KEY: ${{secrets.PDNS_API_KEY}}
-          PDNS_API_URL: http://pdns-auth:8081/api/v1
+          PDNS_API_KEY: ${{ secrets.PDNS_API_KEY }}
+          PDNS_API_URL: http://pdns-auth:8081
+          PDNS_ZONE: ${{ secrets.PDNS_ZONE }}
           ADDED_FILES: ${{ steps.changes.outputs.added_files }}
           MODIFIED_FILES: ${{ steps.changes.outputs.modified_files }}
           DELETED_FILES: ${{ steps.changes.outputs.deleted_files }}
           GITHUB_WORKSPACE: ${{ github.workspace }}
-          BASE_DOMAIN: "grrr.site"
         run: node .github/scripts/update-pdns-dns.js
+        timeout-minutes: 5
