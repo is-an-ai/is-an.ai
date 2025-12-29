@@ -170,10 +170,11 @@ function subdomainToFqdn(subdomain: string): string {
     subdomain = subdomain.slice(1);
   }
   let fqdn;
-  if (subdomain === "@") {
-    fqdn = PDNS_ZONE;
+  if (!subdomain || subdomain === "@" || subdomain.trim() === "") {
+    fqdn = PDNS_ZONE; // 예: "grrr.site"
   } else {
-    fqdn = `${subdomain}.${PDNS_ZONE}`;
+    // 3. 내용이 있을 때만 점을 찍고 연결
+    fqdn = `${subdomain}.${PDNS_ZONE}`; // 예: "test.grrr.site"
   }
 
   // ★ 핵심 수정 1: PowerDNS 요구사항에 맞춰 끝에 점(.)이 없으면 붙임
