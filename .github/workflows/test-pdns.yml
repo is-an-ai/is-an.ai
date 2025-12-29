@@ -1,0 +1,69 @@
+name: Test PowerDNS Connection
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: "Test type (list, zone, record)"
+        required: false
+        default: "list"
+        type: choice
+        options:
+          - list
+          - zone
+          - record
+      zone:
+        description: "Zone name (for zone/record test)"
+        required: false
+        type: string
+      subdomain:
+        description: "Subdomain (for record test, use @ for root)"
+        required: false
+        type: string
+      record_type:
+        description: "Record type (A, MX, etc.)"
+        required: false
+        type: string
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install axios typescript
+        env:
+          NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
+
+      - name: Compile TypeScript
+        run: npx tsc -p .github/scripts/tsconfig.json
+        env:
+          NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
+
+      - name: Run PowerDNS Test
+        env:
+          PDNS_API_URL: http://pdns-auth:8081
+          PDNS_API_KEY: ${{ secrets.PDNS_API_KEY }}
+          PDNS_ZONE: ${{ secrets.PDNS_ZONE }}
+          NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
+        timeout-minutes: 5 # 최대 실행 시간 5분 (무한 실행 방지)
+        run: |
+          if [ "${{ github.event.inputs.test_type }}" == "list" ]; then
+            node .github/scripts/test-pdns.js
+          elif [ "${{ github.event.inputs.test_type }}" == "zone" ]; then
+            node .github/scripts/test-pdns.js zone "${{ github.event.inputs.zone }}"
+          elif [ "${{ github.event.inputs.test_type }}" == "record" ]; then
+            if [ -n "${{ secrets.PDNS_ZONE }}" ] && [ -z "${{ github.event.inputs.zone }}" ]; then
+              node .github/scripts/test-pdns.js record "${{ github.event.inputs.subdomain }}" "${{ github.event.inputs.record_type }}"
+            else
+              node .github/scripts/test-pdns.js record "${{ github.event.inputs.zone }}" "${{ github.event.inputs.subdomain }}" "${{ github.event.inputs.record_type }}"
+            fi
+          fi

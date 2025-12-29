@@ -1,33 +1,27 @@
-name: Deploy DNS Records
+name: TEST Deploy DNS Records
 
 on:
   push:
     branches:
-      - main # Or your default branch
+      - feat/testing-pdns
     paths:
-      - "records/**.json" # Be specific about JSON files
-  workflow_dispatch: # Allows manual triggering
+      - "records/**.json"
+  workflow_dispatch:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    # Add permissions for the GITHUB_TOKEN if needed by change detection methods that use the API
-    # permissions:
-    #   contents: read
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        # Fetch depth 2 is needed to diff HEAD with the previous commit (HEAD^)
         with:
           fetch-depth: 2
 
       - name: Identify Changes
         id: changes
         run: |
-          # Ensure we are on the main branch after checkout
           git checkout ${{ github.ref_name }}
 
-          # Get lists of added, modified, deleted files ending in .json within records/
           ADDED_FILES=$(git diff --name-status --diff-filter=A HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
           MODIFIED_FILES=$(git diff --name-status --diff-filter=M HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
           DELETED_FILES=$(git diff --name-status --diff-filter=D HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
@@ -44,21 +38,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm" # Cache dependencies
+          cache: "npm"
 
       - name: Install Dependencies
-        run: npm install cloudflare typescript # Install Cloudflare client and TypeScript
-
-      - name: Compile TypeScript
-        run: npx tsc -p .github/scripts/tsconfig.json
+        run: npm install node-fetch
 
       - name: Update DNS via Cloudflare API
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          PDNS_API_KEY: ${{secrets.PDNS_API_KEY}}
+          PDNS_API_URL: http://pdns-auth:8081/api/v1
           ADDED_FILES: ${{ steps.changes.outputs.added_files }}
           MODIFIED_FILES: ${{ steps.changes.outputs.modified_files }}
           DELETED_FILES: ${{ steps.changes.outputs.deleted_files }}
-          GITHUB_WORKSPACE: ${{ github.workspace }} # Pass workspace path
-          BASE_DOMAIN: "is-an.ai" # Define your base domain here
-        run: node .github/scripts/update-cloudflare-dns.js # Execute the compiled script
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          BASE_DOMAIN: "grrr.site"
+        run: node .github/scripts/update-pdns-dns.js

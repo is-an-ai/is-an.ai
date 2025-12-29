@@ -1,0 +1,73 @@
+name: Sync DNS Records
+
+on:
+  # main 브랜치에 records 파일이 변경되면 자동 실행
+  push:
+    branches:
+      - main
+    paths:
+      - "records/**.json"
+  # 수동 실행도 가능
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Perform a dry run (show changes without applying them)"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  sync:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install axios typescript
+        env:
+          NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
+
+      - name: Compile TypeScript
+        run: npx tsc -p .github/scripts/tsconfig.json
+        env:
+          NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
+
+      - name: Sync DNS Records
+        env:
+          PDNS_API_URL: http://pdns-auth:8081
+          PDNS_API_KEY: ${{ secrets.PDNS_API_KEY }}
+          PDNS_ZONE: ${{ secrets.PDNS_ZONE }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
+        run: node .github/scripts/sync-pdns-dns.js
+        timeout-minutes: 10 # 최대 실행 시간 10분 (무한 실행 방지)
+
+      - name: Create Issue on Sync Failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'DNS Sync Failed - ' + new Date().toISOString().split('T')[0],
+              body: `The scheduled DNS sync failed on ${new Date().toISOString()}.
+              
+              Please check the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.
+              
+              This could indicate:
+              - PowerDNS API issues
+              - Invalid record configurations
+              - Network connectivity problems
+              
+              Manual intervention may be required.`,
+              labels: ['dns', 'sync-failure', 'urgent']
+            })
