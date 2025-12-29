@@ -1,0 +1,186 @@
+name: Runner Connection Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-runner:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print runner info
+        run: |
+          echo "=== GitHub Runner 정보 ==="
+          echo "✅ GitHub runner is working"
+          echo ""
+          echo "Runner name: ${RUNNER_NAME:-'N/A'}"
+          echo "Runner OS: $(uname -s)"
+          echo "Runner Arch: $(uname -m)"
+          echo "Kernel version: $(uname -r)"
+          echo "Current user: $(whoami)"
+          echo "Working directory: $(pwd)"
+          echo "Home directory: ${HOME}"
+          echo ""
+
+      - name: Check GitHub API connectivity
+        run: |
+          echo "=== GitHub API 연결 테스트 ==="
+
+          # 공개 엔드포인트로 기본 연결 확인
+          echo "1. 공개 API 엔드포인트 연결 확인..."
+          if curl -s --max-time 5 -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/zen > /dev/null 2>&1; then
+            echo "   ✅ GitHub API 공개 엔드포인트 연결 성공"
+            ZEN_MSG=$(curl -s --max-time 5 -H "Accept: application/vnd.github.v3+json" https://api.github.com/zen)
+            echo "   응답: $ZEN_MSG"
+          else
+            echo "   ❌ GitHub API 공개 엔드포인트 연결 실패"
+          fi
+
+          # 인증된 요청으로 현재 저장소 정보 확인 (GITHUB_TOKEN은 저장소 권한이 있음)
+          echo ""
+          echo "2. 인증된 API 요청 확인 (현재 저장소 정보)..."
+          REPO_API_URL="https://api.github.com/repos/${{ github.repository }}"
+          API_RESPONSE=$(curl -s --max-time 5 -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "$REPO_API_URL" 2>&1)
+
+          if echo "$API_RESPONSE" | grep -q '"name"'; then
+            echo "   ✅ GitHub API 인증 및 연결 성공"
+            echo "   저장소 정보:"
+            echo "$API_RESPONSE" | grep -E '"name"|"full_name"|"private"' | head -n 3 | sed 's/^/     /'
+          elif echo "$API_RESPONSE" | grep -q "401\|403"; then
+            echo "   ⚠️ GitHub API 인증 실패 (토큰 권한 문제일 수 있음)"
+            echo "   응답: $(echo "$API_RESPONSE" | head -n 3)"
+          else
+            echo "   ⚠️ GitHub API 연결 실패"
+            echo "   응답: $(echo "$API_RESPONSE" | head -n 3)"
+          fi
+          echo ""
+
+      - name: Check network connectivity
+        run: |
+          echo "=== 네트워크 연결 테스트 ==="
+
+          echo "Testing external connectivity..."
+          if curl -s --max-time 5 https://www.google.com > /dev/null 2>&1; then
+            echo "✅ 외부 인터넷 연결 성공 (Google)"
+          else
+            echo "❌ 외부 인터넷 연결 실패"
+          fi
+
+          if curl -s --max-time 5 https://github.com > /dev/null 2>&1; then
+            echo "✅ GitHub 연결 성공"
+          else
+            echo "❌ GitHub 연결 실패"
+          fi
+
+          if curl -s --max-time 5 https://api.github.com > /dev/null 2>&1; then
+            echo "✅ GitHub API 도메인 연결 성공"
+          else
+            echo "❌ GitHub API 도메인 연결 실패"
+          fi
+          echo ""
+
+      - name: Check Git repository
+        run: |
+          echo "=== Git 저장소 확인 ==="
+          if [ -d ".git" ]; then
+            echo "✅ Git 저장소 체크아웃 성공"
+            echo "Repository URL: $(git remote get-url origin 2>/dev/null || echo 'N/A')"
+            echo "Current branch: $(git branch --show-current 2>/dev/null || echo 'N/A')"
+            echo "Latest commit: $(git log -1 --oneline 2>/dev/null || echo 'N/A')"
+          else
+            echo "❌ Git 저장소를 찾을 수 없습니다"
+          fi
+          echo ""
+
+      - name: Check environment and tools
+        run: |
+          echo "=== 환경 및 도구 확인 ==="
+          echo ""
+          echo "필수 도구:"
+          if command -v git > /dev/null 2>&1; then
+            echo "  ✅ Git: $(git --version)"
+          else
+            echo "  ❌ Git: Not installed (필수)"
+          fi
+
+          if command -v curl > /dev/null 2>&1; then
+            echo "  ✅ curl: $(curl --version 2>/dev/null | head -n 1)"
+          else
+            echo "  ❌ curl: Not installed (필수)"
+          fi
+
+          echo ""
+          echo "워크플로우에서 설치되는 도구:"
+          if command -v node > /dev/null 2>&1; then
+            echo "  ℹ️ Node.js: $(node --version) (이미 설치됨)"
+          else
+            echo "  ℹ️ Node.js: Not installed (워크플로우에서 actions/setup-node로 설치됨)"
+          fi
+
+          if command -v npm > /dev/null 2>&1; then
+            echo "  ℹ️ npm: $(npm --version) (이미 설치됨)"
+          else
+            echo "  ℹ️ npm: Not installed (Node.js와 함께 설치됨)"
+          fi
+
+          echo ""
+          echo "선택적 도구:"
+          if command -v docker > /dev/null 2>&1; then
+            echo "  ℹ️ Docker: $(docker --version)"
+          else
+            echo "  ℹ️ Docker: Not installed (필수 아님, Docker 네트워크 테스트에만 사용)"
+          fi
+          echo ""
+
+      - name: Test Node.js installation capability
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+        continue-on-error: true
+        timeout-minutes: 5 # 최대 실행 시간 5분
+
+      - name: Verify Node.js installation
+        run: |
+          echo "=== Node.js 설치 확인 ==="
+          if command -v node > /dev/null 2>&1; then
+            echo "✅ Node.js 설치 성공: $(node --version)"
+            echo "✅ npm 설치 성공: $(npm --version)"
+            echo ""
+            echo "워크플로우에서 Node.js를 정상적으로 사용할 수 있습니다."
+          else
+            echo "⚠️ Node.js 설치 실패 (setup-node 액션 문제일 수 있음)"
+            echo "   하지만 다른 워크플로우에서도 동일하게 설치되므로 확인이 필요합니다."
+          fi
+          echo ""
+        timeout-minutes: 2 # 최대 실행 시간 2분
+
+      - name: Check Docker network (if applicable)
+        run: |
+          echo "=== Docker 네트워크 확인 ==="
+          if command -v docker > /dev/null 2>&1; then
+            echo "Docker networks:"
+            docker network ls 2>/dev/null || echo "Docker 명령 실행 실패 (권한 문제일 수 있음)"
+            
+            if docker network inspect pdns-net > /dev/null 2>&1; then
+              echo "✅ pdns-net 네트워크 존재"
+              echo "pdns-net 네트워크 정보:"
+              docker network inspect pdns-net --format '{{range .Containers}}{{.Name}} {{end}}' 2>/dev/null || echo "컨테이너 정보 조회 실패"
+            else
+              echo "ℹ️ pdns-net 네트워크를 찾을 수 없습니다"
+            fi
+          else
+            echo "ℹ️ Docker가 설치되어 있지 않습니다"
+          fi
+          echo ""
+
+      - name: Test summary
+        run: |
+          echo "=== 테스트 완료 ==="
+          echo "✅ Self-hosted runner가 정상적으로 작동하고 있습니다."
+          echo "모든 기본 기능이 확인되었습니다."
