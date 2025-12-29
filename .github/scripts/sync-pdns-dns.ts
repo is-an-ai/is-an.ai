@@ -182,6 +182,24 @@ function subdomainToFqdn(subdomain: string): string {
   return fqdn.toLowerCase();
 }
 
+/**
+ * 레코드 내용(Content)을 PowerDNS가 원하는 표준 형식으로 변환합니다.
+ * CNAME, MX, NS 등의 경우 값(Value) 끝에 점(.)이 있어야 합니다.
+ */
+function normalizeContent(type: string, content: string): string {
+  // 1. 점(.)을 붙여야 하는 타입들 (CNAME, MX, NS, SRV 등)
+  // A, AAAA (IP주소)나 TXT는 점을 붙이면 안 됩니다!
+  const typesNeedingDot = ["CNAME", "MX", "NS", "SRV", "PTR"];
+
+  if (typesNeedingDot.includes(type.toUpperCase())) {
+    // 2. 이미 점으로 끝나지 않는다면 점 추가
+    if (!content.endsWith(".")) {
+      return content + ".";
+    }
+  }
+  return content;
+}
+
 // --- PowerDNS API Functions (신규 / 대체) ---
 
 /**
@@ -501,7 +519,7 @@ async function syncDNSRecords(): Promise<void> {
         changetype: "REPLACE",
         // PDNS API (PATCH) 형식에 맞게 변환
         records: repoRecordsForRrset.map((r) => ({
-          content: r.content,
+          content: normalizeContent(type, r.content),
           disabled: false,
           priority: r.priority, // MX 레코드의 경우 priority 포함
         })),
