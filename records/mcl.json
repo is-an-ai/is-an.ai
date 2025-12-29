@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "czhang.synology.me"
+         "type": "A",
+         "value": "5.42.158.112"
       }
    ]
 }
