@@ -327,6 +327,12 @@ async function loadAllRepositoryRecords(): Promise<
         );
         continue;
       }
+      if (subdomain !== subdomain.toLowerCase()) {
+        console.warn(
+          `⛔ Skipping '${file}': Filename contains uppercase letters. strict-lowercase policy.`
+        );
+        continue; // 과감하게 무시하고 다음 파일로 넘어갑니다.
+      }
 
       try {
         const fileContent = await fs.readFile(filePath, "utf-8");
