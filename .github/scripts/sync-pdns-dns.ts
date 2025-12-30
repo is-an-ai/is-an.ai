@@ -578,6 +578,20 @@ async function syncDNSRecords(): Promise<void> {
           );
           finalType = "ALIAS";
         }
+        if (finalType === "CNAME" && subdomain !== "@") {
+          // 현재 도메인(subdomain)을 접미사로 가지는 다른 키가 있는지 검사
+          // 예: subdomain="a" 일 때, "b.a", "c.a", "a.a" 등이 있는지 확인
+          const hasChildren = Array.from(repositoryRecordsMap.keys()).some(
+            (otherKey) => otherKey.endsWith("." + subdomain)
+          );
+
+          if (hasChildren) {
+            console.log(
+              `✨ Converting Parent CNAME to ALIAS for ${fqdn} because it has child records.`
+            );
+            finalType = "ALIAS";
+          }
+        }
       }
 
       patchPayload.push({
