@@ -203,9 +203,24 @@ function normalizeContent(type: string, content: string): string {
     }
   }
   if (upperType === "TXT") {
-    if (!content.startsWith('"')) {
-      return `"${content}"`;
+    let cleanContent = content;
+
+    // 만약 "IN TXT" 라는 글자가 포함되어 있다면, 그 뒤에 있는 진짜 내용만 가져옵니다.
+    // 예: "example 3600 IN TXT "value"" -> "value"
+    if (cleanContent.includes(" IN TXT ")) {
+      const parts = cleanContent.split(" IN TXT ");
+      if (parts.length > 1) {
+        cleanContent = parts[1].trim();
+      }
     }
+
+    // 이미 따옴표로 감싸져 있다면, 일단 벗겨냅니다 (중복 따옴표 방지)
+    if (cleanContent.startsWith('"') && cleanContent.endsWith('"')) {
+      cleanContent = cleanContent.slice(1, -1);
+    }
+
+    // 최종적으로 깨끗한 따옴표를 입혀서 반환
+    return `"${cleanContent}"`;
   }
   if (upperType === "A") {
     // 점(.)으로 쪼개서 각 숫자를 정수(Integer)로 변환했다가 다시 합칩니다.
