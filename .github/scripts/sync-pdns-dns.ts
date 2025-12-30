@@ -207,6 +207,17 @@ function normalizeContent(type: string, content: string): string {
       return `"${content}"`;
     }
   }
+  if (upperType === "A") {
+    // 점(.)으로 쪼개서 각 숫자를 정수(Integer)로 변환했다가 다시 합칩니다.
+    // "02" -> 2, "010" -> 10 으로 바뀝니다.
+    // (IPv4 형식인 경우에만 시도)
+    if (content.includes(".") && content.split(".").length === 4) {
+      return content
+        .split(".")
+        .map((octet) => parseInt(octet, 10))
+        .join(".");
+    }
+  }
   return content;
 }
 
