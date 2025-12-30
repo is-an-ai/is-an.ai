@@ -169,6 +169,10 @@ function subdomainToFqdn(subdomain: string): string {
   while (subdomain.startsWith(".")) {
     subdomain = subdomain.slice(1);
   }
+  while (subdomain.endsWith(".")) {
+    subdomain = subdomain.slice(0, -1);
+  }
+
   let fqdn;
   if (!subdomain || subdomain === "@" || subdomain.trim() === "") {
     fqdn = PDNS_ZONE; // 예: "grrr.site"
