@@ -516,10 +516,16 @@ async function syncDNSRecords(): Promise<void> {
     const fqdn = subdomainToFqdn(subdomain);
 
     // 이 RRSet에 대해 Git 저장소에 정의된 최종 레코드 목록
-    const repoRecordsForRrset =
+    let repoRecordsForRrset =
       repositoryRecordsMap.get(subdomain)?.filter((r) => r.type === type) || [];
 
     if (repoRecordsForRrset.length > 0) {
+      if (type === "CNAME" && repoRecordsForRrset.length > 1) {
+        console.warn(
+          `⚠️ Warning: Multiple CNAMEs found for ${fqdn}. Using only the first one.`
+        );
+        repoRecordsForRrset = [repoRecordsForRrset[0]];
+      }
       // Git 저장소에 레코드가 1개 이상 존재: REPLACE
       // (기존 레코드를 모두 지우고 새 레코드로 교체)
       patchPayload.push({
