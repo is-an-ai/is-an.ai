@@ -535,40 +535,69 @@ async function syncDNSRecords(): Promise<void> {
   for (const { subdomain, type } of changedRrsetKeys.values()) {
     const fqdn = subdomainToFqdn(subdomain);
 
-    // 이 RRSet에 대해 Git 저장소에 정의된 최종 레코드 목록
+    // 이 RRSet에 대해 Git 저장소에 정의된 레코드 목록
     let repoRecordsForRrset =
       repositoryRecordsMap.get(subdomain)?.filter((r) => r.type === type) || [];
 
     if (repoRecordsForRrset.length > 0) {
+      // 1. CNAME 중복 방지 (첫 번째만 남김)
       if (type === "CNAME" && repoRecordsForRrset.length > 1) {
         console.warn(
           `⚠️ Warning: Multiple CNAMEs found for ${fqdn}. Using only the first one.`
         );
         repoRecordsForRrset = [repoRecordsForRrset[0]];
       }
-      // Git 저장소에 레코드가 1개 이상 존재: REPLACE
-      // (기존 레코드를 모두 지우고 새 레코드로 교체)
+
+      let finalType = type;
+
+      if (type === "CNAME") {
+        const allRecords = repositoryRecordsMap.get(subdomain) || [];
+
+        const hasIPRecords = allRecords.some(
+          (r) => r.type === "A" || r.type === "AAAA"
+        );
+
+        if (hasIPRecords) {
+          console.warn(
+            `⚠️ Conflict detected for ${fqdn}: CNAME cannot coexist with A/AAAA records. Ignoring CNAME, keeping A/AAAA.`
+          );
+          // 이 CNAME RRSet은 처리하지 않고 건너뜀 (continue)
+          continue;
+        }
+
+        if (fqdn === PDNS_ZONE + "." || fqdn === PDNS_ZONE) {
+          console.log(`✨ Converting Root CNAME to ALIAS for: ${fqdn}`);
+          finalType = "ALIAS";
+        }
+
+        // 다른 레코드(TXT, MX 등)와 섞여있는 CNAME -> ALIAS
+        const hasOtherTypes = allRecords.some((r) => r.type !== "CNAME");
+        if (hasOtherTypes && finalType === "CNAME") {
+          console.log(
+            `✨ Converting CNAME to ALIAS for ${fqdn} to coexist with TXT/MX.`
+          );
+          finalType = "ALIAS";
+        }
+      }
+
       patchPayload.push({
         name: fqdn,
-        type: type,
+        type: finalType,
         ttl: DEFAULT_TTL,
         changetype: "REPLACE",
-        // PDNS API (PATCH) 형식에 맞게 변환
         records: repoRecordsForRrset.map((r) => ({
-          content: normalizeContent(type, r.content),
+          content: normalizeContent(r.type, r.content),
           disabled: false,
-          priority: r.priority, // MX 레코드의 경우 priority 포함
+          priority: r.priority,
         })),
       });
     } else {
-      // Git 저장소에 해당 RRSet 정의가 없음: DELETE
-      // (해당 RRSet 전체 삭제)
       patchPayload.push({
         name: fqdn,
         type: type,
         ttl: DEFAULT_TTL,
         changetype: "DELETE",
-        records: [], // DELETE 시 records는 비어 있어야 함
+        records: [],
       });
     }
   }
