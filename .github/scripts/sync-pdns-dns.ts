@@ -646,8 +646,61 @@ async function syncDNSRecords(): Promise<void> {
     return;
   }
 
-  // 6. 변경 사항 실행
-  const success = await executePdnsPatch(patchPayload);
+  // ---------------------------------------------------------
+  // 6. 변경 사항 실행 (수정됨: 보호 로직 추가)
+  // ---------------------------------------------------------
+
+  // [★ 보호 목록] 절대 자동으로 삭제되면 안 되는 도메인들
+  const PROTECTED_DOMAINS = [
+    "is-an.ai.",
+    "www.is-an.ai.",
+    "ns1.is-an.ai.",
+    "ns2.is-an.ai.",
+    "api.is-an.ai.", // 도메인 등록용 API 서버
+    "docs.is-an.ai.", // 사용 가이드/문서 페이지
+    "status.is-an.ai.", // 서버 상태 페이지 (Uptime)
+    "dashboard.is-an.ai.", // 사용자 관리 대시보드
+    "assets.is-an.ai.", // 이미지/CSS 파일 저장소 (CDN)
+    "_dmarc.is-an.ai.", // DMARC 정책 (메일 보안)
+    "smtp.is-an.ai.", // 메일 발송 서버
+    "mail.is-an.ai.", // 메일 수신 서버
+    "_vercel.is-an.ai.", // Vercel 인증
+    "_domainkey.is-an.ai.", // DKIM 키
+    "_github-challenge-is-an-ai.is-an.ai.",
+  ];
+
+  // 전체 변경 목록(patchPayload) 중에서
+  // "보호된 도메인을 삭제(DELETE)하려는 시도"만 골라서 제거합니다.
+  const finalPayload = patchPayload.filter((item) => {
+    // 1. 이 변경 사항이 보호 목록에 있는 도메인인가?
+    const isProtected = PROTECTED_DOMAINS.includes(item.name);
+
+    // 2. 그리고 그 작업이 '삭제(DELETE)'인가?
+    if (isProtected && item.changetype === "DELETE") {
+      console.log(
+        `🛡️ Protected record detected. Skipping deletion for: ${item.name}`
+      );
+      return false; // 필터링: 이 요청은 전송 목록에서 뺍니다. (살려둠)
+    }
+
+    // 나머지는 통과 (REPLACE거나, 보호 대상이 아닌 경우)
+    return true;
+  });
+
+  // 필터링을 거쳤더니 보낼 게 하나도 없다면? (이미 동기화 완료 상태)
+  if (finalPayload.length === 0) {
+    console.log(
+      "✓ DNS records are already in sync (Protected records were skipped)."
+    );
+    return; // 성공으로 간주하고 종료
+  }
+
+  console.log(
+    `=== Executing PowerDNS PATCH (${finalPayload.length} changes) ===`
+  );
+
+  // [중요] patchPayload 대신, 필터링된 finalPayload를 실행 함수에 넘깁니다.
+  const success = await executePdnsPatch(finalPayload);
 
   if (!success) {
     console.error("✗ DNS sync process failed during PowerDNS PATCH.");
