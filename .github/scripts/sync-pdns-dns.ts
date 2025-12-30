@@ -194,11 +194,17 @@ function normalizeContent(type: string, content: string): string {
   // 1. 점(.)을 붙여야 하는 타입들 (CNAME, MX, NS, SRV 등)
   // A, AAAA (IP주소)나 TXT는 점을 붙이면 안 됩니다!
   const typesNeedingDot = ["CNAME", "MX", "NS", "SRV", "PTR"];
+  const upperType = type.toUpperCase();
 
   if (typesNeedingDot.includes(type.toUpperCase())) {
     // 2. 이미 점으로 끝나지 않는다면 점 추가
     if (!content.endsWith(".")) {
       return content + ".";
+    }
+  }
+  if (upperType === "TXT") {
+    if (!content.startsWith('"')) {
+      return `"${content}"`;
     }
   }
   return content;
