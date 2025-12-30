@@ -336,7 +336,16 @@ async function loadAllRepositoryRecords(): Promise<
 
         for (const recordDef of fileData.record) {
           const type = recordDef.type.toUpperCase();
+          const ipv4Regex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
 
+          if (type === "A" && typeof recordDef.value === "string") {
+            if (!ipv4Regex.test(recordDef.value)) {
+              console.warn(
+                `⚠️ Skipping invalid A record in '${file}': Value '${recordDef.value}' is not a valid IPv4 address.`
+              );
+              continue; // 이 레코드는 무시하고 다음으로 넘어감
+            }
+          }
           if (type === "MX" && isMxRecordValue(recordDef.value)) {
             signatures.push({
               subdomain,
