@@ -166,11 +166,19 @@ function fqdnToSubdomain(fqdn: string): string {
  * 끝에 반드시 점(.)을 붙여 PowerDNS 에러를 방지합니다.
  */
 function subdomainToFqdn(subdomain: string): string {
+  while (subdomain.startsWith(".")) {
+    subdomain = subdomain.slice(1);
+  }
+  while (subdomain.endsWith(".")) {
+    subdomain = subdomain.slice(0, -1);
+  }
+
   let fqdn;
-  if (subdomain === "@") {
-    fqdn = PDNS_ZONE;
+  if (!subdomain || subdomain === "@" || subdomain.trim() === "") {
+    fqdn = PDNS_ZONE; // 예: "grrr.site"
   } else {
-    fqdn = `${subdomain}.${PDNS_ZONE}`;
+    // 3. 내용이 있을 때만 점을 찍고 연결
+    fqdn = `${subdomain}.${PDNS_ZONE}`; // 예: "test.grrr.site"
   }
 
   // ★ 핵심 수정 1: PowerDNS 요구사항에 맞춰 끝에 점(.)이 없으면 붙임
@@ -190,11 +198,43 @@ function normalizeContent(type: string, content: string): string {
   // 1. 점(.)을 붙여야 하는 타입들 (CNAME, MX, NS, SRV 등)
   // A, AAAA (IP주소)나 TXT는 점을 붙이면 안 됩니다!
   const typesNeedingDot = ["CNAME", "MX", "NS", "SRV", "PTR"];
+  const upperType = type.toUpperCase();
 
   if (typesNeedingDot.includes(type.toUpperCase())) {
     // 2. 이미 점으로 끝나지 않는다면 점 추가
     if (!content.endsWith(".")) {
       return content + ".";
+    }
+  }
+  if (upperType === "TXT") {
+    let cleanContent = content;
+
+    // 만약 "IN TXT" 라는 글자가 포함되어 있다면, 그 뒤에 있는 진짜 내용만 가져옵니다.
+    // 예: "example 3600 IN TXT "value"" -> "value"
+    if (cleanContent.includes(" IN TXT ")) {
+      const parts = cleanContent.split(" IN TXT ");
+      if (parts.length > 1) {
+        cleanContent = parts[1].trim();
+      }
+    }
+
+    // 이미 따옴표로 감싸져 있다면, 일단 벗겨냅니다 (중복 따옴표 방지)
+    if (cleanContent.startsWith('"') && cleanContent.endsWith('"')) {
+      cleanContent = cleanContent.slice(1, -1);
+    }
+
+    // 최종적으로 깨끗한 따옴표를 입혀서 반환
+    return `"${cleanContent}"`;
+  }
+  if (upperType === "A") {
+    // 점(.)으로 쪼개서 각 숫자를 정수(Integer)로 변환했다가 다시 합칩니다.
+    // "02" -> 2, "010" -> 10 으로 바뀝니다.
+    // (IPv4 형식인 경우에만 시도)
+    if (content.includes(".") && content.split(".").length === 4) {
+      return content
+        .split(".")
+        .map((octet) => parseInt(octet, 10))
+        .join(".");
     }
   }
   return content;
@@ -306,6 +346,12 @@ async function loadAllRepositoryRecords(): Promise<
         );
         continue;
       }
+      if (subdomain !== subdomain.toLowerCase()) {
+        console.warn(
+          `⛔ Skipping '${file}': Filename contains uppercase letters. strict-lowercase policy.`
+        );
+        continue; // 과감하게 무시하고 다음 파일로 넘어갑니다.
+      }
 
       try {
         const fileContent = await fs.readFile(filePath, "utf-8");
@@ -326,7 +372,16 @@ async function loadAllRepositoryRecords(): Promise<
 
         for (const recordDef of fileData.record) {
           const type = recordDef.type.toUpperCase();
+          const ipv4Regex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
 
+          if (type === "A" && typeof recordDef.value === "string") {
+            if (!ipv4Regex.test(recordDef.value)) {
+              console.warn(
+                `⚠️ Skipping invalid A record in '${file}': Value '${recordDef.value}' is not a valid IPv4 address.`
+              );
+              continue; // 이 레코드는 무시하고 다음으로 넘어감
+            }
+          }
           if (type === "MX" && isMxRecordValue(recordDef.value)) {
             signatures.push({
               subdomain,
@@ -505,34 +560,83 @@ async function syncDNSRecords(): Promise<void> {
   for (const { subdomain, type } of changedRrsetKeys.values()) {
     const fqdn = subdomainToFqdn(subdomain);
 
-    // 이 RRSet에 대해 Git 저장소에 정의된 최종 레코드 목록
-    const repoRecordsForRrset =
+    // 이 RRSet에 대해 Git 저장소에 정의된 레코드 목록
+    let repoRecordsForRrset =
       repositoryRecordsMap.get(subdomain)?.filter((r) => r.type === type) || [];
 
     if (repoRecordsForRrset.length > 0) {
-      // Git 저장소에 레코드가 1개 이상 존재: REPLACE
-      // (기존 레코드를 모두 지우고 새 레코드로 교체)
+      // 1. CNAME 중복 방지 (첫 번째만 남김)
+      if (type === "CNAME" && repoRecordsForRrset.length > 1) {
+        console.warn(
+          `⚠️ Warning: Multiple CNAMEs found for ${fqdn}. Using only the first one.`
+        );
+        repoRecordsForRrset = [repoRecordsForRrset[0]];
+      }
+
+      let finalType = type;
+
+      if (type === "CNAME") {
+        const allRecords = repositoryRecordsMap.get(subdomain) || [];
+
+        const hasIPRecords = allRecords.some(
+          (r) => r.type === "A" || r.type === "AAAA"
+        );
+
+        if (hasIPRecords) {
+          console.warn(
+            `⚠️ Conflict detected for ${fqdn}: CNAME cannot coexist with A/AAAA records. Ignoring CNAME, keeping A/AAAA.`
+          );
+          // 이 CNAME RRSet은 처리하지 않고 건너뜀 (continue)
+          continue;
+        }
+
+        if (fqdn === PDNS_ZONE + "." || fqdn === PDNS_ZONE) {
+          console.log(`✨ Converting Root CNAME to ALIAS for: ${fqdn}`);
+          finalType = "ALIAS";
+        }
+
+        // 다른 레코드(TXT, MX 등)와 섞여있는 CNAME -> ALIAS
+        const hasOtherTypes = allRecords.some((r) => r.type !== "CNAME");
+        if (hasOtherTypes && finalType === "CNAME") {
+          console.log(
+            `✨ Converting CNAME to ALIAS for ${fqdn} to coexist with TXT/MX.`
+          );
+          finalType = "ALIAS";
+        }
+        if (finalType === "CNAME" && subdomain !== "@") {
+          // 현재 도메인(subdomain)을 접미사로 가지는 다른 키가 있는지 검사
+          // 예: subdomain="a" 일 때, "b.a", "c.a", "a.a" 등이 있는지 확인
+          const hasChildren = Array.from(repositoryRecordsMap.keys()).some(
+            (otherKey) => otherKey.endsWith("." + subdomain)
+          );
+
+          if (hasChildren) {
+            console.log(
+              `✨ Converting Parent CNAME to ALIAS for ${fqdn} because it has child records.`
+            );
+            finalType = "ALIAS";
+          }
+        }
+      }
+
       patchPayload.push({
         name: fqdn,
-        type: type,
+        type: finalType,
         ttl: DEFAULT_TTL,
         changetype: "REPLACE",
-        // PDNS API (PATCH) 형식에 맞게 변환
         records: repoRecordsForRrset.map((r) => ({
-          content: normalizeContent(type, r.content),
+          content: normalizeContent(r.type, r.content),
           disabled: false,
-          priority: r.priority, // MX 레코드의 경우 priority 포함
+          priority: r.priority,
         })),
       });
     } else {
-      // Git 저장소에 해당 RRSet 정의가 없음: DELETE
-      // (해당 RRSet 전체 삭제)
       patchPayload.push({
         name: fqdn,
         type: type,
         ttl: DEFAULT_TTL,
         changetype: "DELETE",
-        records: [], // DELETE 시 records는 비어 있어야 함
+        records: [],
       });
     }
   }
