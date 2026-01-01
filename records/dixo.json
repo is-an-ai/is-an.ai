@@ -8,10 +8,6 @@
       {
          "type": "CNAME",
          "value": "0fd8cb19091b4f86.vercel-dns-017.com"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=dixo.is-an.ai,ff889bc80bb041c2b57e"
       }
    ]
 }
