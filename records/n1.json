@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "4XGTq3TRccGxRpeZD0fYx",
+      "email": "alphauniverse@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
