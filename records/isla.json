@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "isla-8st.pages.dev"
+         "type": "A",
+         "value": "103.43.40.53"
       }
    ]
 }
