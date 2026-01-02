@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "103.43.10.53"
+         "type": "CNAME",
+         "value": "isla.twtc.eu.org"
       }
    ]
 }
