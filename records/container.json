@@ -1,5 +1,5 @@
 {
-   "description": "clawcloud rsshub",
+   "description": "clawcloud docker mirror",
    "owner": {
       "github_username": "4XGTq3TRccGxRpeZD0fYx",
       "email": "alphauniverse@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "gxmxwmcbtkun.us-west-1.clawcloudrun.com"
+         "value": "vfsghukrsdta.us-west-1.clawcloudrun.com"
       }
    ]
 }
