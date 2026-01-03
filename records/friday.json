@@ -11,7 +11,7 @@
       },
       {
          "type": "TXT",
-         "value": "vc-domain-verify=friday.is-an.ai,1c52dae7590469f05ecf"
+         "value": "\"vc-domain-verify=friday.is-an.ai,1c52dae7590469f05ecf\""
       }
    ]
 }
