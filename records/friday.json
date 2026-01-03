@@ -1,17 +1,17 @@
 {
-   "description": "my friday ai , like ai voice chatting.",
+   "description": "friday an live voice chatting ai.",
    "owner": {
       "github_username": "coKDWcJmJq5M21BAV9CbM",
-      "email": "•.𝁘 𝛅𝛕⋏᱂𐌺 • ‹𝟹´ˎ˗@noreply.com"
+      "email": "urstarkz@proton.me"
    },
    "record": [
       {
          "type": "CNAME",
-         "value": "61269e5892434702.vercel-dns-017.com"
+         "value": "61269e5892434702.vercel-dns-017.com."
       },
       {
          "type": "TXT",
-         "value": "\"vc-domain-verify=friday.is-an.ai,1c52dae7590469f05ecf\""
+         "value": "vc-domain-verify=friday.is-an.ai,1c52dae7590469f05ecf"
       }
    ]
 }
