@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cloud.eiai.studio"
+         "type": "TXT",
+         "value": "MS=ms22800220"
       }
    ]
 }
