@@ -1,0 +1,13 @@
+{
+   "description": "The Projects From EIAI Studio",
+   "owner": {
+      "github_username": "jicvMdbCuOMdCHJWOzOcs",
+      "email": "DOSEEHER@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cloud.eiai.studio"
+      }
+   ]
+}
