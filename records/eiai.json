@@ -6,12 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "427204f5d232c6d4.vercel-dns-017.com"
-      },
-      {
          "type": "TXT",
-         "value": "vc-domain-verify=eiai.is-an.ai,91f5380abd7e0e534b5c"
+         "value": "MS=ms22800220"
       }
    ]
 }
