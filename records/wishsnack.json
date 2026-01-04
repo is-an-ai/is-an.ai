@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "jinhoe.iptime.org"
+         "type": "A",
+         "value": "61.106.132.238"
       }
    ]
 }
