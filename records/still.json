@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "cloud.eiai.studio"
+         "type": "A",
+         "value": "148.135.42.13"
       }
    ]
 }
