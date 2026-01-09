@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "192.17.1.1"
+         "type": "CNAME",
+         "value": "fengshen.pages.dev"
       }
    ]
 }
