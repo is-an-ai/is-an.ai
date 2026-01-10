@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "192.16.1.1"
+         "type": "CNAME",
+         "value": "hyy-c57.pages.dev"
       }
    ]
 }
