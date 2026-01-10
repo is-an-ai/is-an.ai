@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Rv6eDwVgbjnmcN_j2dy5b",
+      "email": "Wayne@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "waynelxn.netlify.app"
+      }
+   ]
+}
