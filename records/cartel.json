@@ -8,6 +8,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=cartel.is-an.ai,66496c9099c4575986bc"
+      },
+      {
+         "type": "CNAME",
+         "value": "8a7a05e8a538b827.vercel-dns-017.com"
       }
    ]
 }
