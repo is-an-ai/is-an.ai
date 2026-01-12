@@ -1,0 +1,13 @@
+{
+   "description": "博客自用",
+   "owner": {
+      "github_username": "6n8AIEUfsB2jS9n_DpnIV",
+      "email": "KelvenHsu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "kelvenhsu.github.io"
+      }
+   ]
+}
