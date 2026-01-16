@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "f9kq9bNtllD_5eQWsvoCO",
+      "email": "lunaragent@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sjc1.cname.zeabur-dns.com"
+      }
+   ]
+}
