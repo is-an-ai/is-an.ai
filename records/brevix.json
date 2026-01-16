@@ -1,0 +1,13 @@
+{
+   "description": "Brevix web dev",
+   "owner": {
+      "github_username": "nc9AvD-RdmBseqjx2Kple",
+      "email": "Charles Wang@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "brevix.gt.tc"
+      }
+   ]
+}
