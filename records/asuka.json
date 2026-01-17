@@ -1,0 +1,13 @@
+{
+   "description": "nots on daily thoughts",
+   "owner": {
+      "github_username": "WmIlfiKIrvDEmiD15TAuo",
+      "email": "lucasyork233@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
