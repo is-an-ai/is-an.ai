@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "ULrBV53f7Fh5uxa66Jo_y",
+      "email": "LAN Apps Studio@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "example.com"
+      }
+   ]
+}
