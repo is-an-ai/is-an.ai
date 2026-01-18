@@ -1,13 +1,13 @@
 {
-   "description": "",
+   "description": "xai api 테스트용",
    "owner": {
-      "github_username": "-75rjt2Pk8utaBDjs86pU",
-      "email": "Xingjian Du@noreply.com"
+      "github_username": "fz-_76wKtUJEt1_NgM7Rc",
+      "email": "명랑폐인@noreply.com"
    },
    "record": [
       {
          "type": "A",
-         "value": "192.168.1.1"
+         "value": "117.52.155.62"
       }
    ]
 }
