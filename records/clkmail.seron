@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "dohyun-ko",
+      "email": "dohyun@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "mail.r3j3vuah2xui.clerk.services"
+      }
+   ]
+}
