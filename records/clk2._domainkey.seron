@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Priyansxu",
+      "email": "priyansxu@yahoo.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "dkim2.r3j3vuah2xui.clerk.services"
+      }
+   ]
+}
