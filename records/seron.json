@@ -12,6 +12,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=seron.is-an.ai,6865c6134fda0f064193"
+      },
+      {
+         "type": "A",
+         "value": "76.76.21.21"
       }
    ]
 }
