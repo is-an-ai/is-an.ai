@@ -1,0 +1,13 @@
+{
+   "description": "Multi-Model AI platform",
+   "owner": {
+      "github_username": "Priyansxu",
+      "email": "priyansxu@yahoo.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "d67ced51f4050c5b.vercel-dns-017.com"
+      }
+   ]
+}
