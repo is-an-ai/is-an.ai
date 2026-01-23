@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "wKtJe4baZ8kNd0TJTSBs_",
+      "email": "kibo-qe@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "kiboroy-github-io.pages.dev"
+      }
+   ]
+}
