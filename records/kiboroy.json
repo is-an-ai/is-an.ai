@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "kiboroy-github-io.pages.dev"
+         "type": "A",
+         "value": "43.163.219.211"
       }
    ]
 }
