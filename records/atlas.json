@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "atlass11.lovable.dev"
+      },
+      {
+         "type": "A",
+         "value": "185.158.133.1"
       }
    ]
 }
