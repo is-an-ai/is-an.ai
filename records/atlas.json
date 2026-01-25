@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "atlass11.lovable.app"
+      },
+      {
+         "type": "TXT",
+         "value": "lovable_verify=b2060716fbf07af181f31680f2f227bc65bd1445ca9c33a7f2c3f21e4b2c9f35"
       }
    ]
 }
