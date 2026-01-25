@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "hyunu.blog"
+         "value": "blog.hyunu-dev.workers.dev"
       }
    ]
 }
