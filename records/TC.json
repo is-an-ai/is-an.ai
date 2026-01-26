@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "cloudflare-dns.com"
+         "value": "ssl-gal.pages.dev"
       }
    ]
 }
