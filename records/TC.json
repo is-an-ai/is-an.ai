@@ -1,0 +1,13 @@
+{
+   "description": "Shirayuki Noa",
+   "owner": {
+      "github_username": "2ZGVPmU8vSdQxeUkdNnEK",
+      "email": "skguraovo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cloudflare-dns.com"
+      }
+   ]
+}
