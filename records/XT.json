@@ -1,0 +1,13 @@
+{
+   "description": "Tanikaze Amane",
+   "owner": {
+      "github_username": "2ZGVPmU8vSdQxeUkdNnEK",
+      "email": "skguraovo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "singgcdn.singgnetworkcdn.com"
+      }
+   ]
+}
