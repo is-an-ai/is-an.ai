@@ -1,0 +1,20 @@
+{
+   "description": "Vercel domain verification TXT records (auto-managed)",
+   "owner": {
+      "github_username": "is-an-ai-bot",
+      "email": "bot@is-an.ai"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=holiday.is-an.ai,7f9ae28bd85748a25e3f"
+      }
+   ],
+   "_vercel_entries": [
+      {
+         "value": "vc-domain-verify=holiday.is-an.ai,7f9ae28bd85748a25e3f",
+         "owner": "holiday",
+         "github_username": "hsf_rvNo0HtUJVgfAfn3I"
+      }
+   ]
+}
