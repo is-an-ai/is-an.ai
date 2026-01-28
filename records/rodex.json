@@ -8,6 +8,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=rodex.is-an.ai,b7069d6d01428de6b969"
+      },
+      {
+         "type": "TXT",
+         "value": "_vercel.is-an.ai"
       }
    ]
 }
