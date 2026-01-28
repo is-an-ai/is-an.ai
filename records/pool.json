@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "tD_jCTzGo1-zKwS3Tdp8g",
+      "email": "heyaiworks0-crypto@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=pool.is-an.ai,b51ccd8a20f3871af02f"
+      }
+   ]
+}
