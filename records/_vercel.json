@@ -12,6 +12,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=rodex.is-an.ai,b7069d6d01428de6b969"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=seron.is-an.ai,6865c6134fda0f064193"
       }
    ],
    "_vercel_entries": [
@@ -24,6 +28,12 @@
          "value": "vc-domain-verify=rodex.is-an.ai,b7069d6d01428de6b969",
          "owner": "rodex",
          "github_username": "ib37WFggZJlbJGFhK7A9E"
+      },
+      {
+         "value": "vc-domain-verify=seron.is-an.ai,6865c6134fda0f064193"
+         "owner": "seron",
+         "github_username": "Priyansxu"
       }
+      
    ]
 }
