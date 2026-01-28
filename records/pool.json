@@ -12,6 +12,10 @@
       {
          "type": "CNAME",
          "value": "4ec03c9e5ebabfef.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "_vercel.is-an.ai"
       }
    ]
 }
