@@ -8,6 +8,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=holiday.is-an.ai,7f9ae28bd85748a25e3f"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=rodex.is-an.ai,b7069d6d01428de6b969"
       }
    ],
    "_vercel_entries": [
@@ -15,6 +19,11 @@
          "value": "vc-domain-verify=holiday.is-an.ai,7f9ae28bd85748a25e3f",
          "owner": "holiday",
          "github_username": "hsf_rvNo0HtUJVgfAfn3I"
+      },
+      {
+         "value": "vc-domain-verify=rodex.is-an.ai,b7069d6d01428de6b969",
+         "owner": "rodex",
+         "github_username": "ib37WFggZJlbJGFhK7A9E"
       }
    ]
 }
