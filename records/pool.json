@@ -6,16 +6,12 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "vc-domain-verify=pool.is-an.ai,b51ccd8a20f3871af02f"
-      },
-      {
          "type": "CNAME",
          "value": "4ec03c9e5ebabfef.vercel-dns-017.com"
       },
       {
          "type": "TXT",
-         "value": "_vercel.is-an.ai"
+         "value": "vc-domain-verify=pool.is-an.ai,b51ccd8a20f3871af02f"
       }
    ]
 }
