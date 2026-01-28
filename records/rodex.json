@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "ib37WFggZJlbJGFhK7A9E",
+      "email": "(Itz_Me)@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "7dd0bbc32b8512bb.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=rodex.is-an.ai,b7069d6d01428de6b969"
+      }
+   ]
+}
