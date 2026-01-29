@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "ssl-gal.pages.dev"
+      },
+      {
+         "type": "A",
+         "value": "1.1.1.1"
       }
    ]
 }
