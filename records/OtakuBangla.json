@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "ghs.google.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "gv-pfr4et7ko6kqhy.dv.googlehosted.com"
       }
    ]
 }
