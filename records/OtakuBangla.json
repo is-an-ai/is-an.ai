@@ -12,6 +12,10 @@
       {
          "type": "CNAME",
          "value": "gv-pfr4et7ko6kqhy.dv.googlehosted.com"
+      },
+      {
+         "type": "A",
+         "value": "216.239.32.21"
       }
    ]
 }
