@@ -1,0 +1,13 @@
+{
+   "description": "NXLAB",
+   "owner": {
+      "github_username": "A9mDDwsOSdCozFAxUzzSs",
+      "email": "NeuralNexusLab@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "sjc1.cname.zeabur-dns.com"
+      }
+   ]
+}
