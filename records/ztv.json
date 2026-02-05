@@ -1,0 +1,13 @@
+{
+   "description": "moontv 站",
+   "owner": {
+      "github_username": "aV9hG5xjxesofUjyHzMWC",
+      "email": "oyoozv@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "161.33.8.48"
+      }
+   ]
+}
