@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "PiFGGxXtURc2x_CZbM3Mo",
+      "email": "lyrhub@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ksapp.me"
+      }
+   ]
+}
