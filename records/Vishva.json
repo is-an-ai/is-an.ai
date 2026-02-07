@@ -8,6 +8,10 @@
       {
          "type": "A",
          "value": "192.168.1.1"
+      },
+      {
+         "type": "TXT",
+         "value": "dh=d042d6b0dab8a5ecd081e1dd43a0cc954f04a74d"
       }
    ]
 }
