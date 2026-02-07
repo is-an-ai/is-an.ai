@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "gZmUeEH7xZ1aADmaXbUYs",
+      "email": "luckystarsir@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "104.17.56.29"
+      }
+   ]
+}
