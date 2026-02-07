@@ -8,6 +8,14 @@
       {
          "type": "A",
          "value": "198.177.120.96"
+      },
+      {
+         "type": "CNAME",
+         "value": "dns1.namecheaphosting.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "dns2.namecheaphosting.com"
       }
    ]
 }
