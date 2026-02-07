@@ -1,0 +1,13 @@
+{
+   "description": "A proxy server that provides OpenAI/Gemini/Claude/Codex compatible API interfaces for CLI.\nIt now also supports OpenAI Codex (GPT models) and Claude Code via OAuth.",
+   "owner": {
+      "github_username": "lXvOuR4_VcNQACkJxEoDf",
+      "email": "豫不琢@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "xqofgalydrzi.eu-central-1.clawcloudrun.com"
+      }
+   ]
+}
