@@ -24,7 +24,7 @@ jobs:
           node-version: "20"
 
       - name: Install validation tools
-        run: npm install -g ajv-cli
+        run: npm install -g ajv-cli ajv-formats
 
       - name: Get changed files
         id: changed_files
@@ -41,7 +41,7 @@ jobs:
 
           for file in ${{ steps.changed_files.outputs.files }}; do
             echo "Validating $file..."
-            ajv validate -s records/schema.json -d "$file" --errors=text
+            ajv validate -s records/schema.json -d "$file" -c ajv-formats --errors=text
             if [ $? -ne 0 ]; then
               echo "::error file=$file::Validation failed for $file"
               exit 1
