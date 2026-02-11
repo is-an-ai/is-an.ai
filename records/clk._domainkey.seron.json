@@ -1,13 +1,13 @@
 {
    "description": "",
    "owner": {
-      "github_username": "dohyun-ko",
-      "email": "dohyun@noreply.com"
+      "github_username": "Priyansxu",
+      "email": "priyansxu@yahoo.com"
    },
    "record": [
       {
          "type": "CNAME",
-         "value": "dkim1.r3j3vuah2xui.clerk.services"
+         "value": "dkim1.cb92aefrj48x.clerk.services"
       }
    ]
 }
