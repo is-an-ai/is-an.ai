@@ -14,8 +14,8 @@ Register your own `.is-an.ai` subdomain via GitHub Pull Requests.
 
 ## Important Files
 
-- `records/schema.json`: The required format for subdomain record files.
-- `records/example.json`: An example record file.
+- [`records/schema.json`](./records/schema.json): The required format for subdomain record files.
+- [`records/example.json`](./records/schema.json): An example record file.
 
 ## DNS Sync
 
@@ -42,4 +42,4 @@ Report abuse [here](link-to-abuse-reporting-mechanism).
 
 ## License
 
-MIT
+[MIT](./LICENSE)
