@@ -7,11 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "583687bf2ac27aec.vercel-dns-017.com"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=faceless.is-an.ai,cb2ce1ef57fd73e516dd"
+         "value": "fylw01.pages.dev"
       }
    ]
 }
