@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "vc-domain-verify=abhishek.is-an.ai,81cae7cf8e28156a6d91"
+         "type": "A",
+         "value": "76.76.21.21"
       }
    ]
 }
