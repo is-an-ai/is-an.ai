@@ -6,12 +6,12 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "142.171.196.168"
+         "type": "CNAME",
+         "value": "7787a714d42f6ca1.vercel-dns-017.com"
       },
       {
          "type": "TXT",
-         "value": "MS=ms20482233"
+         "value": "vc-domain-verify=hey.is-an.ai,af07805f33483ad0e5dd"
       }
    ]
 }
