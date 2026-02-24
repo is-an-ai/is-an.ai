@@ -24,10 +24,6 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=ayisha.is-an.ai,64bef7b9be4a530aefb8"
-      },
-      {
-         "type": "TXT",
-         "value": "vc-domain-verify=ayisha.is-an.ai,64bef7b9be4a530aefb8"
       }
    ],
    "_vercel_entries": [
@@ -55,11 +51,6 @@
          "value": "vc-domain-verify=ayisha.is-an.ai,64bef7b9be4a530aefb8",
          "owner": "ayisha",
          "github_username": "rHj_Ygkgl0uIbT6bY2X56"
-      },
-      {
-         "value": "vc-domain-verify=ayisha.is-an.ai,64bef7b9be4a530aefb8",
-         "owner": "bori",
-         "github_username": "hsf_rvNo0HtUJVgfAfn3I"
       }
    ]
 }
