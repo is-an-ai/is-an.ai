@@ -9,6 +9,12 @@ on:
       - "records/**.json"
   # 수동 실행도 가능
   workflow_dispatch:
+    inputs:
+      full_sync:
+        description: "전체 동기화 (sync-pdns-dns) - 증분 업데이트 대신 저장소 전체를 PowerDNS에 반영"
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   deploy:
@@ -17,16 +23,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          # push 시 before/after diff를 위해 전체 히스토리 필요 (multi-commit push 대응)
+          fetch-depth: ${{ github.event_name == 'push' && '0' || '2' }}
 
       - name: Identify Changes
         id: changes
+        if: ${{ github.event.inputs.full_sync != 'true' }}
         run: |
           git checkout ${{ github.ref_name }}
 
-          ADDED_FILES=$(git diff --name-status --diff-filter=A HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
-          MODIFIED_FILES=$(git diff --name-status --diff-filter=M HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
-          DELETED_FILES=$(git diff --name-status --diff-filter=D HEAD^ HEAD -- 'records/**.json' | cut -f2 | tr '\n' ' ')
+          # push: before→after 전체 diff (multi-commit push 시 누락 방지)
+          # workflow_dispatch: 마지막 커밋의 변경분
+          if [ "${{ github.event_name }}" = "push" ] && [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "00000000000000000000000000000000000000000000" ]; then
+            DIFF_FROM="${{ github.event.before }}"
+            DIFF_TO="${{ github.event.after }}"
+            echo "Using push diff: $DIFF_FROM..$DIFF_TO"
+          else
+            DIFF_FROM="HEAD^"
+            DIFF_TO="HEAD"
+            echo "Using HEAD^..HEAD diff"
+          fi
+
+          ADDED_FILES=$(git diff --name-status --diff-filter=A "$DIFF_FROM" "$DIFF_TO" -- 'records/**.json' | cut -f2 | tr '\n' ' ')
+          MODIFIED_FILES=$(git diff --name-status --diff-filter=M "$DIFF_FROM" "$DIFF_TO" -- 'records/**.json' | cut -f2 | tr '\n' ' ')
+          DELETED_FILES=$(git diff --name-status --diff-filter=D "$DIFF_FROM" "$DIFF_TO" -- 'records/**.json' | cut -f2 | tr '\n' ' ')
 
           echo "Added: $ADDED_FILES"
           echo "Modified: $MODIFIED_FILES"
@@ -48,7 +68,8 @@ jobs:
       - name: Compile TypeScript
         run: npx tsc -p .github/scripts/tsconfig.json
 
-      - name: Update DNS via PowerDNS API
+      - name: Update DNS via PowerDNS API (Incremental)
+        if: ${{ github.event.inputs.full_sync != 'true' }}
         env:
           PDNS_API_KEY: ${{ secrets.PDNS_API_KEY }}
           PDNS_API_URL: http://pdns-auth:8081
@@ -59,3 +80,15 @@ jobs:
           GITHUB_WORKSPACE: ${{ github.workspace }}
         run: node .github/scripts/update-pdns-dns.js
         timeout-minutes: 5
+
+      - name: Sync DNS Records (Full Sync)
+        if: ${{ github.event.inputs.full_sync == 'true' }}
+        env:
+          PDNS_API_KEY: ${{ secrets.PDNS_API_KEY }}
+          PDNS_API_URL: http://pdns-auth:8081
+          PDNS_ZONE: ${{ secrets.PDNS_ZONE }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          DRY_RUN: "false"
+          NODE_OPTIONS: "--max-old-space-size=512"
+        run: node .github/scripts/sync-pdns-dns.js
+        timeout-minutes: 10
