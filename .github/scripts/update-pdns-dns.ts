@@ -519,7 +519,30 @@ async function processChanges(): Promise<void> {
   const success = await executePdnsPatch(finalPayload);
   if (!success) process.exit(1);
 
+  // 6. NOTIFY 전송 - secondary(HE 등)에 즉시 zone transfer 요청
+  await sendPdnsNotify();
+
   console.log("\n✓ Incremental update completed successfully!");
+}
+
+/**
+ * PowerDNS NOTIFY 전송 - secondary nameserver(HE 등)에 즉시 AXFR 요청을 트리거합니다.
+ * SOA serial 변경만으로는 secondary가 수 시간~하루까지 기다릴 수 있어,
+ * NOTIFY를 보내야 변경 사항이 빠르게 전파됩니다.
+ */
+async function sendPdnsNotify(): Promise<void> {
+  try {
+    await pdnsClient.put(
+      `/api/v1/servers/localhost/zones/${PDNS_ZONE}/notify`
+    );
+    console.log("✓ NOTIFY sent to secondaries (HE 등) - zone 전파 트리거됨");
+  } catch (error: any) {
+    // NOTIFY 실패는 치명적이지 않음 - secondary가 나중에 AXFR로 동기화함
+    console.warn(
+      "⚠️ NOTIFY 전송 실패 (zone은 이미 업데이트됨):",
+      error.response?.data?.error || error.message
+    );
+  }
 }
 
 async function executePdnsPatch(

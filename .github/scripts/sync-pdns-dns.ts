@@ -97,6 +97,7 @@ const DRY_RUN: boolean = process.env.DRY_RUN === "true";
 // Git 저장소에 없더라도 PDNS에서 삭제하지 않고 보호할 하위 도메인 (유지)
 const PROTECTED_SUBDOMAINS = new Set(["@", "www", "ns1", "dev", "blog", "api"]);
 const DEFAULT_TTL = 300; // PDNS에 설정할 기본 TTL
+const SOA_MIN_TTL = 300; // Negative Cache TTL (5분)
 
 // --- PowerDNS API Client (신규) ---
 const pdnsClient: AxiosInstance = axios.create({
@@ -117,13 +118,14 @@ const pdnsClient: AxiosInstance = axios.create({
  */
 function getSubdomainFromPath(filePath: string): string {
   const filename = path.basename(filePath, ".json");
-  const baseDomainPattern = `.${PDNS_ZONE.slice(0, -1)}`; // ".grrr.site"
+  const baseDomain = PDNS_ZONE.replace(/\.$/, ""); // trailing dot 제거
+  const baseDomainPattern = `.${baseDomain}`; // ".is-an.ai"
 
   let subdomain = filename;
 
   if (filename.endsWith(baseDomainPattern)) {
     subdomain = filename.slice(0, -baseDomainPattern.length);
-  } else if (filename === PDNS_ZONE.slice(0, -1)) {
+  } else if (filename === baseDomain) {
     subdomain = "@";
   }
 
@@ -280,6 +282,32 @@ async function fetchAllPdnsRRSets(): Promise<PdnsApiGetRRSet[]> {
       }
     }
     throw error;
+  }
+}
+
+/**
+ * 현재 SOA Serial을 가져옵니다. (없으면 0 반환)
+ */
+async function getCurrentSoaSerial(): Promise<number> {
+  try {
+    const response = await pdnsClient.get(
+      `/api/v1/servers/localhost/zones/${PDNS_ZONE}`
+    );
+    const rrsets: PdnsApiGetRRSet[] = response.data.rrsets || [];
+    const soaRR = rrsets.find((rr) => rr.type === "SOA");
+
+    if (soaRR && soaRR.records.length > 0) {
+      const content = soaRR.records[0].content;
+      // SOA 포맷: ns1.xxx email.xxx SERIAL refresh retry expire min_ttl
+      const parts = content.split(/\s+/);
+      if (parts.length >= 3) {
+        return parseInt(parts[2], 10);
+      }
+    }
+    return 0;
+  } catch (error: unknown) {
+    console.error("Warning: Failed to fetch SOA Serial");
+    return 0;
   }
 }
 
@@ -695,11 +723,55 @@ async function syncDNSRecords(): Promise<void> {
     return; // 성공으로 간주하고 종료
   }
 
+  // [★ 핵심] SOA Serial 스마트 업데이트 - 변경 사항이 있으므로 SOA를 갱신합니다.
+  // PowerDNS가 zone PATCH 시 SOA를 자동으로 올려주는지에 의존하지 않고,
+  // update-pdns-dns.ts와 동일한 로직으로 명시적으로 갱신합니다.
+  console.log("🔄 Calculating new SOA Serial...");
+
+  const currentSerial = await getCurrentSoaSerial();
+  const today = new Date();
+  const YYYY = today.getFullYear();
+  const MM = String(today.getMonth() + 1).padStart(2, "0");
+  const DD = String(today.getDate()).padStart(2, "0");
+  const todayPrefix = parseInt(`${YYYY}${MM}${DD}`, 10);
+
+  let newSerial: number;
+  const currentSerialStr = String(currentSerial);
+
+  if (
+    currentSerialStr.length === 10 &&
+    currentSerialStr.startsWith(`${todayPrefix}`)
+  ) {
+    // 오늘 이미 배포된 적이 있음 -> 기존 값 + 1
+    newSerial = currentSerial + 1;
+    console.log(
+      `📆 Updated existing serial for today: ${currentSerial} -> ${newSerial}`
+    );
+  } else {
+    // 오늘 첫 배포이거나, 형식이 다름 -> 오늘날짜 + 01
+    newSerial = parseInt(`${todayPrefix}01`, 10);
+    console.log(`📆 New serial for today: ${newSerial}`);
+  }
+
+  // SOA 레코드 추가
+  finalPayload.push({
+    name: PDNS_ZONE + ".",
+    type: "SOA",
+    ttl: 3600,
+    changetype: "REPLACE",
+    records: [
+      {
+        content: `ns1.is-an.ai. hostmaster.is-an.ai. ${newSerial} 10800 3600 604800 ${SOA_MIN_TTL}`,
+        disabled: false,
+      },
+    ],
+  });
+
   console.log(
     `=== Executing PowerDNS PATCH (${finalPayload.length} changes) ===`
   );
 
-  // [중요] patchPayload 대신, 필터링된 finalPayload를 실행 함수에 넘깁니다.
+  // [중요] patchPayload 대신, 필터링된 finalPayload + SOA를 실행 함수에 넘깁니다.
   const success = await executePdnsPatch(finalPayload);
 
   if (!success) {
@@ -707,7 +779,29 @@ async function syncDNSRecords(): Promise<void> {
     process.exit(1);
   }
 
+  // NOTIFY 전송 - secondary(HE 등)에 즉시 zone transfer 요청
+  await sendPdnsNotify();
+
   console.log(`\n✓ DNS sync process completed!`);
+}
+
+/**
+ * PowerDNS NOTIFY 전송 - secondary nameserver(HE 등)에 즉시 AXFR 요청을 트리거합니다.
+ */
+async function sendPdnsNotify(): Promise<void> {
+  try {
+    await pdnsClient.put(
+      `/api/v1/servers/localhost/zones/${PDNS_ZONE}/notify`
+    );
+    console.log("✓ NOTIFY sent to secondaries (HE 등) - zone 전파 트리거됨");
+  } catch (error: unknown) {
+    console.warn(
+      "⚠️ NOTIFY 전송 실패 (zone은 이미 업데이트됨):",
+      error && typeof error === "object" && "message" in error
+        ? (error as Error).message
+        : String(error)
+    );
+  }
 }
 
 // --- Main Execution ---
