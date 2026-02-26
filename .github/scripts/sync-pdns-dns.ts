@@ -4,51 +4,33 @@ import axios, { AxiosInstance } from "axios";
 import punycode from "punycode";
 
 // --- PowerDNS API 5.0 Interfaces ---
-// (Based on https://doc.powerdns.com/authoritative/http-api/index.html)
-
-/**
- * PDNS API GET /zones/{zone_id} 응답의 RRSet 내 Record 객체
- * (GET 응답에서는 priority가 content에 포함됩니다)
- */
 interface PdnsApiGetRecord {
   content: string;
   disabled: boolean;
 }
 
-/**
- * PDNS API GET /zones/{zone_id} 응답의 RRSet 객체
- */
 interface PdnsApiGetRRSet {
-  name: string; // FQDN (e.g., "test.grrr.site.")
-  type: string; // "A", "MX", etc.
+  name: string; // FQDN
+  type: string;
   ttl: number;
   records: PdnsApiGetRecord[];
 }
 
-/**
- * PDNS API PATCH /zones/{zone_id} 요청의 Record 객체
- * (PATCH 요청에서는 priority가 별도 필드입니다)
- */
 interface PdnsApiPatchRecord {
   content: string;
   disabled: boolean;
-  priority?: number; // For MX/SRV records
+  priority?: number;
 }
 
-/**
- * PDNS API PATCH /zones/{zone_id} 요청의 RRSet 객체
- */
 interface PdnsApiPatchRRSet {
-  name: string; // FQDN (e.g., "test.grrr.site.")
+  name: string;
   type: string;
-  ttl: number; // TTL (e.g., 300)
+  ttl: number;
   changetype: "REPLACE" | "DELETE";
   records: PdnsApiPatchRecord[];
 }
 
-// --- Repository Record Interfaces (Original) ---
-// Git 저장소의 JSON 파일 구조를 정의합니다. (유지)
-
+// --- Repository Record Interfaces ---
 interface MxRecordValue {
   priority: number;
   exchange: string;
@@ -68,14 +50,11 @@ interface RecordFileContent {
   record: RecordDefinition[];
 }
 
-/**
- * 스크립트 내부에서 상태 비교를 위해 사용하는 표준 형식
- */
 interface RecordSignature {
-  subdomain: string; // "@", "test", "www"
-  type: string; // "A", "MX"
-  content: string; // "1.2.3.4", "mail.example.com."
-  priority?: number; // 10
+  subdomain: string;
+  type: string;
+  content: string;
+  priority?: number;
 }
 
 // --- Environment Variables ---
@@ -94,41 +73,33 @@ const PDNS_ZONE: string = getEnvVariable("PDNS_ZONE");
 const WORKSPACE_PATH: string = getEnvVariable("GITHUB_WORKSPACE");
 const DRY_RUN: boolean = process.env.DRY_RUN === "true";
 
-// Git 저장소에 없더라도 PDNS에서 삭제하지 않고 보호할 하위 도메인 (유지)
+// Git 저장소에 없더라도 PDNS에서 삭제하지 않고 보호할 하위 도메인
 const PROTECTED_SUBDOMAINS = new Set(["@", "www", "ns1", "dev", "blog", "api"]);
 const DEFAULT_TTL = 300; // PDNS에 설정할 기본 TTL
 const SOA_MIN_TTL = 300; // Negative Cache TTL (5분)
 
-// --- PowerDNS API Client (신규) ---
+// --- PowerDNS API Client ---
 const pdnsClient: AxiosInstance = axios.create({
   baseURL: PDNS_API_URL,
   headers: {
     "X-API-Key": PDNS_API_KEY,
     "Content-Type": "application/json",
   },
-  timeout: 30000, // 30초 타임아웃 (무한 대기 방지)
+  timeout: 30000,
 });
 
-// --- Helper Functions (대부분 유지) ---
-
-/**
- * 파일 경로에서 하위 도메인을 추출합니다.
- * "test.grrr.site.json" -> "test"
- * "grrr.site.json" -> "@"
- */
+// --- Helper Functions ---
 function getSubdomainFromPath(filePath: string): string {
   const filename = path.basename(filePath, ".json");
   const baseDomain = PDNS_ZONE.replace(/\.$/, ""); // trailing dot 제거
   const baseDomainPattern = `.${baseDomain}`; // ".is-an.ai"
 
   let subdomain = filename;
-
   if (filename.endsWith(baseDomainPattern)) {
     subdomain = filename.slice(0, -baseDomainPattern.length);
   } else if (filename === baseDomain) {
     subdomain = "@";
   }
-
   return punycode.toASCII(subdomain);
 }
 
@@ -141,9 +112,6 @@ function isMxRecordValue(value: any): value is MxRecordValue {
   );
 }
 
-/**
- * 레코드 비교를 위한 고유 시그니처(키)를 생성합니다. (유지)
- */
 function createRecordSignature(record: RecordSignature): string {
   const { subdomain, type, content, priority } = record;
   return priority !== undefined
@@ -151,11 +119,6 @@ function createRecordSignature(record: RecordSignature): string {
     : `${subdomain}:${type}:${content}`;
 }
 
-/**
- * FQDN을 하위 도메인으로 변환합니다.
- * "test.grrr.site." -> "test"
- * "grrr.site." -> "@"
- */
 function fqdnToSubdomain(fqdn: string): string {
   if (fqdn === PDNS_ZONE) {
     return "@";
@@ -163,10 +126,6 @@ function fqdnToSubdomain(fqdn: string): string {
   return fqdn.replace(`.${PDNS_ZONE}`, "");
 }
 
-/**
- * 하위 도메인을 FQDN(Canonical)으로 변환합니다.
- * 끝에 반드시 점(.)을 붙여 PowerDNS 에러를 방지합니다.
- */
 function subdomainToFqdn(subdomain: string): string {
   while (subdomain.startsWith(".")) {
     subdomain = subdomain.slice(1);
@@ -177,61 +136,40 @@ function subdomainToFqdn(subdomain: string): string {
 
   let fqdn;
   if (!subdomain || subdomain === "@" || subdomain.trim() === "") {
-    fqdn = PDNS_ZONE; // 예: "grrr.site"
+    fqdn = PDNS_ZONE;
   } else {
-    // 3. 내용이 있을 때만 점을 찍고 연결
-    fqdn = `${subdomain}.${PDNS_ZONE}`; // 예: "test.grrr.site"
+    fqdn = `${subdomain}.${PDNS_ZONE}`;
   }
 
-  // ★ 핵심 수정 1: PowerDNS 요구사항에 맞춰 끝에 점(.)이 없으면 붙임
   if (!fqdn.endsWith(".")) {
     fqdn += ".";
   }
-
-  // ★ 핵심 수정 2: DNS는 대소문자 구분 없음 -> 소문자로 통일
   return fqdn.toLowerCase();
 }
 
-/**
- * 레코드 내용(Content)을 PowerDNS가 원하는 표준 형식으로 변환합니다.
- * CNAME, MX, NS 등의 경우 값(Value) 끝에 점(.)이 있어야 합니다.
- */
 function normalizeContent(type: string, content: string): string {
-  // 1. 점(.)을 붙여야 하는 타입들 (CNAME, MX, NS, SRV 등)
-  // A, AAAA (IP주소)나 TXT는 점을 붙이면 안 됩니다!
   const typesNeedingDot = ["CNAME", "MX", "NS", "SRV", "PTR"];
   const upperType = type.toUpperCase();
 
   if (typesNeedingDot.includes(type.toUpperCase())) {
-    // 2. 이미 점으로 끝나지 않는다면 점 추가
     if (!content.endsWith(".")) {
       return content + ".";
     }
   }
   if (upperType === "TXT") {
     let cleanContent = content;
-
-    // 만약 "IN TXT" 라는 글자가 포함되어 있다면, 그 뒤에 있는 진짜 내용만 가져옵니다.
-    // 예: "example 3600 IN TXT "value"" -> "value"
     if (cleanContent.includes(" IN TXT ")) {
       const parts = cleanContent.split(" IN TXT ");
       if (parts.length > 1) {
         cleanContent = parts[1].trim();
       }
     }
-
-    // 이미 따옴표로 감싸져 있다면, 일단 벗겨냅니다 (중복 따옴표 방지)
     if (cleanContent.startsWith('"') && cleanContent.endsWith('"')) {
       cleanContent = cleanContent.slice(1, -1);
     }
-
-    // 최종적으로 깨끗한 따옴표를 입혀서 반환
     return `"${cleanContent}"`;
   }
   if (upperType === "A") {
-    // 점(.)으로 쪼개서 각 숫자를 정수(Integer)로 변환했다가 다시 합칩니다.
-    // "02" -> 2, "010" -> 10 으로 바뀝니다.
-    // (IPv4 형식인 경우에만 시도)
     if (content.includes(".") && content.split(".").length === 4) {
       return content
         .split(".")
@@ -242,28 +180,18 @@ function normalizeContent(type: string, content: string): string {
   return content;
 }
 
-// --- PowerDNS API Functions (신규 / 대체) ---
+// --- PowerDNS API Functions ---
 
-/**
- * PDNS API에서 모든 RRSet을 가져옵니다.
- * (fetchAllCloudflareRecords 대체)
- */
 async function fetchAllPdnsRRSets(): Promise<PdnsApiGetRRSet[]> {
   console.log("Fetching all DNS RRSet from PowerDNS...");
   try {
-    // PDNS 5.0 API: /api/v1/servers/{server_id}/zones/{zone_id}
     const response = await pdnsClient.get(
       `/api/v1/servers/localhost/zones/${PDNS_ZONE}`
     );
-
-    // API 응답에서 rrsets 배열만 반환
     const rrsets: PdnsApiGetRRSet[] = response.data.rrsets || [];
-
-    // SOA, NS 레코드는 이 스크립트로 관리하지 않도록 제외
     const managedRRSets = rrsets.filter(
       (rr) => rr.type !== "SOA" && rr.type !== "NS"
     );
-
     console.log(`Found ${managedRRSets.length} managed RRSets in PowerDNS`);
     return managedRRSets;
   } catch (error: unknown) {
@@ -272,13 +200,11 @@ async function fetchAllPdnsRRSets(): Promise<PdnsApiGetRRSet[]> {
     if (error && typeof error === "object" && axios.isAxiosError(error)) {
       if (error.code === "ECONNABORTED" || error.message.includes("timeout")) {
         console.error("❌ PowerDNS API 요청 타임아웃 (30초 초과)");
-        console.error("   네트워크 연결 또는 PowerDNS 서버 상태를 확인하세요.");
       } else if (error.response) {
         console.error("Response status:", error.response.status);
         console.error("Response data:", error.response.data);
       } else if (error.request) {
         console.error("❌ PowerDNS 서버에 연결할 수 없습니다.");
-        console.error("   서버가 실행 중인지, 네트워크 연결을 확인하세요.");
       }
     }
     throw error;
@@ -325,8 +251,6 @@ function convertPdnsRRSetToSignatures(
     let content = record.content;
     let priority: number | undefined;
 
-    // PDNS (GET)의 MX 레코드는 "10 mail.example.com." 형식입니다.
-    // 이를 파싱하여 priority와 content로 분리합니다.
     if (rrset.type === "MX" && record.content) {
       const parts = record.content.split(" ");
       if (parts.length === 2) {
@@ -344,16 +268,11 @@ function convertPdnsRRSetToSignatures(
   return signatures;
 }
 
-/**
- * Git 저장소의 JSON 파일들을 읽어 Map으로 반환합니다. (유지)
- */
 async function loadAllRepositoryRecords(): Promise<
   Map<string, RecordSignature[]>
 > {
   console.log("Loading all repository records...");
-
   const recordsDir = path.join(WORKSPACE_PATH, "records");
-  // Map<subdomain, RecordSignature[]>
   const recordMap = new Map<string, RecordSignature[]>();
 
   try {
@@ -369,16 +288,14 @@ async function loadAllRepositoryRecords(): Promise<
       const subdomain = getSubdomainFromPath(file);
 
       if (!subdomain) {
-        console.warn(
-          `Could not determine subdomain for file ${file}, skipping`
-        );
+        console.warn(`Could not determine subdomain for file ${file}, skipping`);
         continue;
       }
       if (subdomain !== subdomain.toLowerCase()) {
         console.warn(
           `⛔ Skipping '${file}': Filename contains uppercase letters. strict-lowercase policy.`
         );
-        continue; // 과감하게 무시하고 다음 파일로 넘어갑니다.
+        continue;
       }
 
       try {
@@ -407,7 +324,7 @@ async function loadAllRepositoryRecords(): Promise<
               console.warn(
                 `⚠️ Skipping invalid A record in '${file}': Value '${recordDef.value}' is not a valid IPv4 address.`
               );
-              continue; // 이 레코드는 무시하고 다음으로 넘어감
+              continue;
             }
           }
           if (type === "MX" && isMxRecordValue(recordDef.value)) {
@@ -445,10 +362,6 @@ async function loadAllRepositoryRecords(): Promise<
   }
 }
 
-/**
- * 계산된 변경 사항(RRSet 페이로드)을 PDNS API에 PATCH 요청으로 전송합니다.
- * (createDNSRecord, deleteDNSRecord 대체)
- */
 async function executePdnsPatch(
   payload: PdnsApiPatchRRSet[]
 ): Promise<boolean> {
@@ -462,7 +375,6 @@ async function executePdnsPatch(
   }
 
   try {
-    // PDNS 5.0 API: PATCH /api/v1/servers/{server_id}/zones/{zone_id}
     await pdnsClient.patch(`/api/v1/servers/localhost/zones/${PDNS_ZONE}`, {
       rrsets: payload,
     });
@@ -473,13 +385,11 @@ async function executePdnsPatch(
     if (error && typeof error === "object" && axios.isAxiosError(error)) {
       if (error.code === "ECONNABORTED" || error.message.includes("timeout")) {
         console.error("❌ PowerDNS API 요청 타임아웃 (30초 초과)");
-        console.error("   네트워크 연결 또는 PowerDNS 서버 상태를 확인하세요.");
       } else if (error.response) {
         console.error("Status:", error.response.status);
         console.error("Data:", JSON.stringify(error.response.data, null, 2));
       } else if (error.request) {
         console.error("❌ PowerDNS 서버에 연결할 수 없습니다.");
-        console.error("   서버가 실행 중인지, 네트워크 연결을 확인하세요.");
       }
     } else {
       const message = error instanceof Error ? error.message : String(error);
@@ -489,7 +399,7 @@ async function executePdnsPatch(
   }
 }
 
-// --- Main Sync Logic (수정) ---
+// --- Main Sync Logic (Fixed Order) ---
 
 async function syncDNSRecords(): Promise<void> {
   console.log("=== Starting DNS Sync Process for PowerDNS ===");
@@ -497,11 +407,10 @@ async function syncDNSRecords(): Promise<void> {
   // 1. 양쪽 상태 로드
   const [pdnsRRSets, repositoryRecordsMap] = await Promise.all([
     fetchAllPdnsRRSets(),
-    loadAllRepositoryRecords(), // Map<subdomain, RecordSignature[]>
+    loadAllRepositoryRecords(),
   ]);
 
   // 2. PDNS 상태를 비교 가능한 Map으로 변환
-  // Map<signatureKey, RecordSignature>
   const pdnsSignatures = new Map<string, RecordSignature>();
   for (const rrset of pdnsRRSets) {
     const signatures = convertPdnsRRSetToSignatures(rrset);
@@ -510,10 +419,8 @@ async function syncDNSRecords(): Promise<void> {
     }
   }
 
-  // 3. Git 저장소 상태를 비교 가능한 Map으로 변환
-  // Map<signatureKey, RecordSignature>
+  // 3. Git 저장소 상태 변환 및 변경 키 추적
   const repositorySignatures = new Map<string, RecordSignature>();
-  // Map<"subdomain:type", boolean> (변경이 필요한 RRSet을 추적)
   const changedRrsetKeys = new Map<
     string,
     { subdomain: string; type: string }
@@ -521,10 +428,6 @@ async function syncDNSRecords(): Promise<void> {
 
   for (const [subdomain, records] of repositoryRecordsMap.entries()) {
     for (const record of records) {
-      // 레코드 유효성 검사 (원본 함수 재사용)
-      // const validationError = validateRecordContent(record); // validateRecordContent 함수를 위쪽에 복붙했다면 사용
-      // if (validationError) { ... }
-
       repositorySignatures.set(createRecordSignature(record), record);
       const rrsetKey = `${subdomain}:${record.type}`;
       if (!changedRrsetKeys.has(rrsetKey)) {
@@ -541,17 +444,16 @@ async function syncDNSRecords(): Promise<void> {
   const toDelete: RecordSignature[] = [];
   let protectedCount = 0;
 
-  // 생성: Git에는 있지만 PDNS에는 없는 레코드
+  // 생성 목록
   for (const [key, signature] of repositorySignatures) {
     if (!pdnsSignatures.has(key)) {
       toCreate.push(signature);
     }
   }
 
-  // 삭제: PDNS에는 있지만 Git에는 없는 레코드
+  // 삭제 목록
   for (const [key, signature] of pdnsSignatures) {
     if (!repositorySignatures.has(key)) {
-      // 보호된 하위 도메인인지 확인
       if (PROTECTED_SUBDOMAINS.has(signature.subdomain)) {
         console.log(
           `🛡️ Protecting system subdomain: ${signature.subdomain} (${signature.type})`
@@ -560,7 +462,7 @@ async function syncDNSRecords(): Promise<void> {
         continue;
       }
       toDelete.push(signature);
-      // 삭제할 레코드가 속한 RRSet도 변경 목록에 추가
+
       const rrsetKey = `${signature.subdomain}:${signature.type}`;
       if (!changedRrsetKeys.has(rrsetKey)) {
         changedRrsetKeys.set(rrsetKey, {
@@ -579,21 +481,15 @@ async function syncDNSRecords(): Promise<void> {
   }
 
   // 5. PowerDNS PATCH 페이로드 생성
-  // PDNS는 RRSet 단위로만 작동하므로,
-  // toCreate/toDelete에 레코드가 *하나라도* 포함된 RRSet은
-  // Git 저장소의 상태로 *통째로* 덮어써야(REPLACE) 합니다.
-
   const patchPayload: PdnsApiPatchRRSet[] = [];
 
   for (const { subdomain, type } of changedRrsetKeys.values()) {
     const fqdn = subdomainToFqdn(subdomain);
-
-    // 이 RRSet에 대해 Git 저장소에 정의된 레코드 목록
     let repoRecordsForRrset =
       repositoryRecordsMap.get(subdomain)?.filter((r) => r.type === type) || [];
 
     if (repoRecordsForRrset.length > 0) {
-      // 1. CNAME 중복 방지 (첫 번째만 남김)
+      // --- REPLACE 로직 ---
       if (type === "CNAME" && repoRecordsForRrset.length > 1) {
         console.warn(
           `⚠️ Warning: Multiple CNAMEs found for ${fqdn}. Using only the first one.`
@@ -602,48 +498,26 @@ async function syncDNSRecords(): Promise<void> {
       }
 
       let finalType = type;
-
       if (type === "CNAME") {
         const allRecords = repositoryRecordsMap.get(subdomain) || [];
-
         const hasIPRecords = allRecords.some(
           (r) => r.type === "A" || r.type === "AAAA"
         );
 
         if (hasIPRecords) {
           console.warn(
-            `⚠️ Conflict detected for ${fqdn}: CNAME cannot coexist with A/AAAA records. Ignoring CNAME, keeping A/AAAA.`
+            `⚠️ Conflict: CNAME cannot coexist with A/AAAA. Ignoring CNAME.`
           );
-          // 이 CNAME RRSet은 처리하지 않고 건너뜀 (continue)
           continue;
         }
-
-        if (fqdn === PDNS_ZONE + "." || fqdn === PDNS_ZONE) {
-          console.log(`✨ Converting Root CNAME to ALIAS for: ${fqdn}`);
-          finalType = "ALIAS";
-        }
-
-        // 다른 레코드(TXT, MX 등)와 섞여있는 CNAME -> ALIAS
+        if (fqdn === PDNS_ZONE + "." || fqdn === PDNS_ZONE) finalType = "ALIAS";
         const hasOtherTypes = allRecords.some((r) => r.type !== "CNAME");
-        if (hasOtherTypes && finalType === "CNAME") {
-          console.log(
-            `✨ Converting CNAME to ALIAS for ${fqdn} to coexist with TXT/MX.`
-          );
-          finalType = "ALIAS";
-        }
+        if (hasOtherTypes && finalType === "CNAME") finalType = "ALIAS";
         if (finalType === "CNAME" && subdomain !== "@") {
-          // 현재 도메인(subdomain)을 접미사로 가지는 다른 키가 있는지 검사
-          // 예: subdomain="a" 일 때, "b.a", "c.a", "a.a" 등이 있는지 확인
           const hasChildren = Array.from(repositoryRecordsMap.keys()).some(
             (otherKey) => otherKey.endsWith("." + subdomain)
           );
-
-          if (hasChildren) {
-            console.log(
-              `✨ Converting Parent CNAME to ALIAS for ${fqdn} because it has child records.`
-            );
-            finalType = "ALIAS";
-          }
+          if (hasChildren) finalType = "ALIAS";
         }
       }
 
@@ -659,6 +533,7 @@ async function syncDNSRecords(): Promise<void> {
         })),
       });
     } else {
+      // --- DELETE 로직 ---
       patchPayload.push({
         name: fqdn,
         type: type,
@@ -675,52 +550,50 @@ async function syncDNSRecords(): Promise<void> {
   }
 
   // ---------------------------------------------------------
-  // 6. 변경 사항 실행 (수정됨: 보호 로직 추가)
+  // [★ 핵심 수정] 페이로드 정렬: DELETE가 REPLACE보다 먼저 오도록 함
   // ---------------------------------------------------------
+  patchPayload.sort((a, b) => {
+    // DELETE(-1)가 REPLACE(1)보다 앞으로 옴
+    if (a.changetype === "DELETE" && b.changetype !== "DELETE") return -1;
+    if (a.changetype !== "DELETE" && b.changetype === "DELETE") return 1;
+    return 0;
+  });
 
-  // [★ 보호 목록] 절대 자동으로 삭제되면 안 되는 도메인들
+  // 6. 변경 사항 실행 (보호 로직 포함)
   const PROTECTED_DOMAINS = [
     "is-an.ai.",
     "www.is-an.ai.",
     "ns1.is-an.ai.",
     "ns2.is-an.ai.",
-    "api.is-an.ai.", // 도메인 등록용 API 서버
-    "docs.is-an.ai.", // 사용 가이드/문서 페이지
-    "status.is-an.ai.", // 서버 상태 페이지 (Uptime)
-    "dashboard.is-an.ai.", // 사용자 관리 대시보드
-    "assets.is-an.ai.", // 이미지/CSS 파일 저장소 (CDN)
-    "_dmarc.is-an.ai.", // DMARC 정책 (메일 보안)
-    "smtp.is-an.ai.", // 메일 발송 서버
-    "mail.is-an.ai.", // 메일 수신 서버
-    "_vercel.is-an.ai.", // Vercel 인증
-    "_domainkey.is-an.ai.", // DKIM 키
+    "api.is-an.ai.",
+    "docs.is-an.ai.",
+    "status.is-an.ai.",
+    "dashboard.is-an.ai.",
+    "assets.is-an.ai.",
+    "_dmarc.is-an.ai.",
+    "smtp.is-an.ai.",
+    "mail.is-an.ai.",
+    "_vercel.is-an.ai.",
+    "_domainkey.is-an.ai.",
     "_github-challenge-is-an-ai.is-an.ai.",
   ];
 
-  // 전체 변경 목록(patchPayload) 중에서
-  // "보호된 도메인을 삭제(DELETE)하려는 시도"만 골라서 제거합니다.
   const finalPayload = patchPayload.filter((item) => {
-    // 1. 이 변경 사항이 보호 목록에 있는 도메인인가?
     const isProtected = PROTECTED_DOMAINS.includes(item.name);
-
-    // 2. 그리고 그 작업이 '삭제(DELETE)'인가?
     if (isProtected && item.changetype === "DELETE") {
       console.log(
         `🛡️ Protected record detected. Skipping deletion for: ${item.name}`
       );
-      return false; // 필터링: 이 요청은 전송 목록에서 뺍니다. (살려둠)
+      return false;
     }
-
-    // 나머지는 통과 (REPLACE거나, 보호 대상이 아닌 경우)
     return true;
   });
 
-  // 필터링을 거쳤더니 보낼 게 하나도 없다면? (이미 동기화 완료 상태)
   if (finalPayload.length === 0) {
     console.log(
       "✓ DNS records are already in sync (Protected records were skipped)."
     );
-    return; // 성공으로 간주하고 종료
+    return;
   }
 
   // [★ 핵심] SOA Serial 스마트 업데이트 - 변경 사항이 있으므로 SOA를 갱신합니다.
@@ -816,6 +689,5 @@ syncDNSRecords()
     if (err instanceof Error && err.stack) {
       console.error("Stack trace:", err.stack);
     }
-    // 에러 발생 시에도 정상적으로 종료 (exit code 1)
     process.exit(1);
   });

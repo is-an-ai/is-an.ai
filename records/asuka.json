@@ -1,0 +1,13 @@
+{
+   "description": "daily thoughts",
+   "owner": {
+      "github_username": "WmIlfiKIrvDEmiD15TAuo",
+      "email": "lucasyork233@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "asuka-portal.pages.dev"
+      }
+   ]
+}

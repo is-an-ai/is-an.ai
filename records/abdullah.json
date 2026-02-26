@@ -6,8 +6,12 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "8.8.8.8"
+         "type": "CNAME",
+         "value": "d7bc9193da8dde27.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=abdullah.is-an.ai,1906b7a08ccf032a34fb"
       }
    ]
 }

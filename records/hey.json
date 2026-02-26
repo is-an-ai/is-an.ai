@@ -1,0 +1,17 @@
+{
+   "description": "An AI Project From EIAI Studio",
+   "owner": {
+      "github_username": "jicvMdbCuOMdCHJWOzOcs",
+      "email": "DOSEEHER@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "7787a714d42f6ca1.vercel-dns-017.com"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=hey.is-an.ai,af07805f33483ad0e5dd"
+      }
+   ]
+}

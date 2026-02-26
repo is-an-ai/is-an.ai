@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "9jFaZroRLx6hUA2zIY8-g",
+      "email": "krokerdile@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "blog.hyunu-dev.workers.dev"
+      }
+   ]
+}

@@ -1,0 +1,17 @@
+{
+   "description": "사이드 프로젝트 팀인 카르텔의 프로젝트를 담을 예정입니다.",
+   "owner": {
+      "github_username": "9jFaZroRLx6hUA2zIY8-g",
+      "email": "krokerdile@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=cartel.is-an.ai,66496c9099c4575986bc"
+      },
+      {
+         "type": "CNAME",
+         "value": "8a7a05e8a538b827.vercel-dns-017.com"
+      }
+   ]
+}

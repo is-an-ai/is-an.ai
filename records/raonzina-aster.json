@@ -1,0 +1,13 @@
+{
+   "description": "raonzina-aster",
+   "owner": {
+      "github_username": "nklpEbFimVpa8cseCjv-E",
+      "email": "noelzina@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}

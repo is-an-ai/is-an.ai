@@ -1,0 +1,13 @@
+{
+   "description": "botshu",
+   "owner": {
+      "github_username": "3uG0hHklm9eLJqxmoVs7p",
+      "email": "djsgiroghro@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.8.8"
+      }
+   ]
+}

@@ -1,0 +1,13 @@
+{
+   "description": "ai test,speed test",
+   "owner": {
+      "github_username": "dRxodKLkjPFblkiN4Wupi",
+      "email": "anlish@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "b3p3b3.pages.dev"
+      }
+   ]
+}

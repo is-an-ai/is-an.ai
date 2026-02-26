@@ -1,0 +1,17 @@
+{
+   "description": "Shirayuki Noa",
+   "owner": {
+      "github_username": "2ZGVPmU8vSdQxeUkdNnEK",
+      "email": "skguraovo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ssl-gal.pages.dev"
+      },
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}

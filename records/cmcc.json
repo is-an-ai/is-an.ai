@@ -1,0 +1,25 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "c6zAlA1jcMAvYo5G_ueoq",
+      "email": "hackerergou-lab@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "172.64.158.200"
+      },
+      {
+         "type": "A",
+         "value": "198.41.209.51"
+      },
+      {
+         "type": "A",
+         "value": "172.64.155.107"
+      },
+      {
+         "type": "A",
+         "value": "104.16.250.210"
+      }
+   ]
+}

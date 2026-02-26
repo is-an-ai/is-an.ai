@@ -1,0 +1,17 @@
+{
+   "description": "Abhishek Is an AI",
+   "owner": {
+      "github_username": "ysErVYgKXYYThIy1vo2Q9",
+      "email": "Abhishek Panthee@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "76.76.21.21"
+      },
+      {
+         "type": "CNAME",
+         "value": "cname.vercel-dns.com"
+      }
+   ]
+}

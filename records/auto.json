@@ -1,13 +1,13 @@
 {
-   "description": "blog",
+   "description": "hiddencloud",
    "owner": {
       "github_username": "-RUyaq3b1Gy3GF0UqPU7e",
       "email": "飞翔@noreply.com"
    },
    "record": [
       {
-         "type": "AAAA",
-         "value": "2a02:180:6:1:0000:0000:0000:82b"
+         "type": "A",
+         "value": "48.220.48.24"
       }
    ]
 }

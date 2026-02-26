@@ -1,0 +1,13 @@
+{
+   "description": "Outra forma de acessar o site comunitario da cidade",
+   "owner": {
+      "github_username": "-iQoBgtBE_iVdRai-ocNn",
+      "email": "Central Macatuba@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "centralmacatuba.eu.org"
+      }
+   ]
+}

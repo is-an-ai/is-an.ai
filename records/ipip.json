@@ -1,0 +1,29 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "uNrKK-vrTQ90DNapyxbAV",
+      "email": "Hacker.ergou@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "104.18.25.162"
+      },
+      {
+         "type": "A",
+         "value": "104.18.34.222"
+      },
+      {
+         "type": "A",
+         "value": "104.18.22.208"
+      },
+      {
+         "type": "A",
+         "value": "104.18.17.235"
+      },
+      {
+         "type": "A",
+         "value": "104.18.19.104"
+      }
+   ]
+}

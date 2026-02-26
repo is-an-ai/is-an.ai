@@ -1,0 +1,65 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "gZmUeEH7xZ1aADmaXbUYs",
+      "email": "luckystarsir@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "172.64.146.66"
+      },
+      {
+         "type": "A",
+         "value": "104.18.41.190"
+      },
+      {
+         "type": "A",
+         "value": "104.18.42.163"
+      },
+      {
+         "type": "A",
+         "value": "172.64.145.93"
+      },
+      {
+         "type": "A",
+         "value": "104.19.33.228"
+      },
+      {
+         "type": "A",
+         "value": "172.67.75.194"
+      },
+      {
+         "type": "A",
+         "value": "172.64.145.202"
+      },
+      {
+         "type": "A",
+         "value": "104.18.38.47"
+      },
+      {
+         "type": "A",
+         "value": "104.18.38.97"
+      },
+      {
+         "type": "A",
+         "value": "172.64.229.105"
+      },
+      {
+         "type": "A",
+         "value": "172.64.149.209"
+      },
+      {
+         "type": "A",
+         "value": "104.20.28.251"
+      },
+      {
+         "type": "A",
+         "value": "108.162.198.52"
+      },
+      {
+         "type": "A",
+         "value": "104.19.62.158"
+      }
+   ]
+}

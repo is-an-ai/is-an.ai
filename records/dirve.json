@@ -1,0 +1,13 @@
+{
+   "description": "pages",
+   "owner": {
+      "github_username": "UyGQI0nj2Cj2DBxmjpyfu",
+      "email": "fuirtyd@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "chpg.pages.dev"
+      }
+   ]
+}

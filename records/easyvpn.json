@@ -1,0 +1,13 @@
+{
+   "description": "easy to connect via vpn",
+   "owner": {
+      "github_username": "gSFARyMJN5u5mhXqJ9gZy",
+      "email": "Jimmy Tu@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "35.209.25.57"
+      }
+   ]
+}

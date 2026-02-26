@@ -1,5 +1,5 @@
 {
-   "description": "runfreecloud",
+   "description": "google",
    "owner": {
       "github_username": "-RUyaq3b1Gy3GF0UqPU7e",
       "email": "飞翔@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "A",
-         "value": "66.181.36.236"
+         "value": "35.212.182.182"
       }
    ]
 }

@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "vqjKiIJficz6M-HOYPtUS",
+      "email": "Lugo@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "lugodev.myaddr.tools"
+      }
+   ]
+}
