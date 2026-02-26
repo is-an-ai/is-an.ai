@@ -6,12 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "yeah"
-      },
-      {
-         "type": "TXT",
-         "value": "b4c6665f2d95757778fb20f163a80e"
+         "type": "CNAME",
+         "value": "chadolfrizzler27.github.io"
       }
    ]
 }
