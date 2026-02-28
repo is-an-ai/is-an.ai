@@ -1,0 +1,13 @@
+{
+   "description": "WAR",
+   "owner": {
+      "github_username": "JurPNeu9IGJ7_wIIB7lAz",
+      "email": "BCIGRA@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.2"
+      }
+   ]
+}
