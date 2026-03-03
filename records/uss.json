@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "music.eeu.indevs.in"
+      },
+      {
+         "type": "TXT",
+         "value": "a5871431-af92-475b-bcb6-3d8cc69d3568"
       }
    ]
 }
