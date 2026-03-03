@@ -1,0 +1,13 @@
+{
+   "description": "Music site",
+   "owner": {
+      "github_username": "TZXcpev46R_PUu-PrX1WR",
+      "email": "Crawford Rempel@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "music.eeu.indevs.in"
+      }
+   ]
+}
