@@ -1,0 +1,13 @@
+{
+   "description": "Panel",
+   "owner": {
+      "github_username": "ytK7xLsqwnpc6B4u_3l2N",
+      "email": "Stellar Ace@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.1"
+      }
+   ]
+}
