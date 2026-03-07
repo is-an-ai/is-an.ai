@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "tJE6RCRs-RkYQh-SGumFh",
+      "email": "恩秀@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "vercel.app"
+      },
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=danmu.is-an.ai,23015f418a4f3f5b741e"
+      }
+   ]
+}
