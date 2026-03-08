@@ -1,0 +1,13 @@
+{
+   "description": "Portfolio",
+   "owner": {
+      "github_username": "L12R07WMSQpWLx8ZzOA1C",
+      "email": "105tbDEV@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "105tb.netlify.app"
+      }
+   ]
+}
