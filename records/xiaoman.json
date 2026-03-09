@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "58.216.242.131"
+         "type": "CNAME",
+         "value": "gewuzhai.x3322.net"
       }
    ]
 }
