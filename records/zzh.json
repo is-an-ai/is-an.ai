@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "xCdlzkQpcHgkMmOCEantP",
+      "email": "moyanzh8866@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "qq-autoupdate-bpbpanel.pages.dev"
+      }
+   ]
+}
