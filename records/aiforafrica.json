@@ -6,12 +6,12 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "185.199.108.153"
-      },
-      {
          "type": "CNAME",
          "value": "aiforafrica.github.io"
+      },
+      {
+         "type": "TXT",
+         "value": "v=spf1 include:spf.improvmx.com ~all"
       }
    ]
 }
