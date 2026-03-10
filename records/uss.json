@@ -1,13 +1,13 @@
 {
-   "description": "Music site",
+   "description": "Server",
    "owner": {
       "github_username": "TZXcpev46R_PUu-PrX1WR",
       "email": "Crawford Rempel@noreply.com"
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "reclaim-cxwpn7ewd6r8mnvt2cx9u7mbl8yz7yts"
+         "type": "A",
+         "value": "104.18.10.143"
       }
    ]
 }
