@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "qq-autoupdate-bpbpanel.pages.dev"
+         "type": "A",
+         "value": "8.8.8.8"
       }
    ]
 }
