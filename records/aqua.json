@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "huitui.minatoaqua.dpdns.org"
+         "type": "A",
+         "value": "107.174.88.53"
       },
       {
          "type": "TXT",
