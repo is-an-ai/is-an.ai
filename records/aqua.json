@@ -11,6 +11,10 @@
       },
       {
          "type": "TXT",
+         "value": "_acme-challenge.aqua"
+      },
+      {
+         "type": "TXT",
          "value": "sVVZGt-wGVFM4bjeNQLVX_EGPLprd9G3qFdmb1nu3uQ"
       }
    ]
