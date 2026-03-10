@@ -7,10 +7,6 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "1h.hhhyhyyhhhhyhyyh.is-an.ai"
-      },
-      {
-         "type": "CNAME",
          "value": "1h-9d9.pages.dev"
       }
    ]
