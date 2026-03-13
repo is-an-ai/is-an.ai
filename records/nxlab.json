@@ -1,5 +1,5 @@
 {
-   "description": "NXLAB",
+   "description": "NeuralNexusLab",
    "owner": {
       "github_username": "A9mDDwsOSdCozFAxUzzSs",
       "email": "NeuralNexusLab@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "CNAME",
-         "value": "nxlab.zone.id"
+         "value": "07f32cf6.nxlab.is-an.ai.dnsoe3.com"
       }
    ]
 }
