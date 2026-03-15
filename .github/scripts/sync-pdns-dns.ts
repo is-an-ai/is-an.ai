@@ -298,9 +298,10 @@ async function loadAllRepositoryRecords(): Promise<
         continue;
       }
 
-      // _vercel.{X} files are mapped to the "_vercel" subdomain
-      // so all TXT records merge into a single _vercel.is-an.ai RRSet
-      const effectiveSubdomain = subdomain.startsWith("_vercel.") ? "_vercel" : subdomain;
+      // _{vendor}.{X} files are mapped to "_{vendor}" subdomain
+      // e.g., _vercel.myapp -> _vercel, _discord.myapp -> _discord
+      const vendorMatch = subdomain.match(/^(_[a-z0-9]+)\..+$/);
+      const effectiveSubdomain = vendorMatch ? vendorMatch[1] : subdomain;
 
       try {
         const fileContent = await fs.readFile(filePath, "utf-8");
@@ -352,7 +353,7 @@ async function loadAllRepositoryRecords(): Promise<
             );
           }
         }
-        // Append to existing entries (multiple _vercel.* files merge into "_vercel")
+        // Append to existing entries (multiple _{vendor}.* files merge into "_{vendor}")
         const existing = recordMap.get(effectiveSubdomain) || [];
         recordMap.set(effectiveSubdomain, [...existing, ...signatures]);
       } catch (error: unknown) {
