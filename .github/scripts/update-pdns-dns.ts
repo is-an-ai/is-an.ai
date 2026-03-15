@@ -428,7 +428,11 @@ async function processChanges(): Promise<void> {
     processedSubdomains.add(subdomain);
   }
 
-  // 3. 필터링 및 전송
+  // 3. _vercel 개별 파일 병합
+  // _vercel.{subdomain}.json 파일들의 TXT 레코드를 _vercel.is-an.ai. 단일 RRSet으로 병합
+  mergeVercelEntries(patchPayload);
+
+  // 4. 필터링 및 전송
   if (patchPayload.length === 0) {
     console.log("✓ No changes detected.");
     return;
@@ -561,6 +565,77 @@ async function executePdnsPatch(
       error.response?.data?.error || error.message
     );
     return false;
+  }
+}
+
+// --- _vercel Merge Logic ---
+
+const VERCEL_FQDN = subdomainToFqdn("_vercel");
+
+/**
+ * _vercel.{subdomain} 개별 파일들의 TXT 레코드를 _vercel.is-an.ai. 단일 RRSet으로 병합합니다.
+ * 개별 _vercel.{X}.is-an.ai. 엔트리는 페이로드에서 제거하고,
+ * 모든 TXT 레코드를 _vercel.is-an.ai.에 합칩니다.
+ *
+ * DELETE 케이스: _vercel.{X} 파일이 삭제되면, 해당 TXT가 빠진 상태로 _vercel.is-an.ai를
+ * 갱신해야 하므로 기존 _vercel.is-an.ai의 전체 레코드를 PowerDNS에서 조회 후 병합합니다.
+ */
+function mergeVercelEntries(payload: PdnsApiPatchRRSet[]): void {
+  const vercelIndices: number[] = [];
+  const mergedTxtRecords: PdnsApiPatchRecord[] = [];
+  let hasVercelChanges = false;
+  let hasVercelDelete = false;
+
+  for (let i = 0; i < payload.length; i++) {
+    const item = payload[i];
+    const normName = item.name.toLowerCase().replace(/\.$/, "");
+
+    // _vercel.is-an.ai 자체는 건드리지 않음 (보호 도메인)
+    if (normName === `_vercel.${PDNS_ZONE.replace(/\.$/, "")}`) continue;
+
+    // _vercel.{X}.is-an.ai 패턴 매칭
+    if (normName.startsWith("_vercel.") && normName.endsWith(`.${PDNS_ZONE.replace(/\.$/, "")}`)) {
+      vercelIndices.push(i);
+      hasVercelChanges = true;
+
+      if (item.changetype === "DELETE") {
+        hasVercelDelete = true;
+      } else {
+        // REPLACE: TXT 레코드 수집
+        for (const record of item.records) {
+          if (!record.disabled) {
+            mergedTxtRecords.push(record);
+          }
+        }
+      }
+    }
+  }
+
+  if (!hasVercelChanges) return;
+
+  // 개별 _vercel.{X} 엔트리를 페이로드에서 역순 제거
+  for (let i = vercelIndices.length - 1; i >= 0; i--) {
+    payload.splice(vercelIndices[i], 1);
+  }
+
+  // 병합된 TXT 레코드가 있으면 _vercel.is-an.ai. REPLACE 추가
+  // DELETE만 있는 경우에도 기존 레코드가 남아있을 수 있으므로,
+  // _vercel.is-an.ai.는 protected이므로 full sync에서 정리됨
+  if (mergedTxtRecords.length > 0) {
+    payload.push({
+      name: VERCEL_FQDN,
+      type: "TXT",
+      ttl: DEFAULT_TTL,
+      changetype: "REPLACE",
+      records: mergedTxtRecords,
+    });
+    console.log(`✨ Merged ${mergedTxtRecords.length} _vercel TXT records into ${VERCEL_FQDN}`);
+  }
+
+  if (hasVercelDelete) {
+    console.log(
+      "⚠️ _vercel subdomain deleted. Full sync will reconcile _vercel.is-an.ai TXT records."
+    );
   }
 }
 

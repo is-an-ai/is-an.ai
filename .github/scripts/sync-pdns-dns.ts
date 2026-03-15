@@ -298,6 +298,10 @@ async function loadAllRepositoryRecords(): Promise<
         continue;
       }
 
+      // _vercel.{X} files are mapped to the "_vercel" subdomain
+      // so all TXT records merge into a single _vercel.is-an.ai RRSet
+      const effectiveSubdomain = subdomain.startsWith("_vercel.") ? "_vercel" : subdomain;
+
       try {
         const fileContent = await fs.readFile(filePath, "utf-8");
         const data: unknown = JSON.parse(fileContent);
@@ -329,14 +333,14 @@ async function loadAllRepositoryRecords(): Promise<
           }
           if (type === "MX" && isMxRecordValue(recordDef.value)) {
             signatures.push({
-              subdomain,
+              subdomain: effectiveSubdomain,
               type,
               content: recordDef.value.exchange,
               priority: recordDef.value.priority,
             });
           } else if (typeof recordDef.value === "string") {
             signatures.push({
-              subdomain,
+              subdomain: effectiveSubdomain,
               type,
               content: recordDef.value,
             });
@@ -348,7 +352,9 @@ async function loadAllRepositoryRecords(): Promise<
             );
           }
         }
-        recordMap.set(subdomain, signatures);
+        // Append to existing entries (multiple _vercel.* files merge into "_vercel")
+        const existing = recordMap.get(effectiveSubdomain) || [];
+        recordMap.set(effectiveSubdomain, [...existing, ...signatures]);
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : String(error);
         console.error(`Error processing file ${file}:`, message);
