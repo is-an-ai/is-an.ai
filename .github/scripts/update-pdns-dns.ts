@@ -427,9 +427,8 @@ async function processChanges(): Promise<void> {
     processedSubdomains.add(subdomain);
   }
 
-  // 3. Merge individual _vercel files
-  // Merge TXT records from _vercel.{subdomain}.json files into a single _vercel.is-an.ai. RRSet
-  mergeVercelEntries(patchPayload);
+  // 3. Merge vendor subdomain files (_{vendor}.{X}.json -> _{vendor}.is-an.ai RRSet)
+  mergeVendorEntries(patchPayload);
 
   // 4. Filter and send
   if (patchPayload.length === 0) {
@@ -566,73 +565,84 @@ async function executePdnsPatch(
   }
 }
 
-// --- _vercel Merge Logic ---
+// --- Vendor Subdomain Merge Logic ---
 
-const VERCEL_FQDN = subdomainToFqdn("_vercel");
+// Regex to match _{vendor}.{base}.is-an.ai. pattern
+const VENDOR_PATTERN = /^_([a-z0-9]+)\..+$/;
 
 /**
- * Merges TXT records from individual _vercel.{subdomain} files into a single
- * _vercel.is-an.ai. RRSet. Removes individual _vercel.{X}.is-an.ai. entries
- * from the payload and combines all TXT records under _vercel.is-an.ai.
+ * Merges TXT records from individual _{vendor}.{subdomain} files into per-vendor
+ * RRSets. For example, _vercel.myapp and _vercel.other both merge into _vercel.is-an.ai,
+ * while _discord.myapp merges into _discord.is-an.ai.
  *
- * For DELETE cases, the full sync will reconcile the _vercel.is-an.ai TXT records
- * since _vercel.is-an.ai is a protected domain.
+ * For DELETE cases, the full sync will reconcile the vendor RRSets.
  */
-function mergeVercelEntries(payload: PdnsApiPatchRRSet[]): void {
-  const vercelIndices: number[] = [];
-  const mergedTxtRecords: PdnsApiPatchRecord[] = [];
-  let hasVercelChanges = false;
-  let hasVercelDelete = false;
+function mergeVendorEntries(payload: PdnsApiPatchRRSet[]): void {
+  const zoneSuffix = `.${PDNS_ZONE.replace(/\.$/, "")}`;
+  const indicesToRemove: number[] = [];
+  // vendor name -> { records: PdnsApiPatchRecord[], hasDelete: boolean }
+  const vendorMap = new Map<string, { records: PdnsApiPatchRecord[]; hasDelete: boolean }>();
 
   for (let i = 0; i < payload.length; i++) {
     const item = payload[i];
     const normName = item.name.toLowerCase().replace(/\.$/, "");
 
-    // Skip _vercel.is-an.ai itself (protected domain)
-    if (normName === `_vercel.${PDNS_ZONE.replace(/\.$/, "")}`) continue;
+    // Extract vendor from names like _vercel.myapp.is-an.ai
+    // Skip names that are exactly _{vendor}.is-an.ai (the merge target itself)
+    const withoutZone = normName.endsWith(zoneSuffix)
+      ? normName.slice(0, -zoneSuffix.length)
+      : null;
+    if (!withoutZone) continue;
 
-    // Match _vercel.{X}.is-an.ai pattern
-    if (normName.startsWith("_vercel.") && normName.endsWith(`.${PDNS_ZONE.replace(/\.$/, "")}`)) {
-      vercelIndices.push(i);
-      hasVercelChanges = true;
+    const vendorMatch = withoutZone.match(VENDOR_PATTERN);
+    if (!vendorMatch) continue;
 
-      if (item.changetype === "DELETE") {
-        hasVercelDelete = true;
-      } else {
-        // REPLACE: collect TXT records
-        for (const record of item.records) {
-          if (!record.disabled) {
-            mergedTxtRecords.push(record);
-          }
+    const vendorName = vendorMatch[1];
+    indicesToRemove.push(i);
+
+    if (!vendorMap.has(vendorName)) {
+      vendorMap.set(vendorName, { records: [], hasDelete: false });
+    }
+    const vendor = vendorMap.get(vendorName)!;
+
+    if (item.changetype === "DELETE") {
+      vendor.hasDelete = true;
+    } else {
+      for (const record of item.records) {
+        if (!record.disabled) {
+          vendor.records.push(record);
         }
       }
     }
   }
 
-  if (!hasVercelChanges) return;
+  if (indicesToRemove.length === 0) return;
 
-  // Remove individual _vercel.{X} entries from payload in reverse order
-  for (let i = vercelIndices.length - 1; i >= 0; i--) {
-    payload.splice(vercelIndices[i], 1);
+  // Remove individual entries from payload in reverse order
+  for (let i = indicesToRemove.length - 1; i >= 0; i--) {
+    payload.splice(indicesToRemove[i], 1);
   }
 
-  // Add merged _vercel.is-an.ai. REPLACE if there are TXT records.
-  // For DELETE-only cases, full sync will reconcile since _vercel.is-an.ai is protected.
-  if (mergedTxtRecords.length > 0) {
-    payload.push({
-      name: VERCEL_FQDN,
-      type: "TXT",
-      ttl: DEFAULT_TTL,
-      changetype: "REPLACE",
-      records: mergedTxtRecords,
-    });
-    console.log(`✨ Merged ${mergedTxtRecords.length} _vercel TXT records into ${VERCEL_FQDN}`);
-  }
+  // Add merged RRSet per vendor
+  for (const [vendorName, { records, hasDelete }] of vendorMap) {
+    const vendorFqdn = subdomainToFqdn(`_${vendorName}`);
 
-  if (hasVercelDelete) {
-    console.log(
-      "⚠️ _vercel subdomain deleted. Full sync will reconcile _vercel.is-an.ai TXT records."
-    );
+    if (records.length > 0) {
+      payload.push({
+        name: vendorFqdn,
+        type: "TXT",
+        ttl: DEFAULT_TTL,
+        changetype: "REPLACE",
+        records,
+      });
+      console.log(`✨ Merged ${records.length} _${vendorName} TXT records into ${vendorFqdn}`);
+    }
+
+    if (hasDelete) {
+      console.log(
+        `⚠️ _${vendorName} subdomain deleted. Full sync will reconcile ${vendorFqdn} TXT records.`
+      );
+    }
   }
 }
 
