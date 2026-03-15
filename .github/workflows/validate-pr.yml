@@ -9,6 +9,10 @@ on:
       - synchronize
       - reopened
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -16,37 +20,45 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for accurate change detection
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install validation tools
-        run: npm install -g ajv-cli ajv-formats
+      - name: Install dependencies
+        run: npm install
 
       - name: Get changed files
-        id: changed_files
+        id: changes
         run: |
-          echo "files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'records/**.json' | grep -v 'records/schema.json' | xargs)" >> $GITHUB_OUTPUT
+          BASE_SHA=$(git merge-base origin/${{ github.base_ref }} HEAD)
+          ADDED=$(git diff --name-status --diff-filter=A $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          MODIFIED=$(git diff --name-status --diff-filter=M $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          DELETED=$(git diff --name-status --diff-filter=D $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          COMMIT_EMAILS=$(git log $BASE_SHA..HEAD --format=%ae | sort -u | tr '\n' ' ')
+          echo "added=$ADDED" >> $GITHUB_OUTPUT
+          echo "modified=$MODIFIED" >> $GITHUB_OUTPUT
+          echo "deleted=$DELETED" >> $GITHUB_OUTPUT
+          echo "commit_emails=$COMMIT_EMAILS" >> $GITHUB_OUTPUT
 
-      - name: Validate changed files
-        run: |
-          echo "Validating files: ${{ steps.changed_files.outputs.files }}"
-          if [ -z "${{ steps.changed_files.outputs.files }}" ]; then
-            echo "No record files to validate."
-            exit 0
-          fi
+      - name: Compile validation script
+        run: npx tsc -p .github/scripts/tsconfig.json
 
-          for file in ${{ steps.changed_files.outputs.files }}; do
-            echo "Validating $file..."
-            ajv validate -s records/schema.json -d "$file" -c ajv-formats --errors=text
-            if [ $? -ne 0 ]; then
-              echo "::error file=$file::Validation failed for $file"
-              exit 1
-            fi
-            echo "✅ $file is valid"
-          done
+      - name: Run validation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+          ADDED_FILES: ${{ steps.changes.outputs.added }}
+          MODIFIED_FILES: ${{ steps.changes.outputs.modified }}
+          DELETED_FILES: ${{ steps.changes.outputs.deleted }}
+          COMMIT_EMAILS: ${{ steps.changes.outputs.commit_emails }}
+        run: node .github/scripts/validate-pr.js
 
-          echo "✅ All record files are valid according to schema."
+      - name: Enable auto-merge
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge ${{ github.event.pull_request.number }} --auto --squash
