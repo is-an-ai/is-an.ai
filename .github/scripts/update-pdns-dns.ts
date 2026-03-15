@@ -84,8 +84,8 @@ const ADDED_FILES: string[] = getEnvList("ADDED_FILES");
 const MODIFIED_FILES: string[] = getEnvList("MODIFIED_FILES");
 const DELETED_FILES: string[] = getEnvList("DELETED_FILES");
 
-const DEFAULT_TTL = 300; // 기본 TTL
-const SOA_MIN_TTL = 300; // Negative Cache TTL (5분)
+const DEFAULT_TTL = 300; // Default TTL
+const SOA_MIN_TTL = 300; // Negative Cache TTL (5 minutes)
 
 // --- PowerDNS API Client ---
 const pdnsClient: AxiosInstance = axios.create({
@@ -100,7 +100,7 @@ const pdnsClient: AxiosInstance = axios.create({
 // --- Helper Functions (Robust Version) ---
 
 /**
- * 파일 경로에서 서브도메인 추출 (punycode 변환 포함)
+ * Extract subdomain from file path (with punycode conversion)
  */
 function getSubdomainFromPath(filePath: string): string {
   const filename = path.basename(filePath, ".json");
@@ -126,10 +126,10 @@ function isMxRecordValue(value: any): value is MxRecordValue {
 }
 
 /**
- * 서브도메인을 FQDN으로 변환 (끝에 점 추가, 중복 점 제거)
+ * Convert subdomain to FQDN (append trailing dot, remove duplicate dots)
  */
 function subdomainToFqdn(subdomain: string): string {
-  // 앞뒤 점 제거
+  // Strip leading and trailing dots
   while (subdomain.startsWith(".")) subdomain = subdomain.slice(1);
   while (subdomain.endsWith(".")) subdomain = subdomain.slice(0, -1);
 
@@ -147,7 +147,7 @@ function subdomainToFqdn(subdomain: string): string {
 }
 
 /**
- * 레코드 값 정규화 (점 추가, 따옴표 처리, IP 0 제거 등)
+ * Normalize record value (append dots, handle quotes, strip leading zeros from IPs, etc.)
  */
 function normalizeContent(type: string, content: string): string {
   const upperType = type.toUpperCase();
@@ -183,7 +183,7 @@ function normalizeContent(type: string, content: string): string {
 // --- PowerDNS Data Fetching ---
 
 /**
- * PowerDNS에서 특정 서브도메인의 현재 RRSet들을 가져옵니다.
+ * Fetch current RRSets for a specific subdomain from PowerDNS.
  */
 async function getSubdomainRRSets(
   subdomain: string
@@ -195,7 +195,7 @@ async function getSubdomainRRSets(
     const allRRSets: PdnsApiGetRRSet[] = response.data.rrsets || [];
     const targetFqdn = subdomainToFqdn(subdomain);
 
-    // 해당 FQDN과 일치하는 것만 필터링 (SOA, NS 제외)
+    // Filter to matching FQDN only (excluding SOA and NS)
     return allRRSets.filter(
       (rr) =>
         rr.name.toLowerCase() === targetFqdn &&
@@ -209,7 +209,7 @@ async function getSubdomainRRSets(
 }
 
 /**
- * 현재 SOA Serial을 가져옵니다. (없으면 0 반환)
+ * Fetch the current SOA serial. Returns 0 if not found.
  */
 async function getCurrentSoaSerial(): Promise<number> {
   try {
@@ -217,12 +217,12 @@ async function getCurrentSoaSerial(): Promise<number> {
       `/api/v1/servers/localhost/zones/${PDNS_ZONE}`
     );
     const rrsets: PdnsApiGetRRSet[] = response.data.rrsets || [];
-    // SOA 레코드 찾기
+    // Find SOA record
     const soaRR = rrsets.find((rr) => rr.type === "SOA");
 
     if (soaRR && soaRR.records.length > 0) {
       const content = soaRR.records[0].content;
-      // SOA 포맷: ns1.xxx email.xxx SERIAL refresh retry expire min_ttl
+      // SOA format: ns1.xxx email.xxx SERIAL refresh retry expire min_ttl
       const parts = content.split(/\s+/);
       if (parts.length >= 3) {
         return parseInt(parts[2], 10);
@@ -254,7 +254,7 @@ async function loadRecordFile(filePath: string): Promise<RecordSignature[]> {
 
     const subdomain = getSubdomainFromPath(filePath);
 
-    // [보호 로직] 대문자 파일명 거부
+    // [Protection] Reject uppercase filenames
     if (subdomain !== subdomain.toLowerCase()) {
       console.warn(`⛔ Skipping '${filePath}': Contains uppercase letters.`);
       return [];
@@ -266,7 +266,7 @@ async function loadRecordFile(filePath: string): Promise<RecordSignature[]> {
     for (const def of data.record) {
       const type = def.type.toUpperCase();
 
-      // A 레코드 유효성 검사
+      // Validate A record
       if (type === "A" && typeof def.value === "string") {
         if (!ipv4Regex.test(def.value)) {
           console.warn(`⚠️ Invalid IP in ${filePath}: ${def.value}`);
@@ -307,13 +307,13 @@ async function processChanges(): Promise<void> {
   const patchPayload: PdnsApiPatchRRSet[] = [];
   const processedSubdomains = new Set<string>();
 
-  // 1. DELETE 처리
+  // 1. Handle DELETEs
   for (const file of DELETED_FILES) {
     const subdomain = getSubdomainFromPath(file);
     if (processedSubdomains.has(subdomain)) continue;
 
     console.log(`Processing Deletion for: ${subdomain}`);
-    // 기존에 존재하던 레코드들을 조회해서 삭제 요청 생성
+    // Fetch existing records and create delete requests
     const existingRRSets = await getSubdomainRRSets(subdomain);
     for (const rrset of existingRRSets) {
       patchPayload.push({
@@ -327,11 +327,11 @@ async function processChanges(): Promise<void> {
     processedSubdomains.add(subdomain);
   }
 
-  // 2. ADD / MODIFY 처리
+  // 2. Handle ADDs / MODIFYs
   const filesToProcess = [...new Set([...ADDED_FILES, ...MODIFIED_FILES])];
 
-  // PowerDNS에 현재 존재하는 타입들을 파악하기 위해 미리 조회하는 Map
-  // (증분 업데이트라 전체 조회는 비효율적이니, 대상 서브도메인만 그때그때 조회함)
+  // Query target subdomains on demand rather than fetching everything
+  // (full fetch is inefficient for incremental updates)
 
   for (const file of filesToProcess) {
     const filePath = path.join(WORKSPACE_PATH, file);
@@ -345,25 +345,25 @@ async function processChanges(): Promise<void> {
     const fqdn = subdomainToFqdn(subdomain);
     console.log(`Processing Update for: ${fqdn}`);
 
-    // 현재 PowerDNS에 살아있는 레코드 조회 (충돌 방지 및 ALIAS 판단용)
+    // Fetch existing records from PowerDNS (for conflict prevention and ALIAS detection)
     const existingRRSets = await getSubdomainRRSets(subdomain);
     const existingTypes = new Set(existingRRSets.map((r) => r.type));
 
-    // 파일 내 레코드들을 타입별로 그룹화
+    // Group records by type
     const recordsByType = new Map<string, RecordSignature[]>();
     for (const r of newRecords) {
       if (!recordsByType.has(r.type)) recordsByType.set(r.type, []);
       recordsByType.get(r.type)!.push(r);
     }
 
-    // 각 타입별 처리
+    // Process each type
     for (const [type, records] of recordsByType.entries()) {
       let finalType = type;
       let finalRecords = records;
 
-      // 2-1. CNAME 로직
+      // 2-1. CNAME logic
       if (type === "CNAME") {
-        // (A) CNAME 중복 제거
+        // (A) Deduplicate CNAMEs
         if (records.length > 1) {
           console.warn(`⚠️ Multiple CNAMEs for ${fqdn}. Using first.`);
           finalRecords = [records[0]];
@@ -371,29 +371,28 @@ async function processChanges(): Promise<void> {
 
         const hasIPInFile = recordsByType.has("A") || recordsByType.has("AAAA");
 
-        // (B) 같은 파일 내에 A 레코드가 있으면 CNAME 무시 (A 우선)
+        // (B) If A records exist in the same file, ignore CNAME (A takes priority)
         if (hasIPInFile) {
           console.warn(`⚠️ Conflict: CNAME & IP in ${file}. Ignoring CNAME.`);
           continue;
         }
 
-        // (C) CNAME -> ALIAS 변환 조건
-        // 1. 루트 도메인
+        // (C) CNAME -> ALIAS conversion conditions
+        // 1. Root domain
         if (subdomain === "@") {
           console.log(`✨ Root CNAME -> ALIAS for ${fqdn}`);
           finalType = "ALIAS";
         }
-        // 2. 다른 타입(TXT, MX)과 섞여 있는 경우 (기존 PDNS 상태 확인)
+        // 2. Mixed with other types (TXT, MX, etc.) - check existing PDNS state
         else if (existingTypes.size > 0 && !existingTypes.has("CNAME")) {
-          // 기존에 A나 TXT 등이 있는데 CNAME을 넣으려 함 -> ALIAS로 공존 시도
-          // 단, 기존이 A라면 덮어써야 할 수도 있지만, 안전하게 ALIAS로 변환
+          // Other records (A, TXT, etc.) already exist but we're adding a CNAME -> convert to ALIAS for coexistence
           console.log(`✨ CNAME -> ALIAS (Mixed types) for ${fqdn}`);
           finalType = "ALIAS";
         }
 
-        // (D) 충돌 정리: CNAME(또는 ALIAS)을 생성하려면, 기존의 다른 레코드는 지워야 함
-        // 예: 기존 A 레코드가 있는데 CNAME으로 덮어쓰려면 A를 DELETE 해야 함
-        // (PowerDNS는 CNAME과 다른 레코드가 공존하면 에러를 뱉음 - ALIAS 제외)
+        // (D) Conflict cleanup: Creating a CNAME requires deleting other record types first
+        // e.g., existing A records must be DELETEd before adding a CNAME
+        // (PowerDNS rejects CNAME coexisting with other types - except ALIAS)
         if (finalType === "CNAME") {
           for (const existType of existingTypes) {
             if (existType !== "CNAME") {
@@ -428,17 +427,17 @@ async function processChanges(): Promise<void> {
     processedSubdomains.add(subdomain);
   }
 
-  // 3. _vercel 개별 파일 병합
-  // _vercel.{subdomain}.json 파일들의 TXT 레코드를 _vercel.is-an.ai. 단일 RRSet으로 병합
+  // 3. Merge individual _vercel files
+  // Merge TXT records from _vercel.{subdomain}.json files into a single _vercel.is-an.ai. RRSet
   mergeVercelEntries(patchPayload);
 
-  // 4. 필터링 및 전송
+  // 4. Filter and send
   if (patchPayload.length === 0) {
     console.log("✓ No changes detected.");
     return;
   }
 
-  // [보호 로직]
+  // [Protection]
   const PROTECTED_DOMAINS = [
     "is-an.ai",
     "www.is-an.ai",
@@ -451,11 +450,11 @@ async function processChanges(): Promise<void> {
     "_vercel.is-an.ai",
   ];
 
-  // 이름 비교 정규화 함수 (점 제거, 소문자)
+  // Name normalization for comparison (strip trailing dot, lowercase)
   const normName = (n: string) => n.toLowerCase().replace(/\.$/, "");
 
   const finalPayload = patchPayload.filter((item) => {
-    // 보호 도메인 && DELETE 요청이면 필터링
+    // Filter out DELETE requests for protected domains
     const isProtected = PROTECTED_DOMAINS.some(
       (p) => normName(p) === normName(item.name)
     );
@@ -471,8 +470,8 @@ async function processChanges(): Promise<void> {
     return;
   }
 
-  // 4. [★ 핵심] SOA Serial 스마트 업데이트
-  // 변경 사항이 확정되었으므로 SOA를 갱신합니다.
+  // 4. [Core] Smart SOA serial update
+  // Changes are finalized, so update the SOA.
   console.log("🔄 Calculating new SOA Serial...");
 
   const currentSerial = await getCurrentSoaSerial();
@@ -482,8 +481,8 @@ async function processChanges(): Promise<void> {
   const DD = String(today.getDate()).padStart(2, "0");
   const todayPrefix = parseInt(`${YYYY}${MM}${DD}`, 10);
 
-  // 현재 Serial 분석 (YYYYMMDDNN 형식 가정)
-  // 예: 2026010101 -> prefix: 20260101, suffix: 01
+  // Parse current serial (assuming YYYYMMDDNN format)
+  // e.g., 2026010101 -> prefix: 20260101, suffix: 01
   let newSerial: number;
 
   const currentSerialStr = String(currentSerial);
@@ -492,18 +491,18 @@ async function processChanges(): Promise<void> {
     currentSerialStr.length === 10 &&
     currentSerialStr.startsWith(`${todayPrefix}`)
   ) {
-    // 오늘 이미 배포된 적이 있음 -> 기존 값 + 1
+    // Already deployed today -> increment existing value
     newSerial = currentSerial + 1;
     console.log(
       `📆 Updated existing serial for today: ${currentSerial} -> ${newSerial}`
     );
   } else {
-    // 오늘 첫 배포이거나, 형식이 다름 -> 오늘날짜 + 01
+    // First deployment today or different format -> today's date + 01
     newSerial = parseInt(`${todayPrefix}01`, 10);
     console.log(`📆 New serial for today: ${newSerial}`);
   }
 
-  // SOA 레코드 추가
+  // Add SOA record
   finalPayload.push({
     name: PDNS_ZONE + ".",
     type: "SOA",
@@ -511,39 +510,38 @@ async function processChanges(): Promise<void> {
     changetype: "REPLACE",
     records: [
       {
-        // 주의: ns1, hostmaster 등은 실제 환경에 맞게 수정 필요
-        // [중요] 맨 마지막 숫자 300은 Negative Cache TTL (짧게 유지 추천)
+        // Note: ns1, hostmaster, etc. should be adjusted to match your environment
+        // [Important] The last number (300) is the Negative Cache TTL (keep it short)
         content: `ns1.is-an.ai. hostmaster.is-an.ai. ${newSerial} 10800 3600 604800 ${SOA_MIN_TTL}`,
         disabled: false,
       },
     ],
   });
 
-  // 5. 실행
+  // 5. Execute
   const success = await executePdnsPatch(finalPayload);
   if (!success) process.exit(1);
 
-  // 6. NOTIFY 전송 - secondary(HE 등)에 즉시 zone transfer 요청
+  // 6. Send NOTIFY - trigger immediate zone transfer to secondaries (HE, etc.)
   await sendPdnsNotify();
 
   console.log("\n✓ Incremental update completed successfully!");
 }
 
 /**
- * PowerDNS NOTIFY 전송 - secondary nameserver(HE 등)에 즉시 AXFR 요청을 트리거합니다.
- * SOA serial 변경만으로는 secondary가 수 시간~하루까지 기다릴 수 있어,
- * NOTIFY를 보내야 변경 사항이 빠르게 전파됩니다.
+ * Send PowerDNS NOTIFY to trigger immediate AXFR on secondary nameservers (HE, etc.).
+ * Without NOTIFY, secondaries may wait hours or a full day to pick up SOA serial changes.
  */
 async function sendPdnsNotify(): Promise<void> {
   try {
     await pdnsClient.put(
       `/api/v1/servers/localhost/zones/${PDNS_ZONE}/notify`
     );
-    console.log("✓ NOTIFY sent to secondaries (HE 등) - zone 전파 트리거됨");
+    console.log("✓ NOTIFY sent to secondaries (HE, etc.) - zone propagation triggered");
   } catch (error: any) {
-    // NOTIFY 실패는 치명적이지 않음 - secondary가 나중에 AXFR로 동기화함
+    // NOTIFY failure is non-fatal - secondaries will sync via AXFR later
     console.warn(
-      "⚠️ NOTIFY 전송 실패 (zone은 이미 업데이트됨):",
+      "⚠️ Failed to send NOTIFY (zone is already updated):",
       error.response?.data?.error || error.message
     );
   }
@@ -573,12 +571,12 @@ async function executePdnsPatch(
 const VERCEL_FQDN = subdomainToFqdn("_vercel");
 
 /**
- * _vercel.{subdomain} 개별 파일들의 TXT 레코드를 _vercel.is-an.ai. 단일 RRSet으로 병합합니다.
- * 개별 _vercel.{X}.is-an.ai. 엔트리는 페이로드에서 제거하고,
- * 모든 TXT 레코드를 _vercel.is-an.ai.에 합칩니다.
+ * Merges TXT records from individual _vercel.{subdomain} files into a single
+ * _vercel.is-an.ai. RRSet. Removes individual _vercel.{X}.is-an.ai. entries
+ * from the payload and combines all TXT records under _vercel.is-an.ai.
  *
- * DELETE 케이스: _vercel.{X} 파일이 삭제되면, 해당 TXT가 빠진 상태로 _vercel.is-an.ai를
- * 갱신해야 하므로 기존 _vercel.is-an.ai의 전체 레코드를 PowerDNS에서 조회 후 병합합니다.
+ * For DELETE cases, the full sync will reconcile the _vercel.is-an.ai TXT records
+ * since _vercel.is-an.ai is a protected domain.
  */
 function mergeVercelEntries(payload: PdnsApiPatchRRSet[]): void {
   const vercelIndices: number[] = [];
@@ -590,10 +588,10 @@ function mergeVercelEntries(payload: PdnsApiPatchRRSet[]): void {
     const item = payload[i];
     const normName = item.name.toLowerCase().replace(/\.$/, "");
 
-    // _vercel.is-an.ai 자체는 건드리지 않음 (보호 도메인)
+    // Skip _vercel.is-an.ai itself (protected domain)
     if (normName === `_vercel.${PDNS_ZONE.replace(/\.$/, "")}`) continue;
 
-    // _vercel.{X}.is-an.ai 패턴 매칭
+    // Match _vercel.{X}.is-an.ai pattern
     if (normName.startsWith("_vercel.") && normName.endsWith(`.${PDNS_ZONE.replace(/\.$/, "")}`)) {
       vercelIndices.push(i);
       hasVercelChanges = true;
@@ -601,7 +599,7 @@ function mergeVercelEntries(payload: PdnsApiPatchRRSet[]): void {
       if (item.changetype === "DELETE") {
         hasVercelDelete = true;
       } else {
-        // REPLACE: TXT 레코드 수집
+        // REPLACE: collect TXT records
         for (const record of item.records) {
           if (!record.disabled) {
             mergedTxtRecords.push(record);
@@ -613,14 +611,13 @@ function mergeVercelEntries(payload: PdnsApiPatchRRSet[]): void {
 
   if (!hasVercelChanges) return;
 
-  // 개별 _vercel.{X} 엔트리를 페이로드에서 역순 제거
+  // Remove individual _vercel.{X} entries from payload in reverse order
   for (let i = vercelIndices.length - 1; i >= 0; i--) {
     payload.splice(vercelIndices[i], 1);
   }
 
-  // 병합된 TXT 레코드가 있으면 _vercel.is-an.ai. REPLACE 추가
-  // DELETE만 있는 경우에도 기존 레코드가 남아있을 수 있으므로,
-  // _vercel.is-an.ai.는 protected이므로 full sync에서 정리됨
+  // Add merged _vercel.is-an.ai. REPLACE if there are TXT records.
+  // For DELETE-only cases, full sync will reconcile since _vercel.is-an.ai is protected.
   if (mergedTxtRecords.length > 0) {
     payload.push({
       name: VERCEL_FQDN,

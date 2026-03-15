@@ -73,10 +73,10 @@ const PDNS_ZONE: string = getEnvVariable("PDNS_ZONE");
 const WORKSPACE_PATH: string = getEnvVariable("GITHUB_WORKSPACE");
 const DRY_RUN: boolean = process.env.DRY_RUN === "true";
 
-// Git 저장소에 없더라도 PDNS에서 삭제하지 않고 보호할 하위 도메인
+// Subdomains to protect from deletion in PDNS even if absent from the Git repository
 const PROTECTED_SUBDOMAINS = new Set(["@", "www", "ns1", "dev", "blog", "api"]);
-const DEFAULT_TTL = 300; // PDNS에 설정할 기본 TTL
-const SOA_MIN_TTL = 300; // Negative Cache TTL (5분)
+const DEFAULT_TTL = 300; // Default TTL for PDNS records
+const SOA_MIN_TTL = 300; // Negative Cache TTL (5 minutes)
 
 // --- PowerDNS API Client ---
 const pdnsClient: AxiosInstance = axios.create({
@@ -91,7 +91,7 @@ const pdnsClient: AxiosInstance = axios.create({
 // --- Helper Functions ---
 function getSubdomainFromPath(filePath: string): string {
   const filename = path.basename(filePath, ".json");
-  const baseDomain = PDNS_ZONE.replace(/\.$/, ""); // trailing dot 제거
+  const baseDomain = PDNS_ZONE.replace(/\.$/, ""); // Remove trailing dot
   const baseDomainPattern = `.${baseDomain}`; // ".is-an.ai"
 
   let subdomain = filename;
@@ -199,12 +199,12 @@ async function fetchAllPdnsRRSets(): Promise<PdnsApiGetRRSet[]> {
     console.error("Error fetching PowerDNS RRSet:", message);
     if (error && typeof error === "object" && axios.isAxiosError(error)) {
       if (error.code === "ECONNABORTED" || error.message.includes("timeout")) {
-        console.error("❌ PowerDNS API 요청 타임아웃 (30초 초과)");
+        console.error("❌ PowerDNS API request timed out (exceeded 30s)");
       } else if (error.response) {
         console.error("Response status:", error.response.status);
         console.error("Response data:", error.response.data);
       } else if (error.request) {
-        console.error("❌ PowerDNS 서버에 연결할 수 없습니다.");
+        console.error("❌ Unable to connect to PowerDNS server.");
       }
     }
     throw error;
@@ -212,7 +212,7 @@ async function fetchAllPdnsRRSets(): Promise<PdnsApiGetRRSet[]> {
 }
 
 /**
- * 현재 SOA Serial을 가져옵니다. (없으면 0 반환)
+ * Fetch the current SOA serial. Returns 0 if not found.
  */
 async function getCurrentSoaSerial(): Promise<number> {
   try {
@@ -224,7 +224,7 @@ async function getCurrentSoaSerial(): Promise<number> {
 
     if (soaRR && soaRR.records.length > 0) {
       const content = soaRR.records[0].content;
-      // SOA 포맷: ns1.xxx email.xxx SERIAL refresh retry expire min_ttl
+      // SOA format: ns1.xxx email.xxx SERIAL refresh retry expire min_ttl
       const parts = content.split(/\s+/);
       if (parts.length >= 3) {
         return parseInt(parts[2], 10);
@@ -238,8 +238,8 @@ async function getCurrentSoaSerial(): Promise<number> {
 }
 
 /**
- * PDNS API (GET) 응답 RRSet을 내부 RecordSignature 배열로 변환합니다.
- * (convertCloudflareToSignature 대체)
+ * Convert a PDNS API (GET) response RRSet into internal RecordSignature array.
+ * (Replaces convertCloudflareToSignature)
  */
 function convertPdnsRRSetToSignatures(
   rrset: PdnsApiGetRRSet
@@ -390,12 +390,12 @@ async function executePdnsPatch(
     console.error("✗ Failed to execute PowerDNS PATCH:");
     if (error && typeof error === "object" && axios.isAxiosError(error)) {
       if (error.code === "ECONNABORTED" || error.message.includes("timeout")) {
-        console.error("❌ PowerDNS API 요청 타임아웃 (30초 초과)");
+        console.error("❌ PowerDNS API request timed out (exceeded 30s)");
       } else if (error.response) {
         console.error("Status:", error.response.status);
         console.error("Data:", JSON.stringify(error.response.data, null, 2));
       } else if (error.request) {
-        console.error("❌ PowerDNS 서버에 연결할 수 없습니다.");
+        console.error("❌ Unable to connect to PowerDNS server.");
       }
     } else {
       const message = error instanceof Error ? error.message : String(error);
@@ -410,13 +410,13 @@ async function executePdnsPatch(
 async function syncDNSRecords(): Promise<void> {
   console.log("=== Starting DNS Sync Process for PowerDNS ===");
 
-  // 1. 양쪽 상태 로드
+  // 1. Load state from both sides
   const [pdnsRRSets, repositoryRecordsMap] = await Promise.all([
     fetchAllPdnsRRSets(),
     loadAllRepositoryRecords(),
   ]);
 
-  // 2. PDNS 상태를 비교 가능한 Map으로 변환
+  // 2. Convert PDNS state into a comparable Map
   const pdnsSignatures = new Map<string, RecordSignature>();
   for (const rrset of pdnsRRSets) {
     const signatures = convertPdnsRRSetToSignatures(rrset);
@@ -425,7 +425,7 @@ async function syncDNSRecords(): Promise<void> {
     }
   }
 
-  // 3. Git 저장소 상태 변환 및 변경 키 추적
+  // 3. Convert Git repository state and track changed keys
   const repositorySignatures = new Map<string, RecordSignature>();
   const changedRrsetKeys = new Map<
     string,
@@ -445,19 +445,19 @@ async function syncDNSRecords(): Promise<void> {
   console.log(`Repository records (flattened): ${repositorySignatures.size}`);
   console.log(`PowerDNS records (flattened): ${pdnsSignatures.size}`);
 
-  // 4. 변경점 계산 (Diff)
+  // 4. Calculate diff
   const toCreate: RecordSignature[] = [];
   const toDelete: RecordSignature[] = [];
   let protectedCount = 0;
 
-  // 생성 목록
+  // Records to create
   for (const [key, signature] of repositorySignatures) {
     if (!pdnsSignatures.has(key)) {
       toCreate.push(signature);
     }
   }
 
-  // 삭제 목록
+  // Records to delete
   for (const [key, signature] of pdnsSignatures) {
     if (!repositorySignatures.has(key)) {
       if (PROTECTED_SUBDOMAINS.has(signature.subdomain)) {
@@ -486,7 +486,7 @@ async function syncDNSRecords(): Promise<void> {
     console.log(`Protected system records (ignored): ${protectedCount}`);
   }
 
-  // 5. PowerDNS PATCH 페이로드 생성
+  // 5. Build PowerDNS PATCH payload
   const patchPayload: PdnsApiPatchRRSet[] = [];
 
   for (const { subdomain, type } of changedRrsetKeys.values()) {
@@ -495,7 +495,7 @@ async function syncDNSRecords(): Promise<void> {
       repositoryRecordsMap.get(subdomain)?.filter((r) => r.type === type) || [];
 
     if (repoRecordsForRrset.length > 0) {
-      // --- REPLACE 로직 ---
+      // --- REPLACE logic ---
       if (type === "CNAME" && repoRecordsForRrset.length > 1) {
         console.warn(
           `⚠️ Warning: Multiple CNAMEs found for ${fqdn}. Using only the first one.`
@@ -539,7 +539,7 @@ async function syncDNSRecords(): Promise<void> {
         })),
       });
     } else {
-      // --- DELETE 로직 ---
+      // --- DELETE logic ---
       patchPayload.push({
         name: fqdn,
         type: type,
@@ -556,16 +556,16 @@ async function syncDNSRecords(): Promise<void> {
   }
 
   // ---------------------------------------------------------
-  // [★ 핵심 수정] 페이로드 정렬: DELETE가 REPLACE보다 먼저 오도록 함
+  // [Core fix] Sort payload: DELETEs must come before REPLACEs
   // ---------------------------------------------------------
   patchPayload.sort((a, b) => {
-    // DELETE(-1)가 REPLACE(1)보다 앞으로 옴
+    // DELETE(-1) comes before REPLACE(1)
     if (a.changetype === "DELETE" && b.changetype !== "DELETE") return -1;
     if (a.changetype !== "DELETE" && b.changetype === "DELETE") return 1;
     return 0;
   });
 
-  // 6. 변경 사항 실행 (보호 로직 포함)
+  // 6. Execute changes (with protection logic)
   const PROTECTED_DOMAINS = [
     "is-an.ai.",
     "www.is-an.ai.",
@@ -602,9 +602,9 @@ async function syncDNSRecords(): Promise<void> {
     return;
   }
 
-  // [★ 핵심] SOA Serial 스마트 업데이트 - 변경 사항이 있으므로 SOA를 갱신합니다.
-  // PowerDNS가 zone PATCH 시 SOA를 자동으로 올려주는지에 의존하지 않고,
-  // update-pdns-dns.ts와 동일한 로직으로 명시적으로 갱신합니다.
+  // [Core] Smart SOA serial update - changes exist, so update the SOA.
+  // Do not rely on PowerDNS auto-incrementing SOA on zone PATCH;
+  // explicitly update using the same logic as update-pdns-dns.ts.
   console.log("🔄 Calculating new SOA Serial...");
 
   const currentSerial = await getCurrentSoaSerial();
@@ -621,18 +621,18 @@ async function syncDNSRecords(): Promise<void> {
     currentSerialStr.length === 10 &&
     currentSerialStr.startsWith(`${todayPrefix}`)
   ) {
-    // 오늘 이미 배포된 적이 있음 -> 기존 값 + 1
+    // Already deployed today -> increment existing value
     newSerial = currentSerial + 1;
     console.log(
       `📆 Updated existing serial for today: ${currentSerial} -> ${newSerial}`
     );
   } else {
-    // 오늘 첫 배포이거나, 형식이 다름 -> 오늘날짜 + 01
+    // First deployment today or different format -> today's date + 01
     newSerial = parseInt(`${todayPrefix}01`, 10);
     console.log(`📆 New serial for today: ${newSerial}`);
   }
 
-  // SOA 레코드 추가
+  // Add SOA record
   finalPayload.push({
     name: PDNS_ZONE + ".",
     type: "SOA",
@@ -650,7 +650,7 @@ async function syncDNSRecords(): Promise<void> {
     `=== Executing PowerDNS PATCH (${finalPayload.length} changes) ===`
   );
 
-  // [중요] patchPayload 대신, 필터링된 finalPayload + SOA를 실행 함수에 넘깁니다.
+  // [Important] Pass the filtered finalPayload + SOA to the execution function, not patchPayload.
   const success = await executePdnsPatch(finalPayload);
 
   if (!success) {
@@ -658,24 +658,24 @@ async function syncDNSRecords(): Promise<void> {
     process.exit(1);
   }
 
-  // NOTIFY 전송 - secondary(HE 등)에 즉시 zone transfer 요청
+  // Send NOTIFY - trigger immediate zone transfer to secondaries (HE, etc.)
   await sendPdnsNotify();
 
   console.log(`\n✓ DNS sync process completed!`);
 }
 
 /**
- * PowerDNS NOTIFY 전송 - secondary nameserver(HE 등)에 즉시 AXFR 요청을 트리거합니다.
+ * Send PowerDNS NOTIFY to trigger immediate AXFR on secondary nameservers (HE, etc.).
  */
 async function sendPdnsNotify(): Promise<void> {
   try {
     await pdnsClient.put(
       `/api/v1/servers/localhost/zones/${PDNS_ZONE}/notify`
     );
-    console.log("✓ NOTIFY sent to secondaries (HE 등) - zone 전파 트리거됨");
+    console.log("✓ NOTIFY sent to secondaries (HE, etc.) - zone propagation triggered");
   } catch (error: unknown) {
     console.warn(
-      "⚠️ NOTIFY 전송 실패 (zone은 이미 업데이트됨):",
+      "⚠️ Failed to send NOTIFY (zone is already updated):",
       error && typeof error === "object" && "message" in error
         ? (error as Error).message
         : String(error)
