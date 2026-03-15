@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Kbz0Kuzpf0WgNLQir5-sK",
+      "email": "TangfanBowen@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "192.168.1.10"
+      }
+   ]
+}
