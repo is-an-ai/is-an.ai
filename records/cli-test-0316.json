@@ -1,0 +1,13 @@
+{
+   "description": "CLI test",
+   "owner": {
+      "github_username": "dohyun-ko",
+      "email": "dohyun682@gmail.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.2.3.4"
+      }
+   ]
+}
