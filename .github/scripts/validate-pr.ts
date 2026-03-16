@@ -8,6 +8,8 @@ const PR_AUTHOR = process.env.PR_AUTHOR || "";
 const PR_AUTHOR_TYPE = process.env.PR_AUTHOR_TYPE || "User";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const WORKSPACE_PATH = process.env.GITHUB_WORKSPACE || process.cwd();
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY || "";
+const WORKER_API_URL = process.env.WORKER_API_URL || "https://api.is-an.ai";
 
 const ADDED_FILES = (process.env.ADDED_FILES || "").split(" ").filter(Boolean);
 const MODIFIED_FILES = (process.env.MODIFIED_FILES || "").split(" ").filter(Boolean);
@@ -110,6 +112,27 @@ async function getPrAuthorEmails(): Promise<string[]> {
   }
 
   return emails;
+}
+
+// --- Worker Admin API ---
+
+async function checkDomainLimit(email: string): Promise<{ count: number; limit: number; allowed: boolean } | null> {
+  if (!ADMIN_API_KEY) return null; // Skip if no API key configured
+
+  try {
+    const url = `${WORKER_API_URL}/admin/domain-count?email=${encodeURIComponent(email)}`;
+    const res = await fetch(url, {
+      headers: {
+        "X-Admin-Key": ADMIN_API_KEY,
+        "User-Agent": "is-an-ai-ci",
+      },
+    });
+    if (!res.ok) return null;
+    return await res.json() as { count: number; limit: number; allowed: boolean };
+  } catch {
+    console.warn("Warning: Failed to check domain limit via API");
+    return null;
+  }
 }
 
 // --- Validation Helpers ---
@@ -331,6 +354,20 @@ async function validatePR(): Promise<void> {
     const contentErrors = validateFileContent(content, file);
     for (const err of contentErrors) {
       errors.push({ file, message: err });
+    }
+
+    // Domain limit check (non-vendor subdomains only)
+    const subdomain = getSubdomainFromFilename(file);
+    if (!isVendorSubdomain(subdomain) && content.owner?.email) {
+      const limitResult = await checkDomainLimit(content.owner.email);
+      if (limitResult && !limitResult.allowed) {
+        errors.push({
+          file,
+          message:
+            `Domain limit reached: ${content.owner.email} already has ${limitResult.count}/${limitResult.limit} subdomains. ` +
+            `Delete an existing subdomain before registering a new one.`,
+        });
+      }
     }
 
     // Email ownership check
