@@ -55,6 +55,8 @@ jobs:
           MODIFIED_FILES: ${{ steps.changes.outputs.modified }}
           DELETED_FILES: ${{ steps.changes.outputs.deleted }}
           COMMIT_EMAILS: ${{ steps.changes.outputs.commit_emails }}
+          ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
+          WORKER_API_URL: https://api.is-an.ai
         run: node .github/scripts/validate-pr.js
 
       - name: Generate App token
