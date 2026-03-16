@@ -1,0 +1,13 @@
+{
+   "description": "vercel verification for blink",
+   "owner": {
+      "github_username": "rHj_Ygkgl0uIbT6bY2X56",
+      "email": "ZackXDev@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=blink.is-an.ai,8906ebab3cc9835a38bb"
+      }
+   ]
+}
