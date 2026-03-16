@@ -1,5 +1,5 @@
 {
-   "description": "API mode test",
+   "description": "updated",
    "owner": {
       "github_username": "hsf_rvNo0HtUJVgfAfn3I",
       "email": "Do-hyun Ko (Dori)@noreply.com"
@@ -7,7 +7,7 @@
    "record": [
       {
          "type": "A",
-         "value": "8.8.8.8"
+         "value": "1.1.1.1"
       }
    ]
 }
