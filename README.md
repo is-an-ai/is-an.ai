@@ -1,44 +1,85 @@
 # is-an.ai
 
-Register your own `.is-an.ai` subdomain via GitHub Pull Requests.
+Register your own `.is-an.ai` subdomain — via the website, CLI, or GitHub Pull Request.
 
 ## How to Register
 
-1.  Ensure the subdomain you want is available.
-2.  Fork this repository.
-3.  Create a new file in the `records/` directory named `your-subdomain.json`.
-4.  Fill the file with your details according to the format specified in `records/schema.json` (see `records/example.json` for an example).
-5.  Create a Pull Request to merge your changes into the `main` branch of this repository.
-6.  Your PR will be automatically validated. If it passes, a maintainer will review and merge it.
-7.  Once merged, your DNS record will be automatically deployed.
+### Option 1: Website (easiest)
+
+Visit [is-an.ai](https://is-an.ai), sign in with GitHub, and register your subdomain.
+
+### Option 2: CLI
+
+```bash
+npx is-an-ai check my-project          # Check availability
+npx is-an-ai register my-project \
+  -t CNAME -v my-project.vercel.app     # Register
+```
+
+See the [CLI documentation](https://github.com/is-an-ai/cli) for full usage.
+
+### Option 3: Pull Request
+
+1. Fork this repository.
+2. Create a new file in `records/` named `your-subdomain.json`.
+3. Fill it according to `records/schema.json`:
+   ```json
+   {
+     "description": "My AI project",
+     "owner": {
+       "email": "you@example.com"
+     },
+     "record": [
+       { "type": "CNAME", "value": "my-project.vercel.app" }
+     ]
+   }
+   ```
+4. Create a Pull Request.
+5. CI validates your record and auto-merges on success.
+6. DNS is deployed automatically.
+
+> **Note:** `owner.email` must match your GitHub public email. Set it at [github.com/settings/profile](https://github.com/settings/profile).
+
+## Agent / Plugin Support
+
+AI coding agents can register subdomains programmatically:
+
+- **Claude Code**: `/plugin install is-an-ai/cli`
+- **OpenClaw**: `openclaw plugins install github:is-an-ai/cli`
+- **Any agent with GitHub access**: Use PR mode with `GITHUB_TOKEN`
 
 ## Important Files
 
-- [`records/schema.json`](./records/schema.json): The required format for subdomain record files.
-- [`records/example.json`](./records/schema.json): An example record file.
+- [`records/schema.json`](./records/schema.json): Required format for subdomain records
+- [`.github/scripts/validate-pr.ts`](./.github/scripts/validate-pr.ts): PR validation logic
 
 ## DNS Sync
 
-This repository includes automated DNS synchronization to ensure your repository records match Cloudflare's actual DNS state:
+Automated DNS synchronization keeps repository records in sync with PowerDNS:
 
-- **Automatic Sync**: Runs daily at 2 AM UTC to detect and fix any drift
-- **Manual Sync**: Can be triggered manually via GitHub Actions with optional dry-run mode
-- **Drift Detection**: Identifies missing records in Cloudflare or orphaned records not in the repository
-- **Recovery**: Automatically recovers from service malfunctions that cause discrepancies
-- **Error Resilience**: Continues processing even if individual records fail, with detailed error reporting
-- **Validation**: Pre-validates record content to catch common issues before API calls
-- **Protected Subdomains**: System subdomains (www, api, docs, dev, blog) are preserved and never deleted
+- **On merge**: Incremental deployment via GitHub Actions
+- **Daily at 2 AM UTC**: Full sync with drift detection
+- **Protected subdomains**: System subdomains (www, api, docs, ns1, etc.) are never deleted
 
-To manually trigger a sync:
+## Vendor Subdomains
 
-1. Go to the "Actions" tab in this repository
-2. Select "Sync DNS Records" workflow
-3. Click "Run workflow"
-4. Optionally enable "dry run" to preview changes without applying them
+For domain verification (Vercel, Discord, etc.), use the `_{vendor}.{subdomain}` format:
+
+```json
+{
+  "description": "Vercel verification for my-project",
+  "owner": { "email": "you@example.com" },
+  "record": [
+    { "type": "TXT", "value": "vc-domain-verify=my-project.is-an.ai,abc123" }
+  ]
+}
+```
+
+Vendor subdomains only support TXT records and require ownership of the base subdomain.
 
 ## Abuse
 
-Report abuse [here](link-to-abuse-reporting-mechanism).
+Report abuse by opening an issue in this repository.
 
 ## License
 
