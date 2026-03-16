@@ -1,0 +1,13 @@
+{
+   "description": "DB sync test",
+   "owner": {
+      "github_username": "dohyun-ko",
+      "email": "dohyun682@gmail.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "8.8.4.4"
+      }
+   ]
+}
