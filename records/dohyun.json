@@ -1,13 +1,13 @@
 {
-   "description": "Dohyun's Personal Website",
+   "description": "",
    "owner": {
-      "github_username": "hsf_rvNo0HtUJVgfAfn3I",
-      "email": "Do-hyun Ko (Dori)@noreply.com"
+      "github_username": "dohyun-ko",
+      "email": "dohyun682@gmail.com"
    },
    "record": [
       {
          "type": "CNAME",
-         "value": "dohyun-ko.github.io"
+         "value": "root-aoa.pages.dev"
       }
    ]
 }
