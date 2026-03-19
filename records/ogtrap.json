@@ -1,0 +1,13 @@
+{
+   "description": "PORTFOLIO",
+   "owner": {
+      "github_username": "s8k9ihYRTAgq1TFun92mZ",
+      "email": "TRAP OG@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ogtrapjs.vercel.app"
+      }
+   ]
+}
