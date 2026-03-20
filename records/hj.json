@@ -1,0 +1,13 @@
+{
+   "description": "my 포트폴리오",
+   "owner": {
+      "github_username": "hObLL-IdcYBQxBG8172c7",
+      "email": "Hyeong Jun Huh@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "1.1.1.1"
+      }
+   ]
+}
