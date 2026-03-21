@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "123.123.12.2"
+         "type": "TXT",
+         "value": "vc-domain-verify=geochat.is-an.ai,586ccad1cde55dfde71b"
       }
    ]
 }
