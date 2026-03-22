@@ -1,6 +1,6 @@
 # is-an.ai
 
-Register your own `.is-an.ai` subdomain — via the website, CLI, or GitHub Pull Request.
+Register your own `.is-an.ai` subdomain — via the website, CLI, or GitHub Pull Request. You can also host static sites directly on your subdomain.
 
 ## How to Register
 
@@ -39,6 +39,27 @@ See the [CLI documentation](https://github.com/is-an-ai/cli) for full usage.
 6. DNS is deployed automatically.
 
 > **Note:** `owner.email` must match your GitHub public email. Set it at [github.com/settings/profile](https://github.com/settings/profile).
+
+## Static Site Hosting
+
+is-an.ai now supports static site hosting — deploy your site directly to your `.is-an.ai` subdomain without needing an external hosting provider.
+
+### Deploy via CLI
+
+```bash
+npx is-an-ai deploy my-app ./dist
+```
+
+Your site will be live at `my-app.is-an.ai`.
+
+### Deploy via Web Dashboard
+
+Visit [is-an.ai](https://is-an.ai), sign in, and drag & drop your build folder to deploy.
+
+### Features
+
+- **SPA routing**: Single-page application routing is supported out of the box
+- **Free**: No cost, with fair-use limits (50 MB max, 1000 files per site)
 
 ## Agent / Plugin Support
 
