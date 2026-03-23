@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "JyBfCi4LtvFtdNXf1ZmC4",
+      "email": "Arish@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=is-an.ai,e86edae8c32d8f1a4a03"
+      }
+   ]
+}
