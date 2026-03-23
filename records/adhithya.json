@@ -8,6 +8,10 @@
       {
          "type": "TXT",
          "value": "vc-domain-verify=is-an.ai,e86edae8c32d8f1a4a03"
+      },
+      {
+         "type": "TXT",
+         "value": "_vercel"
       }
    ]
 }
