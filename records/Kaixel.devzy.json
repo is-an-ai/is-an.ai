@@ -1,0 +1,13 @@
+{
+   "description": "Hi",
+   "owner": {
+      "github_username": "1RNlC02sRQMLc_nFJzplw",
+      "email": "Keenzo-3@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "kaixelxel.netlify.app"
+      }
+   ]
+}
