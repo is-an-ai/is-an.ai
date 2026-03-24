@@ -1,0 +1,13 @@
+{
+   "description": "Minotaur AI official domain",
+   "owner": {
+      "github_username": "M2-FaZuJiOZpbDSVSSw4F",
+      "email": "JKGiova@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ghasthosting.com"
+      }
+   ]
+}
