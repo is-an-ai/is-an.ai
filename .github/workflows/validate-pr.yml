@@ -28,7 +28,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install typescript
+        run: npm install typescript@~5.8
 
       - name: Get changed files
         id: changes
