@@ -100,7 +100,7 @@ function getSubdomainFromPath(filePath: string): string {
   } else if (filename === baseDomain) {
     subdomain = "@";
   }
-  return punycode.toASCII(subdomain);
+  return punycode.toASCII(subdomain).toLowerCase();
 }
 
 function isMxRecordValue(value: any): value is MxRecordValue {
@@ -292,10 +292,9 @@ async function loadAllRepositoryRecords(): Promise<
         continue;
       }
       if (subdomain !== subdomain.toLowerCase()) {
-        console.warn(
-          `⛔ Skipping '${file}': Filename contains uppercase letters. strict-lowercase policy.`
+        console.log(
+          `🔡 '${file}': Converting subdomain to lowercase: ${subdomain} → ${subdomain.toLowerCase()}`
         );
-        continue;
       }
 
       // _{vendor}.{X} files are mapped to "_{vendor}" subdomain

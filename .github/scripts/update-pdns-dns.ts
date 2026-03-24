@@ -113,7 +113,7 @@ function getSubdomainFromPath(filePath: string): string {
     subdomain = "@";
   }
 
-  return punycode.toASCII(subdomain);
+  return punycode.toASCII(subdomain).toLowerCase();
 }
 
 function isMxRecordValue(value: any): value is MxRecordValue {
@@ -254,11 +254,7 @@ async function loadRecordFile(filePath: string): Promise<RecordSignature[]> {
 
     const subdomain = getSubdomainFromPath(filePath);
 
-    // [Protection] Reject uppercase filenames
-    if (subdomain !== subdomain.toLowerCase()) {
-      console.warn(`⛔ Skipping '${filePath}': Contains uppercase letters.`);
-      return [];
-    }
+    // Subdomain is already lowercased by getSubdomainFromPath
 
     const signatures: RecordSignature[] = [];
     const ipv4Regex = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
