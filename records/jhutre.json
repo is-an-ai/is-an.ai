@@ -1,0 +1,13 @@
+{
+   "description": "blog",
+   "owner": {
+      "github_username": "xKgbiwHIPdaa1pfGdk51t",
+      "email": "dcsag@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "der5shfgfge.pages.dev"
+      }
+   ]
+}
