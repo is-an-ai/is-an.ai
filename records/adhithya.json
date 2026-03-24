@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "JyBfCi4LtvFtdNXf1ZmC4",
+      "email": "Arish@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "test234.is-an.ai"
+      },
+      {
+         "type": "TXT",
+         "value": "test234.is-an.ai"
+      }
+   ]
+}
