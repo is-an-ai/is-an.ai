@@ -1,0 +1,13 @@
+{
+   "description": "vercel verification for test234",
+   "owner": {
+      "github_username": "hsf_rvNo0HtUJVgfAfn3I",
+      "email": "Do-hyun Ko (Dori)@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "vc-domain-verify=test234.is-an.ai,6ba02b4cc385bbfcc3c9"
+      }
+   ]
+}
