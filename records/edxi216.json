@@ -8,6 +8,10 @@
       {
          "type": "CNAME",
          "value": "edmain25.pages.dev"
+      },
+      {
+         "type": "CNAME",
+         "value": "edmain25.pages.dev"
       }
    ]
 }
