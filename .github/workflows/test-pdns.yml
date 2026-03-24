@@ -39,7 +39,7 @@ jobs:
           cache: "npm"
 
       - name: Install Dependencies
-        run: npm install axios typescript
+        run: npm install axios typescript@~5.8
         env:
           NODE_OPTIONS: "--max-old-space-size=512" # 메모리 제한 (512MB)
 
