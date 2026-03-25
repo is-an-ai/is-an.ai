@@ -386,25 +386,7 @@ async function processChanges(): Promise<void> {
           finalType = "ALIAS";
         }
 
-        // (D) Conflict cleanup: Creating a CNAME requires deleting other record types first
-        // e.g., existing A records must be DELETEd before adding a CNAME
-        // (PowerDNS rejects CNAME coexisting with other types - except ALIAS)
-        if (finalType === "CNAME") {
-          for (const existType of existingTypes) {
-            if (existType !== "CNAME") {
-              console.log(
-                `🧹 Cleanup: Deleting conflicting ${existType} for CNAME on ${fqdn}`
-              );
-              patchPayload.push({
-                name: fqdn,
-                type: existType,
-                ttl: DEFAULT_TTL,
-                changetype: "DELETE",
-                records: [],
-              });
-            }
-          }
-        }
+        // Stale type cleanup is handled after the type loop below
       }
 
       patchPayload.push({
@@ -418,6 +400,33 @@ async function processChanges(): Promise<void> {
           priority: r.priority,
         })),
       });
+    }
+
+    // Delete existing record types that are no longer in the record file
+    // This ensures the subdomain is fully synced (e.g., old CNAME removed when switching to A)
+    const newTypes = new Set(
+      Array.from(recordsByType.keys()).map((t) => {
+        // Account for CNAME -> ALIAS conversion
+        if (t === "CNAME") {
+          const hasIP = recordsByType.has("A") || recordsByType.has("AAAA");
+          if (hasIP) return null; // CNAME was ignored
+          if (subdomain === "@") return "ALIAS";
+        }
+        return t;
+      }).filter((t): t is string => t !== null)
+    );
+
+    for (const existType of existingTypes) {
+      if (!newTypes.has(existType)) {
+        console.log(`🧹 Cleanup: Deleting stale ${existType} for ${fqdn}`);
+        patchPayload.push({
+          name: fqdn,
+          type: existType,
+          ttl: DEFAULT_TTL,
+          changetype: "DELETE",
+          records: [],
+        });
+      }
     }
 
     processedSubdomains.add(subdomain);
@@ -464,6 +473,13 @@ async function processChanges(): Promise<void> {
     console.log("✓ No changes after filtering protected domains.");
     return;
   }
+
+  // Sort: DELETEs before REPLACEs to avoid conflicts (e.g., CNAME must be removed before adding A)
+  finalPayload.sort((a, b) => {
+    if (a.changetype === "DELETE" && b.changetype !== "DELETE") return -1;
+    if (a.changetype !== "DELETE" && b.changetype === "DELETE") return 1;
+    return 0;
+  });
 
   // 4. [Core] Smart SOA serial update
   // Changes are finalized, so update the SOA.
