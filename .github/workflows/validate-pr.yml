@@ -1,7 +1,7 @@
 name: Validate PR
 
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - "records/**"
     types:
@@ -17,10 +17,17 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      # Checkout base branch (trusted scripts)
+      - name: Checkout base branch
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.base_ref }}
           fetch-depth: 0
+
+      # Fetch PR head to diff record files only
+      - name: Fetch PR head
+        run: |
+          git fetch origin +refs/pull/${{ github.event.pull_request.number }}/head:refs/remotes/origin/pr-head
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -33,15 +40,20 @@ jobs:
       - name: Get changed files
         id: changes
         run: |
-          BASE_SHA=$(git merge-base origin/${{ github.base_ref }} HEAD)
-          ADDED=$(git diff --name-status --diff-filter=A $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
-          MODIFIED=$(git diff --name-status --diff-filter=M $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
-          DELETED=$(git diff --name-status --diff-filter=D $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
-          COMMIT_EMAILS=$(git log $BASE_SHA..HEAD --format=%ae | sort -u | tr '\n' ' ')
+          BASE_SHA=$(git merge-base HEAD origin/pr-head)
+          ADDED=$(git diff --name-status --diff-filter=A $BASE_SHA origin/pr-head -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          MODIFIED=$(git diff --name-status --diff-filter=M $BASE_SHA origin/pr-head -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          DELETED=$(git diff --name-status --diff-filter=D $BASE_SHA origin/pr-head -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          COMMIT_EMAILS=$(git log $BASE_SHA..origin/pr-head --format=%ae | sort -u | tr '\n' ' ')
           echo "added=$ADDED" >> $GITHUB_OUTPUT
           echo "modified=$MODIFIED" >> $GITHUB_OUTPUT
           echo "deleted=$DELETED" >> $GITHUB_OUTPUT
           echo "commit_emails=$COMMIT_EMAILS" >> $GITHUB_OUTPUT
+
+      # Checkout only record files from PR (untrusted data, not scripts)
+      - name: Checkout PR record files
+        run: |
+          git checkout origin/pr-head -- records/ 2>/dev/null || true
 
       - name: Compile validation script
         run: npx tsc -p .github/scripts/tsconfig.json
@@ -58,7 +70,7 @@ jobs:
         run: node .github/scripts/validate-pr.js
 
       - name: Generate App token
-        if: success() && github.event.pull_request.head.repo.full_name == github.repository
+        if: success()
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
@@ -66,7 +78,7 @@ jobs:
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Enable auto-merge
-        if: success() && steps.app-token.outcome == 'success'
+        if: success()
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: gh pr merge ${{ github.event.pull_request.number }} --auto --squash
