@@ -1,7 +1,7 @@
 name: Validate PR
 
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - "records/**"
     types:
@@ -17,10 +17,17 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      # Checkout base branch (trusted scripts)
+      - name: Checkout base branch
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.base_ref }}
           fetch-depth: 0
+
+      # Fetch PR head to diff record files only
+      - name: Fetch PR head
+        run: |
+          git fetch origin +refs/pull/${{ github.event.pull_request.number }}/head:refs/remotes/origin/pr-head
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -30,18 +37,34 @@ jobs:
       - name: Install dependencies
         run: npm install typescript@~5.8
 
+      - name: Reject PRs with non-record file changes
+        run: |
+          BASE_SHA=$(git merge-base HEAD origin/pr-head)
+          NON_RECORD_FILES=$(git diff --name-only $BASE_SHA origin/pr-head | grep -v '^records/.*\.json$' || true)
+          if [ -n "$NON_RECORD_FILES" ]; then
+            echo "❌ PR contains changes outside records/*.json:"
+            echo "$NON_RECORD_FILES"
+            echo "Auto-merge is only allowed for record-only PRs."
+            exit 1
+          fi
+
       - name: Get changed files
         id: changes
         run: |
-          BASE_SHA=$(git merge-base origin/${{ github.base_ref }} HEAD)
-          ADDED=$(git diff --name-status --diff-filter=A $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
-          MODIFIED=$(git diff --name-status --diff-filter=M $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
-          DELETED=$(git diff --name-status --diff-filter=D $BASE_SHA HEAD -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
-          COMMIT_EMAILS=$(git log $BASE_SHA..HEAD --format=%ae | sort -u | tr '\n' ' ')
+          BASE_SHA=$(git merge-base HEAD origin/pr-head)
+          ADDED=$(git diff --name-status --diff-filter=A $BASE_SHA origin/pr-head -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          MODIFIED=$(git diff --name-status --diff-filter=M $BASE_SHA origin/pr-head -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          DELETED=$(git diff --name-status --diff-filter=D $BASE_SHA origin/pr-head -- 'records/**.json' | cut -f2 | grep -v schema.json | tr '\n' ' ')
+          COMMIT_EMAILS=$(git log $BASE_SHA..origin/pr-head --format=%ae | sort -u | tr '\n' ' ')
           echo "added=$ADDED" >> $GITHUB_OUTPUT
           echo "modified=$MODIFIED" >> $GITHUB_OUTPUT
           echo "deleted=$DELETED" >> $GITHUB_OUTPUT
           echo "commit_emails=$COMMIT_EMAILS" >> $GITHUB_OUTPUT
+
+      # Checkout only record files from PR (untrusted data, not scripts)
+      - name: Checkout PR record files
+        run: |
+          git checkout origin/pr-head -- records/ 2>/dev/null || true
 
       - name: Compile validation script
         run: npx tsc -p .github/scripts/tsconfig.json
