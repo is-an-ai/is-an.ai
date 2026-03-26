@@ -37,6 +37,17 @@ jobs:
       - name: Install dependencies
         run: npm install typescript@~5.8
 
+      - name: Reject PRs with non-record file changes
+        run: |
+          BASE_SHA=$(git merge-base HEAD origin/pr-head)
+          NON_RECORD_FILES=$(git diff --name-only $BASE_SHA origin/pr-head | grep -v '^records/.*\.json$' || true)
+          if [ -n "$NON_RECORD_FILES" ]; then
+            echo "❌ PR contains changes outside records/*.json:"
+            echo "$NON_RECORD_FILES"
+            echo "Auto-merge is only allowed for record-only PRs."
+            exit 1
+          fi
+
       - name: Get changed files
         id: changes
         run: |
