@@ -1,0 +1,13 @@
+{
+  "description": "laon",
+  "owner": {
+    "github_username": "incipienstation",
+    "email": "jinanjeong@snu.ac.kr"
+  },
+  "record": [
+    {
+      "type": "CNAME",
+      "value": "me.laon.xyz"
+    }
+  ]
+}
