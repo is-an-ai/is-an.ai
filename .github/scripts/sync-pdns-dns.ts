@@ -490,11 +490,22 @@ async function syncDNSRecords(): Promise<void> {
   for (const [key, signature] of pdnsSignatures) {
     if (!repositorySignatures.has(key)) {
       if (INFRA_SUBDOMAINS.has(signature.subdomain)) {
-        console.log(
-          `🛡️ Protecting system subdomain: ${signature.subdomain} (${signature.type})`
+        // Allow deletion of stale types for infra subdomains (e.g., ALIAS -> CNAME migration)
+        const infraTypes = new Set(
+          INFRA_RECORDS.filter((r) => r.subdomain === signature.subdomain).map((r) => r.type)
         );
-        protectedCount++;
-        continue;
+        if (infraTypes.has(signature.type)) {
+          // Same type exists in infra definition — this is just a content diff, protect it
+          console.log(
+            `🛡️ Protecting system subdomain: ${signature.subdomain} (${signature.type})`
+          );
+          protectedCount++;
+          continue;
+        }
+        // Different type — allow deletion (stale record from previous config)
+        console.log(
+          `🧹 Allowing deletion of stale type for infra subdomain: ${signature.subdomain} (${signature.type})`
+        );
       }
       toDelete.push(signature);
 
@@ -548,12 +559,8 @@ async function syncDNSRecords(): Promise<void> {
         if (fqdn === PDNS_ZONE + "." || fqdn === PDNS_ZONE) finalType = "ALIAS";
         const hasOtherTypes = allRecords.some((r) => r.type !== "CNAME");
         if (hasOtherTypes && finalType === "CNAME") finalType = "ALIAS";
-        if (finalType === "CNAME" && subdomain !== "@") {
-          const hasChildren = Array.from(repositoryRecordsMap.keys()).some(
-            (otherKey) => otherKey.endsWith("." + subdomain)
-          );
-          if (hasChildren) finalType = "ALIAS";
-        }
+        // Note: child subdomains (e.g., _acme-challenge.api under api) do NOT
+        // conflict with CNAME per RFC. Only same-name records conflict.
       }
 
       patchPayload.push({
