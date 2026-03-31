@@ -73,8 +73,29 @@ const PDNS_ZONE: string = getEnvVariable("PDNS_ZONE");
 const WORKSPACE_PATH: string = getEnvVariable("GITHUB_WORKSPACE");
 const DRY_RUN: boolean = process.env.DRY_RUN === "true";
 
-// Subdomains to protect from deletion in PDNS even if absent from the Git repository
-const PROTECTED_SUBDOMAINS = new Set(["@", "www", "ns1", "dev", "blog", "api"]);
+// Infrastructure records managed in code, always REPLACE'd during sync.
+// These are NOT in the records/ directory — they are system-owned.
+const INFRA_RECORDS: { subdomain: string; type: string; content: string; ttl?: number }[] = [
+  // Root domain (Cloudflare Pages)
+  { subdomain: "@", type: "A", content: "172.67.69.118" },
+  { subdomain: "@", type: "A", content: "104.26.0.194" },
+  { subdomain: "@", type: "A", content: "104.26.1.194" },
+  // www -> root
+  { subdomain: "www", type: "CNAME", content: "is-an.ai." },
+  // API (Cloudflare Workers)
+  { subdomain: "api", type: "CNAME", content: "is-an-ai-worker-production.doridori.workers.dev." },
+  // Blog
+  { subdomain: "blog", type: "AAAA", content: "2602:294:0:dc:1234:4321:3704:1" },
+  // Dashboard
+  { subdomain: "dashboard", type: "A", content: "211.41.195.15" },
+  // ACME challenge for Cloudflare Advanced Certificate (*.is-an.ai, api.is-an.ai, is-an.ai)
+  { subdomain: "_acme-challenge", type: "TXT", content: "LKLOgAdulsnmWEEBI2P16PavXOwUW9kiSei3VWwr-EY" },
+  { subdomain: "_acme-challenge.api", type: "TXT", content: "g5MmzXYz494cUXh9hMXhpkbq-h9k22qN6i3DgD7ndWs" },
+  { subdomain: "_acme-challenge.api", type: "TXT", content: "_2Zmb5xDRilYX5fHQ4EemA4sxab9LRyAujOS4VZ78Uk" },
+];
+
+const INFRA_SUBDOMAINS = new Set(INFRA_RECORDS.map((r) => r.subdomain));
+
 const DEFAULT_TTL = 300; // Default TTL for PDNS records
 const SOA_MIN_TTL = 300; // Negative Cache TTL (5 minutes)
 
@@ -416,6 +437,18 @@ async function syncDNSRecords(): Promise<void> {
     loadAllRepositoryRecords(),
   ]);
 
+  // 1.5. Inject infrastructure records into the repository map
+  for (const infra of INFRA_RECORDS) {
+    const existing = repositoryRecordsMap.get(infra.subdomain) || [];
+    existing.push({
+      subdomain: infra.subdomain,
+      type: infra.type,
+      content: infra.content,
+    });
+    repositoryRecordsMap.set(infra.subdomain, existing);
+  }
+  console.log(`Injected ${INFRA_RECORDS.length} infrastructure records`);
+
   // 2. Convert PDNS state into a comparable Map
   const pdnsSignatures = new Map<string, RecordSignature>();
   for (const rrset of pdnsRRSets) {
@@ -460,7 +493,7 @@ async function syncDNSRecords(): Promise<void> {
   // Records to delete
   for (const [key, signature] of pdnsSignatures) {
     if (!repositorySignatures.has(key)) {
-      if (PROTECTED_SUBDOMAINS.has(signature.subdomain)) {
+      if (INFRA_SUBDOMAINS.has(signature.subdomain)) {
         console.log(
           `🛡️ Protecting system subdomain: ${signature.subdomain} (${signature.type})`
         );
@@ -566,26 +599,15 @@ async function syncDNSRecords(): Promise<void> {
   });
 
   // 6. Execute changes (with protection logic)
-  const PROTECTED_DOMAINS = [
-    "is-an.ai.",
-    "www.is-an.ai.",
-    "ns1.is-an.ai.",
-    "ns2.is-an.ai.",
-    "api.is-an.ai.",
-    "docs.is-an.ai.",
-    "status.is-an.ai.",
-    "dashboard.is-an.ai.",
-    "assets.is-an.ai.",
-    "_dmarc.is-an.ai.",
-    "smtp.is-an.ai.",
-    "mail.is-an.ai.",
-    "_vercel.is-an.ai.",
-    "_domainkey.is-an.ai.",
-    "_github-challenge-is-an-ai.is-an.ai.",
-  ];
+  // Auto-generate protected FQDNs from INFRA_RECORDS + additional system domains
+  const EXTRA_PROTECTED = ["ns1", "ns2", "_vercel", "_domainkey", "_github-challenge-is-an-ai"];
+  const PROTECTED_FQDNS = new Set([
+    ...Array.from(INFRA_SUBDOMAINS).map((s) => subdomainToFqdn(s)),
+    ...EXTRA_PROTECTED.map((s) => subdomainToFqdn(s)),
+  ]);
 
   const finalPayload = patchPayload.filter((item) => {
-    const isProtected = PROTECTED_DOMAINS.includes(item.name);
+    const isProtected = PROTECTED_FQDNS.has(item.name);
     if (isProtected && item.changetype === "DELETE") {
       console.log(
         `🛡️ Protected record detected. Skipping deletion for: ${item.name}`

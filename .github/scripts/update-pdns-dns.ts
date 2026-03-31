@@ -441,27 +441,18 @@ async function processChanges(): Promise<void> {
     return;
   }
 
-  // [Protection]
-  const PROTECTED_DOMAINS = [
-    "is-an.ai",
-    "www.is-an.ai",
-    "ns1.is-an.ai",
-    "ns2.is-an.ai",
-    "api.is-an.ai",
-    "docs.is-an.ai",
-    "status.is-an.ai",
-    "_dmarc.is-an.ai",
-    "_vercel.is-an.ai",
-  ];
+  // [Protection] Infrastructure subdomains that must not be deleted by incremental updates
+  const PROTECTED_SUBDOMAINS = new Set([
+    "@", "www", "ns1", "ns2", "api", "blog", "dashboard",
+    "_acme-challenge", "_acme-challenge.api",
+    "_vercel", "_domainkey", "_dmarc", "_github-challenge-is-an-ai",
+  ]);
 
-  // Name normalization for comparison (strip trailing dot, lowercase)
   const normName = (n: string) => n.toLowerCase().replace(/\.$/, "");
 
   const finalPayload = patchPayload.filter((item) => {
-    // Filter out DELETE requests for protected domains
-    const isProtected = PROTECTED_DOMAINS.some(
-      (p) => normName(p) === normName(item.name)
-    );
+    const subdomain = normName(item.name).replace(`.${normName(PDNS_ZONE)}`, "") || "@";
+    const isProtected = PROTECTED_SUBDOMAINS.has(subdomain);
     if (isProtected && item.changetype === "DELETE") {
       console.log(`🛡️ Protected record filtered: ${item.name} (${item.type})`);
       return false;
