@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "4RgJ_UjqN99y2n9eSamGR",
+      "email": "tuzi1118@noreply.com"
+   },
+   "record": [
+      {
+         "type": "AAAA",
+         "value": "2602:294:0:dc:1234:4321:3704:0001"
+      }
+   ]
+}

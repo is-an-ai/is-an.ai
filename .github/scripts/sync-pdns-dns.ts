@@ -84,8 +84,6 @@ const INFRA_RECORDS: { subdomain: string; type: string; content: string; ttl?: n
   { subdomain: "www", type: "CNAME", content: "is-an.ai." },
   // API (Cloudflare Workers)
   { subdomain: "api", type: "CNAME", content: "is-an-ai-worker-production.doridori.workers.dev." },
-  // Blog
-  { subdomain: "blog", type: "AAAA", content: "2602:294:0:dc:1234:4321:3704:1" },
   // Dashboard
   { subdomain: "dashboard", type: "A", content: "211.41.195.15" },
   // ACME challenge for Cloudflare Advanced Certificate (*.is-an.ai, api.is-an.ai, is-an.ai)
