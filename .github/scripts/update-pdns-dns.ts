@@ -444,7 +444,7 @@ async function processChanges(): Promise<void> {
   // [Protection] Infrastructure subdomains that must not be deleted by incremental updates
   const PROTECTED_SUBDOMAINS = new Set([
     "@", "www", "ns1", "ns2", "api",
-    "_acme-challenge", "_acme-challenge.api",
+    "_acme-challenge",
     "_vercel", "_domainkey", "_dmarc", "_github-challenge-is-an-ai",
   ]);
 

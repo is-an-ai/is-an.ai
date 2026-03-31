@@ -84,10 +84,9 @@ const INFRA_RECORDS: { subdomain: string; type: string; content: string; ttl?: n
   { subdomain: "www", type: "CNAME", content: "is-an.ai." },
   // API (Cloudflare Workers)
   { subdomain: "api", type: "CNAME", content: "is-an-ai-worker-production.doridori.workers.dev." },
-  // ACME challenge for Cloudflare Advanced Certificate (*.is-an.ai, api.is-an.ai, is-an.ai)
-  { subdomain: "_acme-challenge", type: "TXT", content: "LKLOgAdulsnmWEEBI2P16PavXOwUW9kiSei3VWwr-EY" },
-  { subdomain: "_acme-challenge.api", type: "TXT", content: "g5MmzXYz494cUXh9hMXhpkbq-h9k22qN6i3DgD7ndWs" },
-  { subdomain: "_acme-challenge.api", type: "TXT", content: "_2Zmb5xDRilYX5fHQ4EemA4sxab9LRyAujOS4VZ78Uk" },
+  // ACME challenge for Cloudflare Advanced Certificate (*.is-an.ai, is-an.ai)
+  { subdomain: "_acme-challenge", type: "TXT", content: "b-CBgXqKCAzF12h9p8RL2G12xcH2Wwo7oSjaqCfGx8w" },
+  { subdomain: "_acme-challenge", type: "TXT", content: "lx-WkBJPe1UFy7594psF5Uh-tHaKOizVSOytn9QMZRQ" },
 ];
 
 const INFRA_SUBDOMAINS = new Set(INFRA_RECORDS.map((r) => r.subdomain));
