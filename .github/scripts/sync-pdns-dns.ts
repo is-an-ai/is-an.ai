@@ -84,8 +84,6 @@ const INFRA_RECORDS: { subdomain: string; type: string; content: string; ttl?: n
   { subdomain: "www", type: "CNAME", content: "is-an.ai." },
   // API (Cloudflare Workers)
   { subdomain: "api", type: "CNAME", content: "is-an-ai-worker-production.doridori.workers.dev." },
-  // Dashboard
-  { subdomain: "dashboard", type: "A", content: "211.41.195.15" },
   // ACME challenge for Cloudflare Advanced Certificate (*.is-an.ai, api.is-an.ai, is-an.ai)
   { subdomain: "_acme-challenge", type: "TXT", content: "LKLOgAdulsnmWEEBI2P16PavXOwUW9kiSei3VWwr-EY" },
   { subdomain: "_acme-challenge.api", type: "TXT", content: "g5MmzXYz494cUXh9hMXhpkbq-h9k22qN6i3DgD7ndWs" },
