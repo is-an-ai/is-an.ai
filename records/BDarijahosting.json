@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "A",
-         "value": "76.76.21.21"
+         "type": "TXT",
+         "value": "vc-domain-verify=bdarijahosting.is-an.ai,1b9af8c81c7fef2f8643"
       }
    ]
 }
