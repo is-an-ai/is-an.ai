@@ -6,16 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "vc-domain-verify=bdarijahosting.is-an.ai,1b9af8c81c7fef2f8643"
-      },
-      {
          "type": "A",
-         "value": "76.76.21.21"
-      },
-      {
-         "type": "CNAME",
-         "value": "070f73261a632856.vercel-dns-017.com"
+         "value": "92.205.29.20"
       }
    ]
 }
