@@ -1,0 +1,13 @@
+{
+   "description": "Landing page para mi hosting",
+   "owner": {
+      "github_username": "ND2dSCSC3QqI08POAIxsU",
+      "email": "Martin Kanneman@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "18.216.196.123"
+      }
+   ]
+}
