@@ -1,0 +1,13 @@
+{
+   "description": "For my website",
+   "owner": {
+      "github_username": "1Yk-Ivrye-0EamgXkvRlZ",
+      "email": "darkereditz14-ai@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "manansakhuja.vercel"
+      }
+   ]
+}
