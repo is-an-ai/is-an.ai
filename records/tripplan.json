@@ -1,0 +1,13 @@
+{
+   "description": "tripplan",
+   "owner": {
+      "github_username": "iLS6vj_UbN3o7kknG4yLa",
+      "email": "chan.jeon@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "cheonvi1004.github.io"
+      }
+   ]
+}
