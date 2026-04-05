@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "TXT",
-         "value": "vc-domain-verify=laggylaunda.is-an.ai,f2f37a568783d3a98a4d"
+         "type": "CNAME",
+         "value": "39a4e3b0ce6c6576.vercel-dns-017.com"
       }
    ]
 }
