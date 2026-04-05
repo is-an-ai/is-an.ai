@@ -6,8 +6,8 @@
    },
    "record": [
       {
-         "type": "CNAME",
-         "value": "thedevsaab.com"
+         "type": "A",
+         "value": "76.76.21.21"
       }
    ]
 }
