@@ -1,0 +1,13 @@
+{
+   "description": "Point is an ai",
+   "owner": {
+      "github_username": "m3fXBWVXMegqVq81O2bWA",
+      "email": "PARK JIWHO@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "google.com"
+      }
+   ]
+}
