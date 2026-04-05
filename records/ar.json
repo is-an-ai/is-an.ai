@@ -1,0 +1,13 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "Nkm-TAjXbqH7ATaVRN5ee",
+      "email": "Arne Rivers@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "arbookmarks.pages.dev"
+      }
+   ]
+}
