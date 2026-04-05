@@ -1,0 +1,13 @@
+{
+   "description": "Static site hosting",
+   "owner": {
+      "github_username": "m24dilY5N8lu-8hxzCcNi",
+      "email": "69dev-id@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "is-an-ai-hosting.doridori.workers.dev"
+      }
+   ]
+}
