@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "C0H_bYHwaMxNs-hhV1gH6",
+      "email": "mdataulh5-lgtm@noreply.com"
+   },
+   "record": [
+      {
+         "type": "CNAME",
+         "value": "ns1.infinityfree.com"
+      },
+      {
+         "type": "CNAME",
+         "value": "ns2.infinityfree.com"
+      }
+   ]
+}
