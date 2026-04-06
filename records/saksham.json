@@ -1,0 +1,25 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "sBFR062d8zoyM3Ir68Tq8",
+      "email": "Saksham Shekher@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "185.199.108.153"
+      },
+      {
+         "type": "A",
+         "value": "185.199.109.153"
+      },
+      {
+         "type": "A",
+         "value": "185.199.110.153"
+      },
+      {
+         "type": "A",
+         "value": "185.199.111.153"
+      }
+   ]
+}
