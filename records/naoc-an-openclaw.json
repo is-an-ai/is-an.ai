@@ -1,0 +1,17 @@
+{
+   "description": "",
+   "owner": {
+      "github_username": "b-x6q22ShkMKpIgAefAuZ",
+      "email": "Gitucc@noreply.com"
+   },
+   "record": [
+      {
+         "type": "A",
+         "value": "154.17.21.175"
+      },
+      {
+         "type": "AAAA",
+         "value": "2605:52c0:2:2415:c4ec:f5ff:fe52:e2cb"
+      }
+   ]
+}
