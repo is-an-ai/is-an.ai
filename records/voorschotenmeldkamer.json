@@ -1,0 +1,13 @@
+{
+   "description": "een prachtige site",
+   "owner": {
+      "github_username": "IC9yb2xHCT89fabTmYnFi",
+      "email": "leander-2@noreply.com"
+   },
+   "record": [
+      {
+         "type": "TXT",
+         "value": "http://localhost:5173/"
+      }
+   ]
+}
