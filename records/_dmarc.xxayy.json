@@ -1,0 +1,9 @@
+{
+  "description": "",
+  "owner": {
+    "email": "uqqzdbew@ksapcs.ru"
+  },
+  "record": [
+    { "type": "TXT", "value": "v=DMARC1; p=none; pct=100; adkim=s; aspf=s" }
+  ]
+}
