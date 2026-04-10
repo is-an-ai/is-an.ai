@@ -4,19 +4,8 @@
     "email": "uqqzdbew@ksapcs.ru"
   },
   "record": [
-    {
-      "type": "MX",
-      "priority": 10,
-      "exchange": "bizmx1.tinkmail.me"
-    },
-    {
-      "type": "MX",
-      "priority": 20,
-      "exchange": "bizmx2.tinkmail.me"
-    },
-    {
-      "type": "TXT",
-      "value": "v=spf1 include:spf.tinkmail.me ~all"
-    }
+    { "type": "MX", "value": "10 bizmx1.tinkmail.me" },
+    { "type": "MX", "value": "20 bizmx2.tinkmail.me" },
+    { "type": "TXT", "value": "v=spf1 include:bizspf.tinkmail.me ~all" }
   ]
 }
