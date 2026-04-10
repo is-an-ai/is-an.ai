@@ -1,11 +1,24 @@
 {
-  "description": "TinkMail custom email domain",
+  "description": "",
   "owner": {
     "email": "uqqzdbew@ksapcs.ru"
   },
   "record": [
-    { "type": "MX", "value": "bizmx1.tinkmail.me" },
-    { "type": "MX", "value": "bizmx2.tinkmail.me" },
-    { "type": "TXT", "value": "v=spf1 include:bizspf.tinkmail.me ~all" }
+    {
+      "type": "MX",
+      "value": "bizmx1.tinkmail.me",
+      "priority": 10,
+      "exchange": "bizmx1.tinkmail.me"
+    },
+    {
+      "type": "MX",
+      "value": "bizmx2.tinkmail.me",
+      "priority": 20,
+      "exchange": "bizmx2.tinkmail.me"
+    },
+    {
+      "type": "TXT",
+      "value": "v=spf1 include:bizspf.tinkmail.me ~all"
+    }
   ]
 }
