@@ -6,13 +6,17 @@
   "record": [
     {
       "type": "MX",
-      "priority": 10,
-      "exchange": "bizmx1.tinkmail.me"
+      "value": {
+        "priority": 10,
+        "exchange": "bizmx1.tinkmail.me"
+      }
     },
     {
       "type": "MX",
-      "priority": 20,
-      "exchange": "bizmx2.tinkmail.me"
+      "value": {
+        "priority": 20,
+        "exchange": "bizmx2.tinkmail.me"
+      }
     },
     {
       "type": "TXT",
