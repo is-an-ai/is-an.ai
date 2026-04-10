@@ -1,0 +1,26 @@
+{
+  "description": "",
+  "owner": {
+    "email": "uqqzdbew@ksapcs.ru"
+  },
+  "record": [
+    {
+      "type": "MX",
+      "value": {
+        "priority": 10,
+        "exchange": "bizmx1.tinkmail.me"
+      }
+    },
+    {
+      "type": "MX",
+      "value": {
+        "priority": 20,
+        "exchange": "bizmx2.tinkmail.me"
+      }
+    },
+    {
+      "type": "TXT",
+      "value": "v=spf1 include:bizspf.tinkmail.me ~all"
+    }
+  ]
+}
